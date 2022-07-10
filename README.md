@@ -5,8 +5,10 @@ It helps librarian to maintain the database of new books and the books that are 
 This app allows you to add books, e-books to the library through
 the administrative panel and the system is to enable user registration and login
 
-Login panel.
-    Admin:
+Login panel
+
+    Admin
+    
     Adding categories for products.
     Category tree overview.
     Adding products.
