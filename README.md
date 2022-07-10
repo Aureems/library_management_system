@@ -17,24 +17,6 @@ Admin
     Adding books (by book adding form)
     View book list.
 
-Category Management
-
-    Add New Category
-    List All Categories
-    View Category Details
-    Edit/Update Category Details
-    Update Category Status
-    Delete Category
-
-Sub Category Management
-
-    Add New Sub Category
-    List All Sub Categories
-    View Sub Category Details
-    Edit/Update Sub Category Details
-    Update Sub Category Status
-    Delete Sub Category
-
 Book Management
 
     Add New Book
