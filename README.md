@@ -5,17 +5,14 @@ It helps librarian to maintain the database of new books and the books that are 
 This app allows you to add books, e-books to the library through
 the administrative panel and the system is to enable user registration and login
 
-Login panel.
-    Admin:
-    Adding categories for products.
-    Category tree overview.
-    Adding products.
-    Product list + edition.
-    User:
-    Registration.
-    List of products.
-    Product table with pagination.
-    Viewing the weather for the user's city.
+Login panel:
+    Administration login
+    User login
+    User registration
+
+Admin:
+    Adding books.
+    View book list.
 
 Category Management
 
@@ -70,4 +67,11 @@ User Management
     Edit/Update User Details
     Update User Status
     Delete User
+    
+User:
+    Edit profile info.
+    View book list.
+    Product table with pagination.
+    Viewing the weather for the user's city.
+
 
