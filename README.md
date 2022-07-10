@@ -72,6 +72,6 @@ User:
     Edit profile info.
     View book list.
     Product table with pagination.
-    Viewing the weather for the user's city.
+
 
 
