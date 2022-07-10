@@ -11,7 +11,8 @@ Login panel
     User login
     User registration
 
-Admin:
+Admin
+
     Adding books (by book adding form)
     View book list.
 
