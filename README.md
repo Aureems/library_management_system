@@ -52,5 +52,5 @@ Reader
 
         List Reader's Borrowing Transactions
         View Reader's Borrowing Transaction Details
-        Update Borrowing Transaction Status
+        Update Reader's Borrowing Transaction Status
 
