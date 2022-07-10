@@ -1,0 +1,5 @@
+Django==4.0
+psycopg
+psycopg2-binary
+Pillow
+django-bootstrap4
