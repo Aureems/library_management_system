@@ -47,9 +47,8 @@ Reader
     Edit profile info.
     View book list.
     Book search with filters.
-
     Borrowing Transaction Management
-        
+    
         Add Readers's New Borrowing Transaction
         List Reader's Borrowing Transactions
         View Reader's Borrowing Transaction Details
