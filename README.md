@@ -11,7 +11,7 @@ Login panel:
     User registration
 
 Admin:
-    Adding books.
+    Adding books (by book adding form)
     View book list.
 
 Category Management
