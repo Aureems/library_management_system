@@ -68,7 +68,8 @@ User Management
     Update User Status
     Delete User
     
-User:
+User
+
     Edit profile info.
     View book list.
     Product table with pagination.
