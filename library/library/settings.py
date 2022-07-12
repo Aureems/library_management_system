@@ -37,13 +37,20 @@ INSTALLED_APPS = [
     'userapp',
     'libapp',
     'booksapp',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
+    'crispy_forms',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
+
+# AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'library',
         'USER': 'postgres',
-        'PASSWORD': 'passwordas123>',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': 5432,
     }
