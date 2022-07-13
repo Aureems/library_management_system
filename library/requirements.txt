@@ -3,3 +3,5 @@ psycopg
 psycopg2-binary
 Pillow
 django-bootstrap4
+django-bootstrap-datepicker-plus
+django-crispy-forms
