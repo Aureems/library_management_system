@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 
 ]
 
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'userapp.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,3 +143,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'

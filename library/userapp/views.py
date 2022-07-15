@@ -1,39 +1,45 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.views import LoginView
 from django.contrib import messages
 from django.urls import reverse
 from .forms import RegisterForm
 
 
-
 def register_user(request):
     if request.method == 'POST':
-        reg_form = RegisterForm(request.POST)
-        if reg_form.is_valid():
-            reg_form.save()
-            username = reg_form.cleaned_data.get('username')
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
             messages.success(request, f'Account created for {username}! You are now able to login')
-        return redirect('home')
+            return redirect('login')
     else:
-         reg_form = RegisterForm()
-    return render(request, 'register.html', {'reg_form': reg_form })
+         form = RegisterForm()
+    return render(request, 'register.html', {'form': form})
 
+class UserLogin(LoginView):
+    template_name = 'login.html'
 
 def login_user(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user = authenticate(username=username, password=password)
+        user = authenticate(email=email, password=password)
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('home'))
             else:
-                return HttpResponse('Your account is inactive')
+                messages.error(request, f'Your account is inactive')
+                # return HttpResponse('Your account is inactive')
         else:
-            return HttpResponse('Your username or password is incorrect! Try again.')
+            messages.error(request, f'Your username or password is incorrect! Try again.')
+            # return HttpResponse('Your username or password is incorrect! Try again.')
     return render(request, 'login.html', {})
 
 
