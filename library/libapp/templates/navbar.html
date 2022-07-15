@@ -1,10 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
-</body>
-</html>
+{% block content %}
+
+	<div class="bg-overlay-mobile-menu"></div>
+
+	<div class="hfeed site">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<section class="top-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-thin">
+
+						<div class="primary-toggle button btn-blue">Menu</div>
+
+						<div class="buttons-section">
+							<ul class="list-buttons-right">
+																	<li>
+										<a href="">Contact</a>
+									</li>
+																									<li>
+										<a href="">Find us</a>
+									</li>
+																									<li class="green login">
+										<a href="">Log in</a>
+									</li>
+															</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<header id="masthead" class="site-header" role="banner">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-3 md-4 site-branding">
+
+	<a href="#" rel="home">
+					<img src="{% static 'images/logo.jpg' %}" style="width: 120px;height: 120px" alt="LOGO" class="site-logo">
+			</a>
+
+						</div><!-- .site-branding -->
+
+					<div class="col-9 md-8 site-search">
+						<div class="container-form">
+							<form method="get" class="search-form" action="#" role="search">
+								<input id="search-input" type="text" placeholder="Search" name="s" value="" />
+								<div class="container-select">
+									<select id="search-type" name="t">
+										<option value="books-dvds" selected="selected">Books, E-books and more...</option>
+										</select>
+								</div>
+								<input id="search-submit" type="submit" value="Go" />
+							</form>
+						</div>
+					</div>
+
+				</div>
+				<div class="row container-menu">
+					<nav class="col-12 primary-navigation" role="navigation">
+						<div class="menu-primary-menu-2-container"><ul id="menu-primary-menu-2" class="menu"><li id="menu-item-13266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a href="https://www.yourlibrary.com.au/whats-on/">Navigation<br /><span class="sub"></span></a>
+<ul class="sub-menu">
+	<li id="menu-item-13272" class="simple-column menu-item menu-item-type-custom menu-item-object-custom"><a>Simple Column<br /><span class="sub">What’s on at your library</span></a></li>
+	<li id="menu-item-13273" class="simple-column menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a>Simple Column<br /><span class="sub"></span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-13271" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">What’s On<br /><span class="sub"></span></a></li>
+		<li id="menu-item-13644" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="">Events Calendar<br /><span class="sub"></span></a></li>
+		<li id="menu-item-13287" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="">Storytime<br /><span class="sub"></span></a></li>
+	</ul>
+</li>
+	</ul>
+							</ul>
+							</div>
+			</nav><!-- .primary-navigation -->
+
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</header><!-- .site-header -->
+</div>
+
+{% endblock %}

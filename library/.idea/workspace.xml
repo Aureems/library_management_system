@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="libapp structure">
+    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="homepage upgrade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/css/bootstrap-iso.css" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/static/css/bootstrap-iso.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/logo.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,8 @@
       <workItem from="1657569179180" duration="4659000" />
       <workItem from="1657646695182" duration="3968000" />
       <workItem from="1657716032076" duration="1289000" />
-      <workItem from="1657731769972" duration="10430000" />
+      <workItem from="1657731769972" duration="12840000" />
+      <workItem from="1657816465647" duration="9081000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
@@ -121,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657574581530</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="homepage upgrade">
+      <created>1657744013921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657744013921</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +152,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="libapp structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="libapp structure" />
+    <MESSAGE value="homepage upgrade" />
+    <option name="LAST_COMMIT_MESSAGE" value="homepage upgrade" />
   </component>
 </project>
