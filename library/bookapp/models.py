@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator
 
 
 class Category(models.Model):
@@ -29,7 +30,7 @@ class Book(models.Model):
     author = models.ForeignKey(Author, null=True, on_delete=models.CASCADE)
     description = models.CharField(max_length=10000)
     date_published = models.DateField()
-    page_number = models.IntegerField(max_length=5)
+    page_number = models.IntegerField(validators=[MaxValueValidator(9999)])
     date_created = models.DateTimeField(auto_now=True)
     photo = models.ImageField(upload_to='covers', default='default.png')
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-# Create your views here.
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 
 def home(request):
     return render(request, "home.html")
+
