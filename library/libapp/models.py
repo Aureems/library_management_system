@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+# reikia, kad Aurimas sutvarkytu modelius ir padaryti makemigration
+
+
+class Order(models.Model):
+    pass
