@@ -23,7 +23,7 @@ class Author(models.Model):
     author_last_name = models.CharField(max_length=100)
 
     class Meta:
-        verbose_name_plural = "List of Books"
+        verbose_name_plural = "List of Authors"
 
     def __str__(self):
         return str(f"{self.author_id} - {self.author_first_name} - {self.author_last_name}")
