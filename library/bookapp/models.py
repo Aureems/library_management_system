@@ -31,7 +31,7 @@ class Book(models.Model):
     date_published = models.DateField()
     page_number = models.IntegerField(max_length=5)
     date_created = models.DateTimeField(auto_now=True)
-    photo = models.ImageField(upload_to='books/')
+    photo = models.ImageField(upload_to='covers', default='default.png')
 
     def __str__(self):
         return str(f"{self.isbn} - {self.title}")

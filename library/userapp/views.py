@@ -19,10 +19,10 @@ def register_user(request):
             return redirect('login')
     else:
          form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'userapp/register.html', {'form': form})
 
 class UserLogin(LoginView):
-    template_name = 'login.html'
+    template_name = 'userapp/login.html'
 
 def login_user(request):
     if request.method == 'POST':
@@ -44,4 +44,4 @@ def login_user(request):
 
 
 def logout_user(request):
-    return (request, 'logout.html')
+    return (request, 'userapp/logout.html')

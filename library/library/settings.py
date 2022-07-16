@@ -36,7 +36,7 @@ INSTALLED_APPS = [
 
     'userapp',
     'libapp',
-    'booksapp',
+    'bookapp',
     'bootstrap4',
     'bootstrap_datepicker_plus',
     'crispy_forms',
