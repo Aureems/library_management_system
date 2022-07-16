@@ -5,15 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="homepage ready, needs functions">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/library_management_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/library_management_system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booksapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/booksapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/migrations/0002_alter_user_address_alter_user_birthday.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userapp/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -49,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/userapp/migrations" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/django_lms_0" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -110,6 +112,7 @@
       <workItem from="1657731769972" duration="12840000" />
       <workItem from="1657816465647" duration="10008000" />
       <workItem from="1657903597129" duration="1058000" />
+      <workItem from="1657954048219" duration="12529000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
