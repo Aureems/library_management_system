@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="homepage ready, needs functions">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/library_management_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/library_management_system.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/booksapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/booksapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userapp/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/templates/register.html" afterDir="false" />
     </list>
@@ -51,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/django_lms_0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/static/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -59,11 +51,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\static\css" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\userapp\migrations" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\css" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\images" />
-      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\css" />
@@ -112,7 +104,7 @@
       <workItem from="1657731769972" duration="12840000" />
       <workItem from="1657816465647" duration="10008000" />
       <workItem from="1657903597129" duration="1058000" />
-      <workItem from="1657954048219" duration="12529000" />
+      <workItem from="1657954048219" duration="14910000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
