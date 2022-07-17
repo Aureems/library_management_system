@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+    <h1>List of books</h1>
+
+    {% for book in object_list %}
+        <div class="col-3 mx-auto">
+            <p>{{ book.title }}</p>
+            <p><img src="{{book.photo.url}}" style="height: 300px; width: 200px"></p>
+            <div class="row">
+                <button type="submit" class="ml-5 btn btn-success btn-lg gradient-custom-4 text-body">Purchase</button>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
