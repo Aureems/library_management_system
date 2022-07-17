@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+
+    <h1>List of books</h1>
+
+    {% for book in object_list %}
+        <p>{{ book.title }}</p>
+        <p><img src="{{book.photo.url}}"></p>
+    {% endfor %}
+
+{% endblock %}
