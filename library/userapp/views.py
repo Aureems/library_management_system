@@ -57,7 +57,7 @@ def login_user(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(reverse('home'))
+                return HttpResponseRedirect(reverse('profile'))
             else:
                 messages.error(request, f'Your account is inactive')
                 # return HttpResponse('Your account is inactive')
@@ -70,6 +70,7 @@ def login_user(request):
 def logout_user(request):
     return (request, 'userapp/logout.html')
 
-def profile(request):
+
+def view_profile(request):
     profile = User.objects.all()
     return render(request, 'userapp/profile.html')
