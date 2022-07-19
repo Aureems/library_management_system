@@ -20,11 +20,11 @@ class Author(models.Model):
     author_last_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(f"{self.author_id} - {self.author_first_name} - {self.author_last_name}")
+        return str(f"{self.author_first_name} - {self.author_last_name}")
 
 
 class Book(models.Model):
-    isbn = models.CharField(primary_key=True, max_length=250)
+    isbn = models.CharField(primary_key=True, max_length=13)
     title = models.CharField(max_length=250)
     category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
     author = models.ForeignKey(Author, null=True, on_delete=models.CASCADE)
