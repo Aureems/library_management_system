@@ -5,10 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="homepage ready, needs functions">
+      <change afterPath="$PROJECT_DIR$/libapp/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booksapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/booksapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/css/bootstrap-4-iso.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/css/bootstrap-iso.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/css/style.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/digital.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/lib-home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/locations.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/stories.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/images/watermark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/js/jquery/jquery-migrate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/js/jquery/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/js/public-min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/js/script.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/static/js/v4-shims.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/userapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/userapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/userapp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/userapp/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/userapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/userapp/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/migrations/0001_initial.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -43,7 +73,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -51,13 +81,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\templates" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\static\css" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\userapp\migrations" />
-      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\css" />
-      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\assets\img" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\css" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\js" />
     </key>
@@ -105,6 +137,8 @@
       <workItem from="1657816465647" duration="10008000" />
       <workItem from="1657903597129" duration="1058000" />
       <workItem from="1657954048219" duration="14910000" />
+      <workItem from="1658038188847" duration="21201000" />
+      <workItem from="1658253079031" duration="5215000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>

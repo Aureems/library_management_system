@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
+
 {% load static %}
 
 {% block content %}
 {% include 'navbar.html' %}
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div class="container bootstrap snippets bootdey">
 <div class="row">
   <div class="profile-nav col-md-3">
@@ -97,4 +95,5 @@
 </div>
 
 
+{% include 'footer.html' %}
 {% endblock %}
