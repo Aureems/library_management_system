@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="books urls, views and templates from libapp to bookapp">
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/libapp/order.html" afterDir="false" />
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Add book(image not uploading to media..), detail view about book">
+      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/about-book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/libapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/templates/userapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/userapp/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/media/default.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/library/media/covers/default.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/userapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/userapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/userapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/userapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -34,18 +48,22 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2C0yxwruhiFr93NdX0BEd3Hvokq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-projects/blog/core/forms.py" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-projects/blog/core/urls.py" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
@@ -54,6 +72,7 @@
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\media" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\media\covers" />
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\static\images" />
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates" />
@@ -106,7 +125,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1658091092694</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Better look of book list">
+      <created>1658174715479</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1658174715480</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,11 +149,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Test commit" />
     <MESSAGE value="Bookapp models and Login/Register forms" />
     <MESSAGE value="User profile, password change function" />
     <MESSAGE value="Fixed calendar, List of books" />
     <MESSAGE value="books urls, views and templates from libapp to bookapp" />
-    <option name="LAST_COMMIT_MESSAGE" value="books urls, views and templates from libapp to bookapp" />
+    <MESSAGE value="Better look of book list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better look of book list" />
   </component>
 </project>

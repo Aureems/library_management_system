@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <h5>{{ book.title }}</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{ book.description }}
+        </div>
+        <div class="col-md-6">
+            <img src="{{book.photo.url}}" style="height: 350px; width: 230px">
+        </div>
+        <a href="#" class="btn btn-info">Order now></a>
+    </div>
+</div>
+
+{% endblock %}

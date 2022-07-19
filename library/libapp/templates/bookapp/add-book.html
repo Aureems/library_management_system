@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 
-</body>
-</html>
+{% block content %}
+{% include 'navbar.html' %}
+
+{{ form.media }}
+
+
+<div class="regForm-container ml-5 mr-5">
+    <div class="col-md-6 offset-md-3 pt-1 mt-3 text-black page-content border">
+        <div class="px-5 ms-xl-4 col-md-12">
+            <div class="d-flex align-items-center h-custom-2 px-1 ms-xl-4 mt-1 pt-1 pt-xl-0 mt-xl-n1 pb-1">
+
+            <form style="width: 100%;" method="POST" enctype="multipart/form-data" autocomplete="off">
+
+                {% csrf_token %}
+
+                {% bootstrap_form form %}
+
+                <button type="submit" class="btn btn-success">Save</button>
+                <a href="{% url 'books' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
