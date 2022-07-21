@@ -20,3 +20,7 @@ def categories(request):
 
 def contactus(request):
     return render(request, "contactus.html")
+
+
+def faq(request):
+    return render(request, "faq.html")

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import login, authenticate, update_session_auth_hash
+from django.contrib.auth import login, authenticate, update_session_auth_hash, logout
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
@@ -67,8 +67,8 @@ def login_user(request):
     return render(request, 'login.html', {})
 
 
-def logout_user(request):
-    return (request, 'userapp/logout.html')
+def logout_view(request):
+    logout(request)
 
 
 def view_profile(request):
