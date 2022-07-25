@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Add book(image not uploading to media..), detail view about book">
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/about-book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/userapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/userapp/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/media/default.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/library/media/covers/default.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/userapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/userapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/userapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/userapp/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Add book(image not uploading to media..), detail view about book" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +109,13 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1658174715480</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Add book(image not uploading to media..), detail view about book">
+      <created>1658772972586</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1658772972586</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +125,11 @@
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="ae1f7d44-a5a9-4886-8880-56d981df8352">
           <value>
             <State />
           </value>
@@ -156,6 +145,7 @@
     <MESSAGE value="Fixed calendar, List of books" />
     <MESSAGE value="books urls, views and templates from libapp to bookapp" />
     <MESSAGE value="Better look of book list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Better look of book list" />
+    <MESSAGE value="Add book(image not uploading to media..), detail view about book" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add book(image not uploading to media..), detail view about book" />
   </component>
 </project>
