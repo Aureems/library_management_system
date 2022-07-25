@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required, permission_required
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 
@@ -20,3 +21,13 @@ def categories(request):
 
 def contactus(request):
     return render(request, "contactus.html")
+
+
+def faq(request):
+    return render(request, "faq.html")
+
+
+@login_required
+@permission_required('userapp.User', raise_exception=True)
+def managelib(request):
+    return render(request, "managelib.html")
