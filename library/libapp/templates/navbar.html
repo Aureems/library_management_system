@@ -70,7 +70,11 @@
 Home
 </a>
 <ul id="homeDropdownMenu" class="dropdown-unfold dropdown-menu font-size-2 rounded-0 border-gray-900" aria-labelledby="homeDropdownInvoker">
-<li><a href="{% url 'login' %}" class="dropdown-item link-black-100">Login</a></li>
+    {% if user.is_authenticated %}
+<li><a href="{% url 'logout' %}" class="dropdown-item link-black-100">Logout</a></li>
+    {% else %}
+    <li><a href="{% url 'login' %}" class="dropdown-item link-black-100">Login</a></li>
+    {% endif %}
 <li><a href="{% url 'profile' %}" class="dropdown-item link-black-100">Your profile</a></li>
     {% if user.is_staff %}
     <li><a href="{% url 'managelib' %}" class="dropdown-item link-black-100">Library management</a></li>

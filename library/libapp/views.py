@@ -1,10 +1,18 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, permission_required
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from bookapp.models import Book
+from bookapp.forms import BookForm, AuthorForm, CategoryForm
 
 
-def home(request):
-    return render(request, "index.html")
+class HomeView(ListView):
+    model = Book
+    login_url = 'login'
+    template_name = 'index.html'
 
 
 def about(request):
