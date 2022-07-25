@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="templates updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/static/assets/img/books.jxr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/forms.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
         <option value="JavaScript File" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -49,6 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/static/assets/img" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -116,7 +116,10 @@
       <workItem from="1658253079031" duration="6348000" />
       <workItem from="1658337917573" duration="119000" />
       <workItem from="1658338196012" duration="6691000" />
-      <workItem from="1658424096246" duration="3675000" />
+      <workItem from="1658424096246" duration="6676000" />
+      <workItem from="1658511126209" duration="15000" />
+      <workItem from="1658681372778" duration="3989000" />
+      <workItem from="1658766834229" duration="5465000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
