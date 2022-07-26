@@ -5,14 +5,26 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-from bookapp.models import Book
+from bookapp.models import Book, Category
 from bookapp.forms import BookForm, AuthorForm, CategoryForm
+
 
 
 class HomeView(ListView):
     model = Book
     login_url = 'login'
     template_name = 'index.html'
+
+
+class CategoryView(ListView):
+    model = Category
+    login_url = 'login'
+    template_name = 'categories.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        context['total_cats'] = Category.objects.all().count()
+        return context
 
 
 def about(request):
@@ -32,7 +44,7 @@ def contactus(request):
 
 
 def faq(request):
-    return render(request, "faq.html")
+    return render(request, "questions.html")
 
 
 @login_required

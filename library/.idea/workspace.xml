@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="templates updated">
+    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="with migrations">
+      <change afterPath="$PROJECT_DIR$/libapp/templates/questions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/contactus.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/contactus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/faq.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/managelib.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/managelib.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/urls.py" afterDir="false" />
@@ -23,8 +28,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -120,7 +125,8 @@
       <workItem from="1658424096246" duration="6676000" />
       <workItem from="1658511126209" duration="15000" />
       <workItem from="1658681372778" duration="3989000" />
-      <workItem from="1658766834229" duration="13183000" />
+      <workItem from="1658766834229" duration="13405000" />
+      <workItem from="1658851730642" duration="11367000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
@@ -171,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658258593459</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="with migrations">
+      <created>1658781464871</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658781464871</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +207,7 @@
     <MESSAGE value="homepage upgrade" />
     <MESSAGE value="homepage ready, needs functions" />
     <MESSAGE value="templates updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="templates updated" />
+    <MESSAGE value="with migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="with migrations" />
   </component>
 </project>
