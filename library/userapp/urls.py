@@ -12,4 +12,4 @@ urlpatterns = [
     # path('password/', PasswordsChangeView.as_view(template_name='userapp/change-password.html'), name='psw-change'),
     path('password/', change_password, name='psw-change'),
     path('profile/', view_profile, name='profile'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

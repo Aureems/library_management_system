@@ -5,7 +5,7 @@ from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
-from .forms import RegisterForm, PasswordChangingForm
+from .forms import CustomerRegisterForm, LibrarianRegisterForm, PasswordChangingForm
 from .models import User
 
 
@@ -31,17 +31,22 @@ def change_password(request):
 
 def register_user(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            messages.success(request, f'Account created for {username}! You are now able to login')
+        customer_form = CustomerRegisterForm(request.POST)
+        librarian_form = LibrarianRegisterForm(request.POST)
+        if customer_form.is_valid():
+            customer_form.save()
+            username = customer_form.cleaned_data.get('username')
+            messages.success(request, f'Customer account created for {username}! You are now able to login')
+            return redirect('login')
+        if librarian_form.is_valid():
+            librarian_form.save()
+            username = librarian_form.cleaned_data.get('username')
+            messages.success(request, f'Librarian account created for {username}! You are now able to login')
             return redirect('login')
     else:
-         form = RegisterForm()
-    return render(request, 'userapp/register.html', {'form': form})
+         customer_form = CustomerRegisterForm()
+         librarian_form = LibrarianRegisterForm()
+    return render(request, 'userapp/register.html', {'customer_form': customer_form, 'librarian_form': librarian_form})
 
 
 class UserLogin(LoginView):

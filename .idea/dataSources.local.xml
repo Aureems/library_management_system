@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PY-213.6777.50">
-    <data-source name="library@localhost" uuid="9bbd52b1-b308-4e4d-a7ad-bdefc5068018">
+    <data-source name="library@localhost" uuid="5e50d2c4-bef1-4993-bb8a-c840ad674402">
       <database-info product="PostgreSQL" version="14.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.3.3" dbms="POSTGRES" exact-version="14.3" exact-driver-version="42.3">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -15,11 +15,6 @@
           </node>
         </introspection-scope>
       </schema-mapping>
-    </data-source>
-    <data-source name="postgres@localhost" uuid="25fe481c-120e-42a7-89ea-78c902819bed">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
     </data-source>
   </component>
 </project>
