@@ -82,6 +82,16 @@ class AboutBookView(DetailView):
     book = Book.objects.all()
 
 
+class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    model = Category
+    form_class = CategoryForm
+    login_url = 'login'
+    template_name = 'bookapp/add-cat.html'
+    success_url = reverse_lazy('categories')
+    success_message = 'The category was added successfully!'
+
+
+
 def add_book(request):
     if request.method == 'POST':
         book_form = BookForm(request.POST)
