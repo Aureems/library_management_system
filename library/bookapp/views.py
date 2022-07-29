@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-from .models import Book, Category
+from .models import Book, Category, Author
 from .forms import BookForm, AuthorForm, CategoryForm
 
 
@@ -31,6 +31,14 @@ class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('categories')
     success_message = 'The category was added successfully!'
 
+
+class AddAuthorView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    model = Author
+    form_class = AuthorForm
+    login_url = 'login'
+    template_name = 'bookapp/add-author.html'
+    success_url = reverse_lazy('authors')
+    success_message = 'The author was added successfully!'
 
 
 def add_book(request):

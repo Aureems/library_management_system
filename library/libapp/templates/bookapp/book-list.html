@@ -34,7 +34,7 @@
 
                       </div>
               <div class="col-md-6">
-                  <a href="{% url 'about-book' book.pk %}"><img src="{{book.photo.url}}" style="height: 300px; width: 200px"></a>
+                  <a href="{% url 'about-book' book.pk %}"><img src="{{ book.photo.url }}" style="height: 300px; width: 200px"></a>
               </div>
 
                 <div class="col-md-2"><a href="{% url 'about-book' book.pk %}" class="btn btn-info">Find out more></a></div>

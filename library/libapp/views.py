@@ -24,7 +24,31 @@ class CategoryView(ListView):
     def get_context_data(self, **kwargs):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context['total_cats'] = Category.objects.all().count()
+        # context['total_books'] = Book.objects.filter(category=1).count()
         return context
+
+
+class SubCategoryView(ListView):
+    model = Category
+    template_name = 'subcategories.html'
+
+    # def get_context_data(self, **kwargs):
+    #     catname = self.request.GET.get('name', None)
+    #     if catname == None:
+    #         context = super(SubCategoryView, self).get_context_data(**kwargs)
+    #         context['subcat'] = Category.objects.filter(category_name='Fiction')
+    #         return context
+    #     else:
+    #         context = super(SubCategoryView, self).get_context_data(**kwargs)
+    #         context['subcat'] = Category.objects.filter(category_name='Nonfiction')
+    #         return context
+
+    def get_queryset(self):
+        queryset = super(SubCategoryView, self).get_queryset().filter()
+        query = self.request.GET.get("name", '')
+        if query:
+            queryset = Category.objects.filter(category_name__icontains=query)
+        return queryset
 
 
 def about(request):

@@ -74,22 +74,20 @@ input[type=checkbox] {
    }
 </style>
 
-<h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">Categories</h3>
-<h6 class="font-weight-bold text-uppercase text-center cw-50 p-3">Currently {{ total_cats }} sub-categories in library</h6>
+<h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">Subcategories</h3>
+
 <div class="container d-flex justify-content-center">
 
 		<ul class="list-group mt-5 text-white">
-			{% regroup object_list by category_name as cat_list %}
-            {% for cat in cat_list %}
+
+            {% for item in object_list %}
+
 		  <li class="list-group-item d-flex justify-content-between align-content-center">
 
 		  	<div class="d-flex flex-row">
 		  		<img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
 		  		<div class="ml-2">
-					{% for subcat in cat.list %}
-		  			<a href="{% url 'subcat-list' subcat.category_name %}" >
-						{% endfor %}
-						<h6 class="mb-0"> {{ cat.grouper }}</h6></a>
+		  			<h6 class="mb-0">{{ item.subcategory_name }}</h6>
 		  			<div class="about">
 		  				<span>22 Files</span>
 		  				<span>Jan 21, 2020</span>

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import HomeView, about, authors, categories, contactus, faq, managelib, CategoryView
+from .views import HomeView, about, authors, contactus, faq, managelib, CategoryView, SubCategoryView
 
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('authors/', authors, name='authors'),
     path('categories/', CategoryView.as_view(), name='categories'),
+    path('subcategories/?name=<str:name>', SubCategoryView.as_view(), name='subcat-list'),
     path('contactus/', contactus, name='contactus'),
     path('faq/', faq, name='faq'),
     path('managelib/',  managelib, name='managelib'),

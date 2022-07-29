@@ -9,7 +9,7 @@ class AuthorForm(forms.ModelForm):
 
     class Meta:
         model = Author
-        fields = '__all__'
+        fields = ('firstname', 'lastname')
 
     def full_name(self):
         fullname = str(f"{self.firstname} - {self.lastname}")
@@ -41,7 +41,7 @@ class BookForm(forms.ModelForm):
 
     class Meta:
         model = Book
-        fields = ('isbn','title', 'category', 'author', 'description', 'date_published', 'page_number', 'cover_photo')
+        fields = ('isbn', 'title', 'category', 'author', 'description', 'date_published', 'page_number', 'cover_photo')
 
     # def clean(self):
     #     super(BookForm, self).clean()
