@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib import messages
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +32,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+
 INSTALLED_APPS = [
     # users apps
 
@@ -40,6 +45,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap_datepicker_plus',
     'crispy_forms',
+    'mptt',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -121,7 +127,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
+
 LANGUAGE_CODE = 'en-us'
+
+DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 TIME_ZONE = 'UTC'
 

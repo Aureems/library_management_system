@@ -19,11 +19,17 @@ class AuthorForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     category_name = forms.CharField(max_length=100)
     subcategory_name = forms.CharField(max_length=100)
-    pass
 
     class Meta:
         model = Category
         fields = '__all__'
+
+
+# class CategoryUploadForm(forms.Form):
+#     category_file = forms.FileField()
+#
+# class AuthorUploadForm(forms.Form):
+#     author_file = forms.FileField()
 
 
 class BookForm(forms.ModelForm):

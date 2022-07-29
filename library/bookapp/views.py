@@ -1,11 +1,70 @@
+import csv, io
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.base import View
 from .models import Book, Category, Author
 from .forms import BookForm, AuthorForm, CategoryForm
+
+
+
+def category_upload(request):
+    template = 'bookapp/category-upload.html'
+
+    if request.method == 'GET':
+        return render(request, template)
+
+    cat_file = request.FILES['category']
+
+    if not cat_file.name.endswith('.csv'):
+        return render(request, template, messages.error(request,'You can upload only CSV file'))
+
+    try:
+        data_set = cat_file.read().decode('UTF-8')
+        io_string = io.StringIO(data_set)
+        next(io_string)
+        for column in csv.reader(io_string, delimiter=";"):
+            _, created = Category.objects.update_or_create(
+                category_name=column[0],
+                subcategory_name=column[1],
+            )
+        context = {}
+        return render(request, template, context, messages.success(request, 'File was uploaded successfully'))
+    except Exception:
+        return render(request, template, messages.error(request, 'File was not uploaded!'))
+
+
+def author_upload(request):
+    template = 'bookapp/author-upload.html'
+
+    if request.method == 'GET':
+        return render(request, template)
+
+    auth_file = request.FILES['author']
+
+    if not auth_file.name.endswith('.csv'):
+        return render(request, template, messages.error(request,'You can upload only CSV file'))
+
+    try:
+        data_set = auth_file.read().decode('UTF-8')
+        io_string = io.StringIO(data_set)
+        next(io_string)
+        for column in csv.reader(io_string, delimiter=";"):
+            _, created = Author.objects.update_or_create(
+                author_first_name=column[0],
+                author_last_name=column[1],
+                nationality=column[2],
+                fiction_writer=column[3],
+                nonfiction_writer=column[4],
+            )
+        context = {}
+        return render(request, template, context, messages.success(request, 'File was uploaded successfully'))
+    except Exception:
+        return render(request, template, messages.error(request, 'File was not uploaded!'))
 
 
 class AddBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
@@ -31,14 +90,6 @@ class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('categories')
     success_message = 'The category was added successfully!'
 
-
-class AddAuthorView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
-    model = Author
-    form_class = AuthorForm
-    login_url = 'login'
-    template_name = 'bookapp/add-author.html'
-    success_url = reverse_lazy('authors')
-    success_message = 'The author was added successfully!'
 
 
 def add_book(request):

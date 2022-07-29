@@ -1,23 +1,29 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Category(models.Model):
     category_id = models.AutoField(primary_key=True)
     category_name = models.CharField(max_length=100)
     subcategory_name = models.CharField(max_length=100, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Categories"
 
     def __str__(self):
-        return str(f"{self.category_name}")
+        return str(f"{self.category_name}-{self.subcategory_name}")
 
 
 class Author(models.Model):
     author_id = models.AutoField(primary_key=True)
     author_first_name = models.CharField(max_length=100)
     author_last_name = models.CharField(max_length=100)
+    nationality = models.CharField(max_length=50, blank=True, null=True)
+    fiction_writer = models.BooleanField(default=False, blank=True, null=True)
+    nonfiction_writer = models.BooleanField(default=False, blank=True, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
         return str(f"{self.author_first_name} {self.author_last_name}")
