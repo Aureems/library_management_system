@@ -79,23 +79,43 @@ input[type=checkbox] {
 <div class="container d-flex justify-content-center">
 
 		<ul class="list-group mt-5 text-white">
-			{% regroup object_list by category_name as cat_list %}
-            {% for cat in cat_list %}
+		{% for cat in grouped %}
 		  <li class="list-group-item d-flex justify-content-between align-content-center">
+			  {% if cat.category_name == 'Fiction' %}
+			{% for cat1 in subcats|slice:':1' %}
+		  	<div  class="d-flex flex-row">
 
-		  	<div class="d-flex flex-row">
-		  		<img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
-		  		<div class="ml-2">
-					{% for subcat in cat.list %}
-		  			<a href="{% url 'subcat-list' subcat.category_name %}" >
-						{% endfor %}
-						<h6 class="mb-0"> {{ cat.grouper }}</h6></a>
+		  		<img  src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+
+				<div  class="ml-2">
+
+					<a href="{% url 'subcat-list' cat1.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>
 		  			<div class="about">
-		  				<span>22 Files</span>
+		  				<span>{{ cat.dcount }}</span>
 		  				<span>Jan 21, 2020</span>
 		  			</div>
+
 		  		</div>
 		  	</div>
+			  {% endfor %}
+			  {% else %}
+			  			{% for cat2 in subcats2|slice:':1' %}
+		  	<div  class="d-flex flex-row">
+
+		  		<img  src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+
+				<div  class="ml-2">
+
+					<a href="{% url 'subcat-list' cat2.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>
+		  			<div class="about">
+		  				<span>{{ cat.dcount }}</span>
+		  				<span>Jan 21, 2020</span>
+		  			</div>
+
+		  		</div>
+		  	</div>
+			  {% endfor %}
+			  {% endif %}
 		  </li>
             {% endfor %}
 		</ul>

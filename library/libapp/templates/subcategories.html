@@ -79,15 +79,15 @@ input[type=checkbox] {
 <div class="container d-flex justify-content-center">
 
 		<ul class="list-group mt-5 text-white">
-
-            {% for item in object_list %}
+			{% if object.category_id == 1 %}
+			{% for subcat in subcats %}
 
 		  <li class="list-group-item d-flex justify-content-between align-content-center">
 
 		  	<div class="d-flex flex-row">
 		  		<img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
 		  		<div class="ml-2">
-		  			<h6 class="mb-0">{{ item.subcategory_name }}</h6>
+		  			<a href="{% url 'books-by-cat' subcat.pk %}" style="color: white"> <h6 class="mb-0">{{ subcat.subcategory_name }}</h6></a>
 		  			<div class="about">
 		  				<span>22 Files</span>
 		  				<span>Jan 21, 2020</span>
@@ -95,7 +95,27 @@ input[type=checkbox] {
 		  		</div>
 		  	</div>
 		  </li>
-            {% endfor %}
+			{% endfor %}
+			{% else %}
+			{% for subcat2 in subcats2 %}
+
+		  <li class="list-group-item d-flex justify-content-between align-content-center">
+
+		  	<div class="d-flex flex-row">
+		  		<img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+		  		<div class="ml-2">
+		  			<a href="{% url 'books-by-cat' subcat2.pk %}" style="color: white"><h6 class="mb-0">{{ subcat2.subcategory_name }}</h6></a>
+		  			<div class="about">
+		  				<span>22 Files</span>
+		  				<span>Jan 21, 2020</span>
+		  			</div>
+		  		</div>
+		  	</div>
+		  </li>
+			{% endfor %}
+			{% endif %}
+
+
 		</ul>
 
 		</div>

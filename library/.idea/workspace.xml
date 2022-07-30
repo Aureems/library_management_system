@@ -7,16 +7,22 @@
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="with migrations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0002_alter_category_options_remove_category_level_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0003_category_date_created.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0005_author_date_created.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0006_author_nationality.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0007_author_fiction_writer_author_nonfiction_writer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/about-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/about-book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/authors.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/categories.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/managelib.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/managelib.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/questions.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/questions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/subcategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/subcategories.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/migrations/0002_remove_librarian_location_alter_user_first_name_and_more.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="CSS File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -158,7 +164,9 @@
       <workItem from="1659026978125" duration="16800000" />
       <workItem from="1659044581915" duration="520000" />
       <workItem from="1659099529172" duration="1707000" />
-      <workItem from="1659118256661" duration="5041000" />
+      <workItem from="1659118256661" duration="5376000" />
+      <workItem from="1659123696134" duration="2636000" />
+      <workItem from="1659160827459" duration="27288000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>

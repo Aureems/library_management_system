@@ -13,4 +13,5 @@ urlpatterns = [
     path('add-book/', AddBookView.as_view(), name='add-book'),
     path('about-book/<pk>', AboutBookView.as_view(), name='about-book'),
     path('add-cat/', AddCatView.as_view(), name='add-cat'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # path('add-author/', AddAuthorView.as_view(), name='add-author'),
+]

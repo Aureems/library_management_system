@@ -43,11 +43,11 @@ class BookForm(forms.ModelForm):
     date_published = forms.DateField(label='Date published', input_formats=['%Y-%m-%d'],
                                 widget=DatePickerInput(format='%Y-%m-%d'))
     page_number = forms.IntegerField(label='Page number')
-    cover_photo = forms.ImageField(label='Book cover photo')
+    photo = forms.ImageField(label='Book cover photo')
 
     class Meta:
         model = Book
-        fields = ('isbn', 'title', 'category', 'author', 'description', 'date_published', 'page_number', 'cover_photo')
+        fields = ('isbn', 'title', 'category', 'author', 'description', 'date_published', 'page_number', 'photo')
 
     # def clean(self):
     #     super(BookForm, self).clean()
