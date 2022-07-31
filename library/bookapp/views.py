@@ -8,7 +8,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.views.generic.base import View
 from .models import Book, Category, Author, Order
-from .forms import BookForm, AuthorForm, CategoryForm, BookOrderForm, CSVUploadForm
+from .forms import BookForm, AuthorForm, CategoryForm, CSVUploadForm, BookOrderForm
 
 
 def category_upload(request):

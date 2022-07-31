@@ -12,26 +12,29 @@
     <div class="row">
         <h5>{{ book.title }}</h5>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-3 mb-3">
         <div class="col-md-6">
             {{ book.description }}
         </div>
+
         <div class="col-md-6">
             <img src="{{ book.photo.url }}" style="height: 350px; width: 230px">
         </div>
-
-        <div class="col-md-2"><a href="{% url 'books' %}">
-            <button class="btn btn-info mb-3"><i class="fa fa-arrow-circle-left" style="font-size:20px"></i>
-                Back to list</button>
-        </a></div>
+                <div class="col-md-2"><a href="{% url 'books' %}">
+            <button class="btn btn-info">
+                <i class="fa fa-arrow-circle-left"></i> Back to list
+            </button></a>
+        </div>
         <div class="col-md-2"><a href="{% url 'book-order' %}">
             <button class="btn btn-info">Order now
-                <i class="fa fa-cart-arrow-down" style="font-size:20px"></i>
-            </button></a></div>
-
+                <i class="fa fa-cart-arrow-down"></i>
+            </button></a>
+        </div>
 
     </div>
 </div>
+
+
 
 {% include 'footer.html' %}
 {% endblock %}

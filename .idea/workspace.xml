@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model4" />
     <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
@@ -36,8 +37,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/library/bookapp/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/library/libapp/templates/userapp/register.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/library/bookapp/models.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +60,6 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/library" />
     <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-projects/petreg/vetapp/views.py" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -157,7 +157,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1659251990649</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Started Order model4">
+      <created>1659253079705</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1659253079705</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +197,7 @@
     <MESSAGE value="Started Order model" />
     <MESSAGE value="Started Order model2" />
     <MESSAGE value="Started Order model3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Order model3" />
+    <MESSAGE value="Started Order model4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Order model4" />
   </component>
 </project>

@@ -57,6 +57,10 @@ class BooksByCatView(ListView):
         return context
 
 
+class BooksByAuthView(ListView):
+    pass
+
+
 def about(request):
     return render(request, "about.html")
 
@@ -64,6 +68,14 @@ def about(request):
 class AuthorListView(ListView):
     model = Author
     template_name = 'authors.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context['booksbyauth'] = Book.objects.values('author_id').annotate(total=Count('isbn'))
+        context['authbooks'] = Book.objects.values('author_id').annotate(total=Count('isbn')).order_by('-total')
+        context['authorwithoutbook'] = Author.objects.exclude(author_id__in=Book.objects.values('author_id').distinct())
+        return context
+
 
 def categories(request):
     return render(request, "categories.html")

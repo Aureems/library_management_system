@@ -35,6 +35,20 @@
                           <td class="key">Page number</td>
                           <td class="value">{{ book.page_number}}</td>
                         </tr>
+                        <tr>
+                          <td class="key">Availability</td>
+                            {% if book.available %}
+                                <td class="value ">
+                                    <i class="fa fa-check-square" aria-hidden="true" style="color: green"></i>
+                                     In store
+                                </td>
+                            {% else %}
+                                <td class="value">
+                                    <i class="fa fa-minus-square" aria-hidden="true" style="color: red"></i>
+                                     Temporarily unavailable
+                                </td>
+                            {% endif %}
+                        </tr>
                         </tbody>
                       </table>
 
@@ -45,13 +59,14 @@
 
                 <div class="col-md-2"><a href="{% url 'about-book' book.pk %}">
                     <button class="btn btn-info">Find out more
-                        <i class="fa fa-arrow-circle-right" style="font-size:20px"></i>
-                    </button>
-                </a></div>
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </button></a>
+                </div>
                 <div class="col-md-2"><a href="{% url 'book-order' %}">
                     <button class="btn btn-info">Order now
-                        <i class="fa fa-cart-arrow-down" style="font-size:20px"></i>
-                    </button></a></div>
+                        <i class="fa fa-cart-arrow-down"></i>
+                    </button></a>
+                </div>
             </div>
         {% endfor %}
     </div>

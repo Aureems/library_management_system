@@ -1,7 +1,7 @@
 from django import forms
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 from.models import Book, Author, Category, Order
-from django.db.models import Count
+# from django.db.models import Count
 
 
 class CSVUploadForm(forms.Form):
@@ -50,4 +50,5 @@ class BookForm(forms.ModelForm):
 class BookOrderForm(forms.ModelForm):
 
     class Meta:
-        model = Order
+        model = Book
+        fields = ('isbn', 'title')
