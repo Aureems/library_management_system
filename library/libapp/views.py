@@ -16,6 +16,11 @@ class HomeView(ListView):
     login_url = 'login'
     template_name = 'index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['history'] = Book.objects.all()
+        return context
+
 
 class CategoryView(ListView):
     model = Category

@@ -2,31 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Multiple user registration. Need migration for useapp">
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0002_alter_category_options_remove_category_level_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0003_category_date_created.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0005_author_date_created.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0006_author_nationality.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0007_author_fiction_writer_author_nonfiction_writer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/author-upload.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/category-upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9bbd52b1-b308-4e4d-a7ad-bdefc5068018/storage_v2/_src_/database/library.uyToCQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/libapp/static/assets/img/literature.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/media/covers/img2_7W1aNzH.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/library/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/library/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/userapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/userapp/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0002_alter_category_options_remove_category_level_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0003_category_date_created.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0005_author_date_created.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0006_author_nationality.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +31,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/library/libapp/templates/userapp/register.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/library/bookapp/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/library/libapp/templates/userapp/register.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,7 +54,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-projects/petreg/vetapp/views.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/library" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -95,6 +81,7 @@
       <updated>1657954048050</updated>
       <workItem from="1657954049598" duration="371000" />
       <workItem from="1659021479483" duration="25914000" />
+      <workItem from="1659252367066" duration="231000" />
     </task>
     <task id="LOCAL−00001" summary="Test commit">
       <created>1657972735318</created>
