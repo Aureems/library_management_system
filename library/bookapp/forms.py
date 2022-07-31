@@ -4,7 +4,6 @@ from.models import Book, Author, Category, Order
 from django.db.models import Count
 
 
-
 class CSVUploadForm(forms.Form):
     file = forms.FileField()
 
@@ -50,7 +49,6 @@ class BookForm(forms.ModelForm):
 
 
 class BookOrderForm(forms.ModelForm):
-    order_until = forms.DateField()
+
     class Meta:
-        model = Book
-        fields = ('title',  'author')
+        model = Order

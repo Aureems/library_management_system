@@ -19,7 +19,6 @@ class Category(models.Model):
         return str(f"{self.subcategory_name}")
 
 
-
 class Author(models.Model):
     author_id = models.AutoField(primary_key=True)
     author_first_name = models.CharField(max_length=100)
