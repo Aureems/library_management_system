@@ -17,15 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import HomeView, about, authors, categories, contactus, faq, managelib, CategoryView
+from .views import HomeView, about, AuthorListView, contactus, faq, managelib, CategoryView, SubCategoryView, BooksByCatView
 
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('about/', about, name='about'),
-    path('authors/', authors, name='authors'),
+    path('authors/', AuthorListView.as_view(), name='authors'),
     path('categories/', CategoryView.as_view(), name='categories'),
+    path('subcategories/<pk>', SubCategoryView.as_view(), name='subcat-list'),
+    path('books-by-subcat/<str:pk>', BooksByCatView.as_view(), name='books-by-cat'),
     path('contactus/', contactus, name='contactus'),
     path('faq/', faq, name='faq'),
     path('managelib/',  managelib, name='managelib'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

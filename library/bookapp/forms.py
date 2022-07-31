@@ -45,8 +45,7 @@ class BookForm(forms.ModelForm):
 
     class Meta:
         model = Book
-        fields = ('isbn','title',  'author', 'category','description', 'date_published', 'page_number', 'photo')
-
+        fields = ('isbn', 'title', 'category', 'author', 'description', 'date_published', 'page_number', 'photo')
 
 class BookOrderForm(forms.ModelForm):
 

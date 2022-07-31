@@ -20,3 +20,5 @@ urlpatterns = [
     path('add-cat/', AddCatView.as_view(), name='add-cat'),
     # path('add-cat/', multiple_view, name='add-cat'),
 ]
+    # path('add-author/', AddAuthorView.as_view(), name='add-author'),
+]
