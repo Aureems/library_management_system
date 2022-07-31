@@ -8,18 +8,28 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <h5>{{ book.title }}</h5>
     </div>
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-md-6">
             {{ book.description }}
         </div>
         <div class="col-md-6">
             <img src="{{book.photo.url}}" style="height: 350px; width: 230px">
         </div>
-        <a href="#" class="btn btn-info">Order now></a>
+
+        <div class="col-md-2"><a href="{% url 'books' %}">
+            <button class="btn btn-info mb-3"><i class="fa fa-arrow-circle-left" style="font-size:20px"></i>
+                Back to list</button>
+        </a></div>
+        <div class="col-md-2"><a href="{% url 'book-order' %}">
+            <button class="btn btn-info">Order now
+                <i class="fa fa-cart-arrow-down" style="font-size:20px"></i>
+            </button></a></div>
+
+
     </div>
 </div>
 

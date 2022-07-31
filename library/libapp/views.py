@@ -8,6 +8,8 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from bookapp.models import Book, Category
 from bookapp.forms import BookForm, AuthorForm, CategoryForm
 
+from django.db.models import Count
+
 
 
 class HomeView(ListView):

@@ -1,15 +1,14 @@
 import csv, io
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.views.generic.base import View
-from .models import Book, Category, Author
-from .forms import BookForm, AuthorForm, CategoryForm
-
+from .models import Book, Category, Author, Order
+from .forms import BookForm, AuthorForm, CategoryForm, BookOrderForm, CSVUploadForm
 
 
 def category_upload(request):
@@ -67,6 +66,21 @@ def author_upload(request):
         return render(request, template, messages.error(request, 'File was not uploaded!'))
 
 
+
+def upload_file(request):
+    # template = 'bookapp/category-upload.html'
+    if request.method == 'POST':
+        form = CSVUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # category_upload(request.FILE['file'])
+            # return render(request, template)
+            return redirect('books/category-upload')
+        else:
+            form = CSVUploadForm()
+        return render(request, 'bookapp/category-upload.html', {'form': form})
+
+
 class AddBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Book
     form_class = BookForm
@@ -89,7 +103,6 @@ class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = 'bookapp/add-cat.html'
     success_url = reverse_lazy('categories')
     success_message = 'The category was added successfully!'
-
 
 
 def add_book(request):
@@ -116,9 +129,30 @@ def add_book(request):
     return render(request, 'bookapp/add-book.html', context=context)
 
 
-
 class BookListView(ListView):
     model = Book
     # paginate_by = 4
     template_name = 'bookapp/book-list.html'
     success_url = '/'
+
+
+class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    model = Order
+    form_class = BookOrderForm
+    login_url = 'login'
+    template_name = 'bookapp/order-book.html'
+    success_url = reverse_lazy('my-books')
+    success_message = 'Your ordered successfully!'
+    order = Order.objects.all()
+
+
+class BookCatalogView(ListView):
+    model = Book
+    # paginate_by = 4
+    template_name = 'bookapp/book-catalog.html'
+    success_url = '/'
+
+
+def my_books(request):
+    return render(request, 'bookapp/my-books.html')
+
