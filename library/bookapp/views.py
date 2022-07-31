@@ -137,13 +137,13 @@ class BookListView(ListView):
 
 
 class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
-    model = Order
+    model = Book
     form_class = BookOrderForm
     login_url = 'login'
     template_name = 'bookapp/order-book.html'
     success_url = reverse_lazy('my-books')
     success_message = 'Your ordered successfully!'
-    order = Order.objects.all()
+    # order = Order.objects.all()
 
 
 class BookCatalogView(ListView):

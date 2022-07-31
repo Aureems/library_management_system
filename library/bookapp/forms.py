@@ -50,6 +50,7 @@ class BookForm(forms.ModelForm):
 
 
 class BookOrderForm(forms.ModelForm):
+    order_until = forms.DateField()
     class Meta:
         model = Book
-        fields = fields = ('isbn','title',  'author')
+        fields = ('title',  'author')

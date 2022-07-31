@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model">
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model2">
+      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0008_remove_category_upload.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-cat.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-cat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/category-upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/category-upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +132,13 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1659248693111</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Started Order model2">
+      <created>1659249280173</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1659249280173</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +170,7 @@
     <MESSAGE value="Better look of book list" />
     <MESSAGE value="Multiple user registration. Need migration for useapp" />
     <MESSAGE value="Started Order model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Order model" />
+    <MESSAGE value="Started Order model2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Order model2" />
   </component>
 </project>
