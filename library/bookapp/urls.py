@@ -8,8 +8,8 @@ from .views import AddCatView
 
 
 urlpatterns = [
-    # path('category-upload/', category_upload, name='cat-upload'),
-    path('category-upload/', upload_file, name='cat-upload'),
+    path('category-upload/', category_upload, name='cat-upload'),
+    # path('category-upload/', upload_file, name='cat-upload'),
     path('author-upload/', author_upload, name='auth-upload'),
     path('book-list/', BookListView.as_view(), name='books'),
     path('book-catalog/', BookCatalogView.as_view(), name='book-catalog'),

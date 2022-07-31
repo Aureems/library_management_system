@@ -14,9 +14,9 @@
 
          <form method="POST" enctype="multipart/form-data">
              {% csrf_token %}
-             {{ form }}
-{#             <label>Upload file</label>#}
-{#             <input class="input" type="file" name="category">#}
+{#             {{ form }}#}
+             <label>Upload file</label>
+             <input class="input" type="file" name="category">
              <button class="btn btn-info" type="submit">Upload</button>
          </form>
     </div>

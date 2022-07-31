@@ -9,7 +9,7 @@ class Category(models.Model):
     category_name = models.CharField(max_length=100, blank=True)
     subcategory_name = models.CharField(max_length=100, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
-    upload = models.FileField(upload_to='csv_uploads', blank=True, null=True)
+    # upload = models.FileField(upload_to='csv_uploads', blank=True, null=True)
 
 
     class Meta:

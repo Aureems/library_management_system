@@ -1,48 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Categories and Authors upload from csv">
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0002_order.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0003_alter_order_order_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0004_alter_book_photo_alter_order_order_date.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0005_alter_book_photo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0006_category_upload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/bookapp/migrations/0007_alter_category_category_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/admin/bookapp/category/change_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-catalog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/my-books.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/order-book.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/media/covers/GodplayerNovel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/media/covers/Rich_Dad_Poor_Dad.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/media/covers/Sleeping_Murder_First_Edition_Cover_1976.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/media/covers/The-Outsider.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/media/covers/The-Outsider_Tof8FE2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/media/csv_uploads/BOOK_CLASSIFICATION_TEST1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0002_alter_category_options_remove_category_level_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0003_category_date_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0005_author_date_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0006_author_nationality.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0007_author_fiction_writer_author_nonfiction_writer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/about-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/about-book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-cat.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/add-cat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/author-upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/author-upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/book-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library/libapp/templates/bookapp/category-upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/bookapp/category-upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/userapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/userapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/userapp/migrations/0002_remove_librarian_location_alter_user_first_name_and_more.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +127,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1658843027332</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Started Order model">
+      <created>1659248693111</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1659248693111</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +164,7 @@
     <MESSAGE value="books urls, views and templates from libapp to bookapp" />
     <MESSAGE value="Better look of book list" />
     <MESSAGE value="Multiple user registration. Need migration for useapp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiple user registration. Need migration for useapp" />
+    <MESSAGE value="Started Order model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Order model" />
   </component>
 </project>
