@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash, logout
 from django.contrib.auth.views import LoginView, PasswordChangeView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import UpdateView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
@@ -79,3 +81,10 @@ def logout_view(request):
 def view_profile(request):
     profile = User.objects.all()
     return render(request, 'userapp/profile.html')
+
+
+class ProfileUpdateView(LoginRequiredMixin,UpdateView):
+    model = User
+    form_class = CustomerRegisterForm
+    template_name = 'userapp/profile.html'
+    success_url = '/'

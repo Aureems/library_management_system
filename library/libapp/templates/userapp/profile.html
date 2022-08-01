@@ -1,97 +1,112 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
+
 {% include 'navbar.html' %}
+<style>
+    body{margin-top:20px;}
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <h3>{{ user.username }}</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Profile <i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Joined</strong></span>
+                    {{ user.date_joined|date:'Y-m-d'}}</li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Last seen</strong></span>
+                    {{ user.last_login|date:'Y-m-d h:i a'}}</li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Full name</strong></span>
+                    {{ user.first_name}} {{ user.last_name }}</li>
+            </ul>
 
-<div class="container bootstrap snippets bootdey">
-<div class="row">
-  <div class="profile-nav col-md-3">
-      <div class="panel">
-          <div class="user-heading round">
-              <a href="#">
-                  <img src="{% static 'images/profile.png' %}" alt="">
-              </a>
-              <h1>{{ user.first_name }}</h1>
-              <p>{{ user.email }}</p>
-              <p>{% if user.is_staff %} Admin {% else %} Regular {% endif %}</p>
-          </div>
 
-          <ul class="nav nav-pills nav-stacked">
-{#              <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>#}
-              <li><a href="#"> <i class="fa fa-calendar"></i> Recent Activity: </a></li>
-                  <span class="label label-warning pull-right r-activity mx-auto"> {{ user.last_login|date }}</span>
-              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
-          </ul>
-      </div>
-  </div>
-  <div class="profile-info col-md-9">
-      <div class="panel">
-          <div class="panel-body bio-graph-info">
-              <h1>Bio Graph</h1>
-              <div class="row">
-                  <div class="bio-row">
-                      <p><span>First Name</span> {{ user.first_name }}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Last Name</span> {{ user.last_name }}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Address</span> {{ user.address }}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Birthday</span> {{ user.birthday }}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Email </span> {{ user.email }}</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div>
-          <div class="row">
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="red">Total Ordered</h4>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="63" data-fgcolor="#4CC5CD" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="terques">Total Returned </h4>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="75" data-fgcolor="#96be4b" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(150, 190, 75); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div>
-                          <div class="bio-desk">
-                              <h4 class="green">Currently reading</h4>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard" aria-hidden="true"></i></li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Total ordered books</strong></span>
+                    {{ 'Total_orders' }}</li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>Reading</strong></span>
+                    {{ 'Not_returned_books' }}</li>
+            </ul>
+
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-9">
+            <ul class="nav nav-tabs" id="myTab">
+                  <li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">My books</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">ISBN</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Page number</th>
+                                    <th scope="col">Ordered until</th>
+                                    <th scope="col">Return the book</th>
+                                </tr>
+                            </thead>
+                            <tbody id="items">
+
+                                <tr>
+                                  <th scope="row">1</th>
+                                  <td>1234567891234</td>
+                                  <td>book Title</td>
+                                  <td>book Author</td>
+                                  <td>book pages</td>
+                                  <td>Until date</td>
+                                  <td>
+                                      <a href="#"><i class="fa fa-refresh"></i></a>
+                                  </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4 text-center">
+                                <ul class="pagination" id="myPager"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/table-resp-->
+                    <hr>
+                </div>
+                <!--/tab-pane-->
+                <!--/tab-pane-->
+                <div class="tab-pane" id="settings">
+                    <hr>
+                    <form class="form" action="##" method="post" id="registrationForm">
+                        <div class="form-group">
+
+                            {% csrf_token %}
+
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!--/tab-pane-->
+        </div>
+        <!--/tab-content-->
+
+    </div>
+    <!--/col-9-->
 </div>
-</div>
+<!--/row-->
 
 
 {% include 'footer.html' %}

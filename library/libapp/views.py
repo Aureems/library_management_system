@@ -6,7 +6,7 @@ from django.db.models import Count
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
-from bookapp.models import Book, Category, Author
+from bookapp.models import Book, Category, Author, MPTTCategory
 from bookapp.forms import BookForm, AuthorForm, CategoryForm
 from libapp.filters import CatFilter
 
@@ -37,9 +37,10 @@ class CategoryView(ListView):
         context = super(CategoryView, self).get_context_data(**kwargs)
         context['total_cats'] = Category.objects.all().count()
         context['grouped'] = (Category.objects.values('category_name').annotate(dcount=Count('category_name')).order_by())
-        context['subcats'] = Category.objects.filter(category_name='Fiction')
-        context['subcats2'] = Category.objects.filter(category_name='Nonfiction')
+        context['fiction'] = Category.objects.filter(category_name='Fiction')
+        context['nonfiction'] = Category.objects.filter(category_name='Nonfiction')
         return context
+
 
 
 class SubCategoryView(DetailView):

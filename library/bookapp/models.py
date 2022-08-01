@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
-from django.db.models.signals import post_save
 from mptt.models import MPTTModel, TreeForeignKey
 from userapp.models import User
 
@@ -17,9 +16,25 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
+        ordering = ('category_name', 'subcategory_name', )
 
     def __str__(self):
         return str(f"{self.subcategory_name}")
+
+
+class MPTTCategory(MPTTModel):
+    categ_name = models.CharField(max_length=100, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    class MPTTMeta:
+        order_insertion_by = ['categ_name']
+
+    class Meta:
+        verbose_name_plural = 'MPTTCategories'
+
+    def __str__(self):
+        return str(f"{self.categ_name}")
 
 
 class Author(models.Model):

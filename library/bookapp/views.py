@@ -1,5 +1,6 @@
 import csv, io
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -153,6 +154,9 @@ class BookCatalogView(ListView):
     success_url = '/'
 
 
-def my_books(request):
-    return render(request, 'bookapp/my-books.html')
-
+class MyBookListView(LoginRequiredMixin, ListView):
+    model = Book
+    login_url = 'login'
+    # paginate_by = 4
+    template_name = 'bookapp/my-books.html'
+    success_url = '/'

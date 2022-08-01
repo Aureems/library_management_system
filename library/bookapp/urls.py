@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import BookListView, AddBookView, AboutBookView, BookCatalogView, OrderBookView, \
-    category_upload, author_upload, my_books, upload_file
+    category_upload, author_upload, upload_file, MyBookListView
 from .views import AddCatView
 
 
@@ -14,7 +14,7 @@ urlpatterns = [
     path('book-list/', BookListView.as_view(), name='books'),
     path('book-catalog/', BookCatalogView.as_view(), name='book-catalog'),
     path('book-order/', OrderBookView.as_view(), name='book-order'),
-    path('my-books/', my_books, name='my-books'),
+    path('my-books/<pk>', MyBookListView.as_view(), name='my-books'),
     path('add-book/', AddBookView.as_view(), name='add-book'),
     path('about-book/<pk>', AboutBookView.as_view(), name='about-book'),
     path('add-cat/', AddCatView.as_view(), name='add-cat'),
