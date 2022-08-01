@@ -53,8 +53,6 @@ class Author(models.Model):
         return str(f"{self.author_first_name} {self.author_last_name}")
 
 
-
-
 class Book(models.Model):
     isbn = models.CharField(primary_key=True, max_length=13, unique=True)
     title = models.CharField(max_length=250)

@@ -89,8 +89,8 @@ input[type=checkbox] {
 		  		<div class="ml-2">
 		  			<a href="{% url 'books-by-cat' subcat.pk %}" style="color: white"> <h6 class="mb-0">{{ subcat.subcategory_name }}</h6></a>
 		  			<div class="about">
-		  				<span>22 Files</span>
-		  				<span>Jan 21, 2020</span>
+
+		  				<span>{{subcat.date_created}}</span>
 		  			</div>
 		  		</div>
 		  	</div>
@@ -106,8 +106,8 @@ input[type=checkbox] {
 		  		<div class="ml-2">
 		  			<a href="{% url 'books-by-cat' subcat2.pk %}" style="color: white"><h6 class="mb-0">{{ subcat2.subcategory_name }}</h6></a>
 		  			<div class="about">
-		  				<span>22 Files</span>
-		  				<span>Jan 21, 2020</span>
+
+		  				<span>{{subcat.date_created}}</span>
 		  			</div>
 		  		</div>
 		  	</div>
