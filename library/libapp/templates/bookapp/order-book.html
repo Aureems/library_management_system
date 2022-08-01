@@ -10,32 +10,23 @@
 
 {{ form.media }}
 
-
 <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7">
           <div class="card" style="border-radius: 5px;">
             <div class="card-body p-5">
-                <h2 class="text-center mb-5">Add category</h2>
+                <h2 class="text-center mb-5">Book order form</h2>
                 <form style="width: 100%;" method="POST" enctype="multipart/form-data" autocomplete="off">
-
-                </form>
-                <a href="{% url 'cat-upload' %}">Upload from file
-                        <i class="fa fa-upload" style="font-size:20px"></i></a><hr>
-
-                <form style="width: 100%;" method="POST" enctype="multipart/form-data" autocomplete="off">
-
                     {% csrf_token %}
-
                     {% bootstrap_form form %}
-
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <a href="{% url 'categories' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success">Order</button>
+                    <a href="{% url 'books' %}" class="btn btn-secondary">Cancel</a>
                 </form>
             </div>
           </div>
         </div>
     </div>
+</div>
 </div>
 
 {% include 'footer.html' %}

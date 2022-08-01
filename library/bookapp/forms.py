@@ -1,6 +1,11 @@
 from django import forms
 from bootstrap_datepicker_plus.widgets import DatePickerInput
-from.models import Book, Author, Category
+from.models import Book, Author, Category, Order
+# from django.db.models import Count
+
+
+class CSVUploadForm(forms.Form):
+    file = forms.FileField()
 
 
 class AuthorForm(forms.ModelForm):
@@ -9,7 +14,7 @@ class AuthorForm(forms.ModelForm):
 
     class Meta:
         model = Author
-        fields = ('firstname', 'lastname')
+        fields = '__all__'
 
     def full_name(self):
         fullname = str(f"{self.firstname} - {self.lastname}")
@@ -23,13 +28,6 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = '__all__'
-
-
-# class CategoryUploadForm(forms.Form):
-#     category_file = forms.FileField()
-#
-# class AuthorUploadForm(forms.Form):
-#     author_file = forms.FileField()
 
 
 class BookForm(forms.ModelForm):
@@ -49,11 +47,8 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ('isbn', 'title', 'category', 'author', 'description', 'date_published', 'page_number', 'photo')
 
-    # def clean(self):
-    #     super(BookForm, self).clean()
-    #     title = self.cleaned_data.get('title')
-    #     if len(title) < 5:
-    #         self.errors['title'] = self.error_class([
-    #             'Minimum 5 chars required'
-    #         ])
-    #     return self.cleaned_data
+class BookOrderForm(forms.ModelForm):
+
+    class Meta:
+        model = Book
+        fields = ('isbn', 'title')

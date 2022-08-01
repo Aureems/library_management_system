@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model4" />
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
     <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Multiple user registration. Need migration for useapp">
       <change afterPath="$PROJECT_DIR$/library/libapp/static/assets/img/literature.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/library/media/covers/img2_7W1aNzH.jpg" afterDir="false" />
@@ -23,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -31,8 +37,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/library/bookapp/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/library/libapp/templates/userapp/register.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/library/bookapp/models.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,7 +60,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/library" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-projects/petreg/vetapp/views.py" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -65,10 +72,11 @@
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\media" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\admin\bookapp\category" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\libapp" />
       <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\static\images" />
-      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates" />
-      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\userapp" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -131,7 +139,31 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1658843027332</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Started Order model">
+      <created>1659248693111</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1659248693111</updated>
+    </task>
+    <task id="LOCAL−00010" summary="Started Order model2">
+      <created>1659249280173</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1659249280173</updated>
+    </task>
+    <task id="LOCAL−00011" summary="Started Order model3">
+      <created>1659251990649</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1659251990649</updated>
+    </task>
+    <task id="LOCAL−00012" summary="Started Order model4">
+      <created>1659253079705</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1659253079705</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +194,10 @@
     <MESSAGE value="books urls, views and templates from libapp to bookapp" />
     <MESSAGE value="Better look of book list" />
     <MESSAGE value="Multiple user registration. Need migration for useapp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiple user registration. Need migration for useapp" />
+    <MESSAGE value="Started Order model" />
+    <MESSAGE value="Started Order model2" />
+    <MESSAGE value="Started Order model3" />
+    <MESSAGE value="Started Order model4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Order model4" />
   </component>
 </project>

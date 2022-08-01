@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Page number</th>
+      <th scope="col">Availability</th>
+      <th scope="col">Ordered by</th>
+      <th scope="col">Ordered until</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <th scope="row">1</th>
+      <td>1234567891234</td>
+      <td>book Title</td>
+      <td>book Author</td>
+      <td>book pages</td>
+      <td>Available</td>
+      <td>User</td>
+      <td>Until date</td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% include 'footer.html' %}
+{% endblock %}
