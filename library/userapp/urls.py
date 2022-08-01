@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import register_user, change_password, view_profile, UserLogin, PasswordsChangeView
+from .views import register_user, change_password, view_profile, UserLogin, PasswordsChangeView, ProfileUpdateView
 from django.contrib.auth import views as auth_views
 
 
