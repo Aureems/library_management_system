@@ -6,12 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="github desktop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/about-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/about-book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/booksbycat.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/booksbycat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0002_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0003_alter_order_order_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0004_alter_book_photo_alter_order_order_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0005_alter_book_photo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0006_category_upload.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0007_alter_category_category_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0008_remove_category_upload.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/authors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/subcategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/subcategories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/userapp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/userapp/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,9 +29,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -162,6 +168,7 @@
       <workItem from="1659252601819" duration="14781000" />
       <workItem from="1659294404792" duration="2377000" />
       <workItem from="1659325288675" duration="6256000" />
+      <workItem from="1659357989865" duration="5815000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
