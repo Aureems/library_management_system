@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="with migrations">
+    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="github desktop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0002_alter_category_options_remove_category_level_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0003_category_date_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0005_author_date_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0006_author_nationality.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/about-book.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/about-book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/booksbycat.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/booksbycat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/subcategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/subcategories.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/static/assets/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -160,6 +159,9 @@
       <workItem from="1659160827459" duration="27430000" />
       <workItem from="1659213939571" duration="3354000" />
       <workItem from="1659246993086" duration="5153000" />
+      <workItem from="1659252601819" duration="14781000" />
+      <workItem from="1659294404792" duration="2377000" />
+      <workItem from="1659325288675" duration="6256000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
@@ -217,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658781464871</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="github desktop">
+      <created>1659252642165</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659252642166</updated>
+    </task>
+    <task id="LOCAL-00010" summary="github desktop">
+      <created>1659252716152</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659252716152</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +257,8 @@
     <MESSAGE value="homepage ready, needs functions" />
     <MESSAGE value="templates updated" />
     <MESSAGE value="with migrations" />
-    <option name="LAST_COMMIT_MESSAGE" value="with migrations" />
+    <MESSAGE value="github desktop" />
+    <option name="LAST_COMMIT_MESSAGE" value="github desktop" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/library$views.coverage" NAME="views Coverage Results" MODIFIED="1659119883394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/libapp" />

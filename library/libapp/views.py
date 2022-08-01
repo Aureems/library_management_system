@@ -18,7 +18,13 @@ class HomeView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['history'] = Book.objects.all()
+        context['history'] = Book.objects.filter(category_id=40)
+        context['math'] = Book.objects.filter(category_id=44)
+        context['romance'] = Book.objects.filter(category_id=21)
+        context['travel'] = Book.objects.filter(category_id=55)
+        context['bookcount'] = Book.objects.prefetch_related('author').annotate(numb=Count('author'))
+        context['authors'] = Author.objects.all().order_by('?')
+        # context['bookcount'] = Book.objects.prefetch_related('author').annotate(number=Count('isbn'))
         return context
 
 
@@ -64,6 +70,7 @@ def about(request):
 class AuthorListView(ListView):
     model = Author
     template_name = 'authors.html'
+
 
 def categories(request):
     return render(request, "categories.html")
