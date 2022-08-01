@@ -9,6 +9,7 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from bookapp.models import Book, Category, Author, MPTTCategory
 from bookapp.forms import BookForm, AuthorForm, CategoryForm
 from libapp.filters import CatFilter
+from django.db.models import Q
 
 
 class HomeView(ListView):
@@ -40,7 +41,6 @@ class CategoryView(ListView):
         context['fiction'] = Category.objects.filter(category_name='Fiction')
         context['nonfiction'] = Category.objects.filter(category_name='Nonfiction')
         return context
-
 
 
 class SubCategoryView(DetailView):
@@ -96,3 +96,14 @@ def faq(request):
 @permission_required('userapp.User', raise_exception=True)
 def managelib(request):
     return render(request, "managelib.html")
+
+
+class Search(ListView):
+    model = Book
+    template_name = 'search.html'
+    context_object_name = 'results'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q', None)
+        search = Book.objects.all().filter(Q(title__icontains=query))
+        return search
