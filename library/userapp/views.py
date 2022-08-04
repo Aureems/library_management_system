@@ -78,9 +78,9 @@ def logout_view(request):
     logout(request)
 
 
-def view_profile(request):
-    profile = User.objects.all()
-    return render(request, 'userapp/profile.html')
+# def view_profile(request):
+#     profile = User.objects.all()
+#     return render(request, 'userapp/profile.html')
 
 
 class ProfileUpdateView(LoginRequiredMixin,UpdateView):

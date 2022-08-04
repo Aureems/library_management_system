@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 from django.core.validators import MaxValueValidator
 from mptt.models import MPTTModel, TreeForeignKey
 from userapp.models import User
@@ -68,15 +69,3 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-
-
-class Order(models.Model):
-    order_id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    order_date = models.DateField()
-    due_to_date = models.DateField()
-
-
-    def __str__(self):
-        return {self.order_id}
