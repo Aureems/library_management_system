@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import HomeView, about, AuthorListView, contactus, faq, managelib, CategoryView, SubCategoryView,\
+from .views import HomeView, AuthorListView, managelib, CategoryView, SubCategoryView,\
+    BooksByCatView, Search, FaqView, ContactusView, AboutView
+from .views import HomeView, AuthorListView, managelib, CategoryView, SubCategoryView,\
     BooksByCatView, Search, my_profile, OrderSummaryView, add_to_cart, process_order, update_transaction_records, \
     delete_from_cart
 
@@ -25,14 +27,14 @@ from .views import HomeView, about, AuthorListView, contactus, faq, managelib, C
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('about/', about, name='about'),
+    path('about/', AboutView.as_view(), name='about'),
     path('authors/', AuthorListView.as_view(), name='authors'),
     path('categories/', CategoryView.as_view(), name='categories'),
     path('subcategories/<pk>', SubCategoryView.as_view(), name='subcat-list'),
     path('books-by-subcat/<str:pk>', BooksByCatView.as_view(), name='books-by-cat'),
     path('search/', Search.as_view(), name='search'),
-    path('contactus/', contactus, name='contactus'),
-    path('faq/', faq, name='faq'),
+    path('contactus/', ContactusView.as_view(), name='contactus'),
+    path('faq/', FaqView.as_view(), name='faq'),
     path('managelib/',  managelib, name='managelib'),
     path('cart/', OrderSummaryView.as_view(), name='cart'),
     path('cart/add-to-cart/<isbn>', add_to_cart, name='add-to-cart'),

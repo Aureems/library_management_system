@@ -6,7 +6,7 @@
 
 {% if results %}
 
-<h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">Found items for your search</h3>
+<h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">Found {{searchcount}} items for your search</h3>
 
 {% for result in results %}
 <hr class="solid">
@@ -71,6 +71,7 @@
 {% else %}
 <h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">No books found</h3>
 {% endif %}
+
 
 {% include 'footer.html' %}
 {% endblock %}

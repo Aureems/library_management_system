@@ -67,7 +67,6 @@ def author_upload(request):
         return render(request, template, messages.error(request, 'File was not uploaded!'))
 
 
-
 def upload_file(request):
     # template = 'bookapp/category-upload.html'
     if request.method == 'POST':
@@ -132,9 +131,15 @@ def add_book(request):
 
 class BookListView(ListView):
     model = Book
-    # paginate_by = 4
+    paginate_by = 5
     template_name = 'bookapp/book-list.html'
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['navsubcats'] = Category.objects.all()
+        context['navbooks'] = Book.objects.all()
+        return context
 
 
 class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
