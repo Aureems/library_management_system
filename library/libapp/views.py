@@ -34,8 +34,8 @@ def my_profile(request):
     my_user_profile = Profile.objects.filter(user=request.user)[0]
     my_orders = Order.objects.filter(is_ordered=True, user=my_user_profile.user_id)
     my_not_returned_books = OrderItem.objects.filter(user=my_user_profile.user_id, is_ordered = True, date_returned__isnull=True)
-    total_books = OrderItem.objects.all().count()
-    total_not_returned = OrderItem.objects.filter(date_returned__isnull=True).count()
+    total_books = OrderItem.objects.filter(is_ordered=True, user=request.user).count()
+    total_not_returned = OrderItem.objects.filter(date_returned__isnull=True,is_ordered=True, user=request.user).count()
 
     context = {
         'my_orders': my_orders,
