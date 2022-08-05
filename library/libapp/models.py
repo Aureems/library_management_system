@@ -22,11 +22,12 @@ post_save.connect(post_save_profile_create, sender=User)
 
 
 class OrderItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    item = models.OneToOneField(Book, on_delete=models.CASCADE)
-    is_ordered = models.BooleanField(default=False)
-    date_added = models.DateTimeField(auto_now=True)
-    date_ordered = models.DateTimeField(null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    item = models.OneToOneField(Book, on_delete=models.CASCADE, null=True, blank=True)
+    is_ordered = models.BooleanField(default=False, null=True, blank=True)
+    date_added = models.DateTimeField(auto_now=True, null=True, blank=True)
+    date_ordered = models.DateTimeField(null=True, blank=True)
+    date_returned = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.item.title
@@ -34,12 +35,12 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    ref_code = models.CharField(max_length=20)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    items = models.ManyToManyField(OrderItem)
-    is_ordered = models.BooleanField(default=False)
-    date_ordered = models.DateTimeField()
-    due_to_date = models.DateTimeField(null=True)
+    ref_code = models.CharField(max_length=9, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    items = models.ManyToManyField(OrderItem, null=True, blank=True)
+    is_ordered = models.BooleanField(default=False, null=True, blank=True)
+    date_ordered = models.DateTimeField(null=True, blank=True)
+    until_date = models.DateTimeField(null=True, blank=True)
 
     def get_cart_items(self):
         return self.items.all()

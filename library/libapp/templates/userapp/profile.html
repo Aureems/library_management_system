@@ -31,9 +31,9 @@
             <ul class="list-group">
                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard" aria-hidden="true"></i></li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Total ordered books</strong></span>
-                    {{ 'Total_orders' }}</li>
+                    {{ total_books }}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Reading</strong></span>
-                    {{ 'Not_returned_books' }}</li>
+                    {{ total_not_returned }}</li>
             </ul>
 
         </div>
@@ -48,9 +48,10 @@
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
+
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">ISBN</th>
+                                    <th scope="col">No.</th>
+{#                                    <th scope="col">ISBN</th>#}
                                     <th scope="col">Title</th>
                                     <th scope="col">Author</th>
                                     <th scope="col">Page number</th>
@@ -60,17 +61,20 @@
                             </thead>
                             <tbody id="items">
 
+
+                            {% for my_item in my_not_returned_books %}
                                 <tr>
-                                  <th scope="row">1</th>
-                                  <td>1234567891234</td>
-                                  <td>book Title</td>
-                                  <td>book Author</td>
-                                  <td>book pages</td>
-                                  <td>Until date</td>
+                                  <th scope="row">{{ forloop.counter }}</th>
+{#                                  <td>{{ book.item_id }}</td>#}
+                                  <td>{{ my_item.item.title }}</td>
+                                  <td>{{ my_item.item.author}}</td>
+                                  <td>{{ my_item.item.page_number}}</td>
+                                  <td>{{ order.until_date}}</td>
                                   <td>
                                       <a href="#"><i class="fa fa-refresh"></i></a>
                                   </td>
                                 </tr>
+                            {% endfor %}
 
                             </tbody>
                         </table>

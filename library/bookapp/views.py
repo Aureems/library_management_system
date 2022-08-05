@@ -134,12 +134,14 @@ class BookListView(ListView):
     paginate_by = 5
     template_name = 'bookapp/book-list.html'
     success_url = '/'
+    ordering = ['-available', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['navsubcats'] = Category.objects.all()
         context['navbooks'] = Book.objects.all()
         return context
+
 
 
 class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
