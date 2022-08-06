@@ -136,6 +136,7 @@ class BookListView(ListView):
     paginate_by = 8
     template_name = 'bookapp/book-list.html'
     success_url = '/'
+    ordering = ['-available', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -154,6 +155,7 @@ class BookListByAuth(ListView):
         context['object_list'] = Book.objects.filter(author=self.kwargs.get('pk'))
         context['total_cats'] = Book.objects.filter(author=self.kwargs.get('pk')).count()
         return context
+
 
 
 class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
