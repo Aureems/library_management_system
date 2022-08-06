@@ -23,14 +23,13 @@ post_save.connect(post_save_profile_create, sender=User)
 
 class OrderItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    item = models.OneToOneField(Book, on_delete=models.CASCADE)
+    item = models.ForeignKey(Book, on_delete=models.CASCADE)
     is_ordered = models.BooleanField(default=False)
     date_added = models.DateTimeField(auto_now=True)
     date_ordered = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.item.title
-
 
 
 class Order(models.Model):

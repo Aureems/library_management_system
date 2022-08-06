@@ -355,8 +355,8 @@
  {% for author in authors|slice:':10' %}
 
 <li class="author col">
-<a href="#" class="text-reset">
-<img src="../../assets/img/140x140/img1.jpg" class="mx-auto mb-5 d-block rounded-circle" alt=".">
+<a href="{% url 'books-byauth' author.author_id %}" class="text-reset">
+<img src="../../assets/img/140x140/img1.jpg" class="mx-auto mb-5 d-block rounded-circle" alt="">
 <div class="author__body text-center">
 <h2 class="author__name h6 mb-0">{{author}}</h2>
 <div class="text-gray-700 font-size-2">{{author.nationality}}</div>

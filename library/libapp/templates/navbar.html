@@ -21,7 +21,7 @@
         <i class="glph-icon flaticon-user"></i></a>
 {% endif %}
 
-
+{% if user.is_authenticated %}
 <li class="nav-item">
 
 <a id="sidebarNavToggler1" href="javascript:;" role="button" class="nav-link link-black-100 position-relative" aria-controls="sidebarContent1" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContent1" data-unfold-type="css-animation" data-unfold-overlay='{
@@ -29,11 +29,12 @@
                                     "background": "rgba(0, 0, 0, .7)",
                                     "animationSpeed": 500
                                 }' data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight" data-unfold-duration="500">
-<span class="position-absolute bg-dark width-16 height-16 rounded-circle d-flex align-items-center justify-content-center text-white font-size-n9 right-0">3</span>
+<span class="position-absolute bg-dark width-16 height-16 rounded-circle d-flex align-items-center justify-content-center text-white font-size-n9 right-0">{{ordercount}}</span>
 <i class="glph-icon flaticon-icon-126515"></i>
 </a>
 
 </li>
+    {% endif %}
 </ul>
 </div>
 </div>
@@ -145,69 +146,37 @@ Others
 <div class="u-sidebar__content u-header-sidebar__content">
 
 <header class="border-bottom px-4 px-md-6 py-4">
- <h2 class="font-size-3 mb-0 d-flex align-items-center"><i class="flaticon-icon-126515 mr-3 font-size-5"></i>Your shopping bag (3)</h2>
+ <h2 class="font-size-3 mb-0 d-flex align-items-center"><i class="flaticon-icon-126515 mr-3 font-size-5"></i>Books you want to order
+     ({{ordercount}})</h2>
 </header>
+{% for order_item in cartitems %}
 
-{#<div class="px-4 py-5 px-md-6 border-bottom">#}
-{#<div class="media">#}
-{#<a href="#" class="d-block"><img src="../static/assets/img/img6.jpg" class="img-fluid" alt="image-description"></a>#}
-{#<div class="media-body ml-4d875">#}
-{#<div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Hard Cover</a></div>#}
-{#<h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">#}
-{#<a href="#" class="text-dark">The Ride of a Lifetime: Lessons Learned from 15 Years as CEO</a>#}
-{#</h2>#}
-{#<div class="font-size-2 mb-1 text-truncate"><a href="#" class="text-gray-700">Robert Iger</a></div>#}
-{#<div class="price d-flex align-items-center font-weight-medium font-size-3">#}
-{#<span class="woocommerce-Price-amount amount">1 x <span class="woocommerce-Price-currencySymbol">$</span>125.30</span>#}
-{#</div>#}
-{#</div>#}
-{#<div class="mt-3 ml-3">#}
-{#<a href="#" class="text-dark"><i class="fas fa-times"></i></a>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
-{#<div class="px-4 py-5 px-md-6 border-bottom">#}
-{#<div class="media">#}
-{#<a href="#" class="d-block"><img src="../../assets/img/120x180/img6.jpg" class="img-fluid" alt="image-description"></a>#}
-{#<div class="media-body ml-4d875">#}
-{#<div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Hard Cover</a></div>#}
-{#<h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">#}
-{#<a href="#" class="text-dark">The Rural Diaries: Love, Livestock, and Big Life Lessons Down</a>#}
-{#</h2>#}
-{#<div class="font-size-2 mb-1 text-truncate"><a href="#" class="text-gray-700">Hillary Burton</a></div>#}
-{#<div class="price d-flex align-items-center font-weight-medium font-size-3">#}
-{#<span class="woocommerce-Price-amount amount">2 x <span class="woocommerce-Price-currencySymbol">$</span>200</span>#}
-{#</div>#}
-{#</div>#}
-{#<div class="mt-3 ml-3">#}
-{#<a href="#" class="text-dark"><i class="fas fa-times"></i></a>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
-{#<div class="px-4 py-5 px-md-6 border-bottom">#}
-{#<div class="media">#}
-{#<a href="#" class="d-block"><img src="../../assets/img/120x180/img6.jpg" class="img-fluid" alt="image-description"></a>#}
-{#<div class="media-body ml-4d875">#}
-{#<div class="text-primary text-uppercase font-size-1 mb-1 text-truncate"><a href="#">Paperback</a></div>#}
-{#<h2 class="woocommerce-loop-product__title h6 text-lh-md mb-1 text-height-2 crop-text-2">#}
-{# <a href="#" class="text-dark">Russians Among Us: Sleeper Cells, Ghost Stories, and the Hunt.</a>#}
-{#</h2>#}
-{#<div class="font-size-2 mb-1 text-truncate"><a href="#" class="text-gray-700">Gordon Corera</a></div>#}
-{#<div class="price d-flex align-items-center font-weight-medium font-size-3">#}
-{#<span class="woocommerce-Price-amount amount">6 x <span class="woocommerce-Price-currencySymbol">$</span>100</span>#}
-{#</div>#}
-{#</div>#}
-{#<div class="mt-3 ml-3">#}
-{#<a href="#" class="text-dark"><i class="fas fa-times"></i></a>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
-{#<div class="px-4 py-5 px-md-6 d-flex justify-content-between align-items-center font-size-3">#}
-{#<h4 class="mb-0 font-size-3">Subtotal:</h4>#}
-{#<div class="font-weight-medium">$750.00</div>#}
-{#</div>#}
+                    <tbody>
+                      <tr>
+                          <td class="text-center align-middle px-0">{{ forloop.counter }}</td>
+                          <td class="p-4">
+                              <td class="text-center align-middle px-0"><a href="{% url 'delete-from-cart' order_item.item.isbn %}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                          <div class="media align-items-center" style="margin-left: 50px">
+                            <a href="{% url 'about-book' order_item.item.pk %}">
+                                <img src="{{ order_item.item.photo.url }}" width="50" height="80" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                            </a>
+                                <div class="media-body">
+                              <a href="{% url 'about-book' order_item.item.pk %}" class="d-block text-dark">{{ order_item.item.title }}</a>
+                              <small>
+                                <span class="text-muted">Author: {{ order_item.item.author }}</span><hr>
+                                <span class="text-muted">Pages: {{ order_item.item.page_number }}</span>
+                              </small>
+                            </div>
+                          </div>
+                        </td>
+
+                      </tr>
+                    </tbody>
+
+                    {% endfor %}
+
 <div class="px-4 mb-8 px-md-6">
-    <a href="../shop/cart.html" class="btn btn-block py-4 rounded-0 btn-outline-dark mb-4">View Cart</a>
+    <a href="{% url 'cart' %}" class="btn btn-block py-4 rounded-0 btn-outline-dark mb-4">View Cart</a>
     <a href="../shop/checkout.html" class="btn btn-block py-4 rounded-0 btn-dark">Checkout</a>
 </div>
 

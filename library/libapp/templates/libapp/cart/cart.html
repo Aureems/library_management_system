@@ -3,7 +3,7 @@
 
 
 {% block content %}
-
+{% include 'navbar.html' %}
 <style>
 body{
     margin-top:20px;
@@ -51,11 +51,11 @@ body{
                           <td class="text-center align-middle px-0">{{ forloop.counter }}</td>
                           <td class="p-4">
                           <div class="media align-items-center">
-                            <a href='{% url 'about-book' order_item.item.pk %}'>
+                            <a href="{% url 'about-book' order_item.item.pk %}">
                                 <img src="{{ order_item.item.photo.url }}" class="d-block ui-w-40 ui-bordered mr-4" alt="">
                             </a>
                                 <div class="media-body">
-                              <a href='{% url 'about-book' order_item.item.pk %}' class="d-block text-dark">{{ order_item.item.title }}</a>
+                              <a href="{% url 'about-book' order_item.item.pk %}" class="d-block text-dark">{{ order_item.item.title }}</a>
                               <small>
                                 <span class="text-muted">Author: {{ order_item.item.author }}</span><hr>
                                 <span class="text-muted">Pages: {{ order_item.item.page_number }}</span>
@@ -94,5 +94,5 @@ body{
           </div>
       </div>
   </div>
-
+{% include 'footer.html' %}
 {% endblock %}

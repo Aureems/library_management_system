@@ -6,16 +6,46 @@
   <component name="ChangeListManager">
     <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="github desktop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/migrations/0002_delete_order.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bookapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0002_alter_order_due_to_date_alter_order_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0003_alter_order_due_to_date_cart.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0004_remove_cart_active_cart_ordered_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0005_alter_cart_order_date_alter_order_due_to_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0006_remove_cart_book_cart_book_alter_cart_order_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0007_remove_order_book_order_items_alter_cart_order_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0008_remove_cart_user_remove_cart_book_cart_book_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0009_order_ref_code_alter_cart_order_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0010_remove_order_ref_code_alter_cart_order_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0011_alter_cart_order_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0012_alter_order_due_to_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0013_alter_order_due_to_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0014_rename_cart_orderitem_alter_order_due_to_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0015_rename_user_order_owner_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0016_rename_order_date_order_date_ordered_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0017_order_ref_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0018_alter_order_date_ordered_alter_order_due_to_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0019_alter_order_ref_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0020_alter_profile_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0021_alter_order_ref_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0022_rename_book_orderitem_item.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0023_remove_orderitem_is_ordered_alter_orderitem_item.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0024_remove_order_owner_order_user_orderitem_is_ordered_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/authors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/bookapp/book-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/contactus.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/contactus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/booksbycat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/categories.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/libapp/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/libapp/cart/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/subcategories.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/migrations/0001_initial.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +56,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -52,7 +82,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/templates/bookapp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -62,17 +92,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\assets\img" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\templates" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\static\css" />
-      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\userapp\migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\templates" />
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\assets\img" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
       <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\css" />
-      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\js" />
     </key>
   </component>
   <component name="RunManager" selected="Python.views">
@@ -172,7 +203,14 @@
       <workItem from="1659383112130" duration="97000" />
       <workItem from="1659453035986" duration="9113000" />
       <workItem from="1659526441762" duration="9024000" />
-      <workItem from="1659621611051" duration="4120000" />
+      <workItem from="1659621611051" duration="11091000" />
+      <workItem from="1659715232285" duration="8188000" />
+      <workItem from="1659724757396" duration="3388000" />
+      <workItem from="1659728296522" duration="4431000" />
+      <workItem from="1659766042252" duration="4824000" />
+      <workItem from="1659771467206" duration="65000" />
+      <workItem from="1659771573835" duration="267000" />
+      <workItem from="1659771853922" duration="15115000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
