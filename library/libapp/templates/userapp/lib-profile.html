@@ -50,46 +50,30 @@
                             <thead>
 
                                 <tr>
-                                    <th scope="col">No.</th>
-{#                                    <th scope="col">ISBN</th>#}
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Page number</th>
-                                    <th scope="col">Ordered from</th>
-{#                                    <th scope="col">Ordered until</th>#}
-                                    <th scope="col">Ordered until</th>
+                                  <th scope="col">#</th>
+                                  <th scope="col">ISBN</th>
+                                  <th scope="col">Title</th>
+                                  <th scope="col">Author</th>
+                                  <th scope="col">Ordered by</th>
+                                  <th scope="col">Ordered until</th>
+                                  <th scope="col">Availability</th>
                                 </tr>
                             </thead>
                             <tbody id="items">
-
-
-                            {% for my_item in my_reading_books %}
                                 <tr>
-                                  <th scope="row">{{ forloop.counter }}</th>
-{#                                  <td>{{ book.item_id }}</td>#}
+                                  <th scope="row">{{ 'forloop.counter' }}</th>
+                                  <td>{{ my_item.item.isbn }}</td>
                                   <td>{{ my_item.item.title }}</td>
                                   <td>{{ my_item.item.author}}</td>
-                                  <td>{{ my_item.item.page_number}}</td>
-                                  <td>{{ my_item.date_ordered|date:'Y-m-d H:m'}}</td>
-
-{#                                  <td>{{ order.until_date}}</td>#}
-
-
-                                  <td>
-
-
-
-{#                                      {% for order in my_orders %}#}
-{#                                          {% if order.items.id == my_item.id %}#}
-{#                                      {{ my_orders.until_date|date:'Y-m-d' }}#}
-{#                                          {% endif %}#}
-{#                                      {% endfor %}#}
-                                      <a href={% url 'book-return' my_item.id %}>
-                                          <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
-                                      </a>
+                                  <td>{{ my_item.item.user}}</td>
+                                  <td>{{ my_item.until_date|date:'Y-m-d H:m'}}</td>
+                                  <td>Returned-available/not
+{#                                      <a href={% url 'book-return' my_item.id %}>#}
+{#                                          <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>#}
+{#                                      </a>#}
                                   </td>
                                 </tr>
-                            {% endfor %}
+
 
                             </tbody>
                         </table>
@@ -103,19 +87,6 @@
                     <!--/table-resp-->
 
                 </div>
-                <!--/tab-pane-->
-                <!--/tab-pane-->
-{#                <div class="tab-pane" id="settings">#}
-{#                    <hr>#}
-{#                    <form class="form" action="##" method="post" id="registrationForm">#}
-{#                        <div class="form-group">#}
-{##}
-{#                            {% csrf_token %}#}
-{##}
-{##}
-{#                        </div>#}
-{#                    </form>#}
-{#                </div>#}
 
             </div>
             <!--/tab-pane-->

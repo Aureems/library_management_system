@@ -26,30 +26,25 @@ def create_ref_code():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=9))
 
 
-# profile View
-# def my_profile(request):
-#     return render(request, 'userapp/profile.html')
-
 def my_profile(request):
     my_user_profile = Profile.objects.filter(user=request.user)[0]
     my_orders = Order.objects.filter(is_ordered=True, user=my_user_profile.user_id)
-    my_not_returned_books = OrderItem.objects.filter(user=my_user_profile.user_id, is_ordered = True, date_returned__isnull=True)
+    my_reading_books = OrderItem.objects.filter(user=my_user_profile.user_id, is_ordered = True, date_returned__isnull=True).\
+        order_by('-date_returned', '-date_ordered')
     total_books = OrderItem.objects.filter(is_ordered=True, user=request.user).count()
     total_not_returned = OrderItem.objects.filter(date_returned__isnull=True,is_ordered=True, user=request.user).count()
 
     context = {
         'my_orders': my_orders,
-        'my_not_returned_books': my_not_returned_books,
+        'my_reading_books': my_reading_books,
         'total_books': total_books,
         'total_not_returned': total_not_returned,
     }
     return render(request, 'userapp/profile.html', context)
 
-#
-# class ProfileView(View):
-#     model = Profile
-#     template = 'userapp/profile.html'
-#     # login_url = 'login'
+
+def lib_profile(request):
+    return render(request, 'userapp/lib-profile.html')
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
@@ -66,11 +61,11 @@ class OrderSummaryView(LoginRequiredMixin, View):
             messages.warning(self.request, "You do not have an active order")
             return redirect ('books')
 
-# class OrderSummaryView(LoginRequiredMixin, View):
-#     model = OrderItem
-#     template = 'libapp/cart/cart.html'
-#     login_url = 'login'
 
+def checkout (request):
+    # order = Order.objects.get(user=request.user, id=id)
+
+    return render(request, 'libapp/cart/checkout.html')
 
 @login_required()
 def add_to_cart(request, isbn):
@@ -91,7 +86,7 @@ def add_to_cart(request, isbn):
             return redirect('books')
     else:
         date_ordered = datetime.now()
-        order = Order.objects.create(user=request.user, date_ordered=date_ordered)
+        order = Order.objects.create(user=request.user)
         order.items.add(order_item)
         item.available = False
         item.save()
@@ -109,46 +104,58 @@ def delete_from_cart(request, isbn):
     order_item.delete()
     item.available = True
     item.save()
-    messages.warning(request, f'"{item.title}" book was removed from your cart')
+    messages.warning(request, f'"{item.title}" was removed from your cart')
     return redirect('cart')
 
 
 @login_required()
-def process_order(request, order_id):
-    return redirect(reverse('checkout', kwargs={
-        'order_id': order_id
-    })
-                    )
+def confirm_order(request):
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            # get the order being processed
+            order_to_purchase_qs = Order.objects.filter(user=request.user, is_ordered=False)
+            order_to_purchase = order_to_purchase_qs[0]
+            # update placed order
+            order_to_purchase.is_ordered = True
+            order_to_purchase.ref_code = create_ref_code()
+            order_to_purchase.date_ordered=datetime.now()
+            order_to_purchase.until_date = request.POST['until_date']
+            order_to_purchase.save()
+            # get all items in the order - generates a queryset
+            order_items = order_to_purchase.items.all()
+            #update order items
+            order_items.update(is_ordered=True, date_ordered=datetime.now())
+            #Add items to user profile
+            user_profile = get_object_or_404(Profile, user=request.user)
+            # get all the books from the items. Order model has ManyToMany field from Book model
+            ordered_books = [order_item.item.pk for order_item in order_items]
+            # * - lets to add a list (order_books is a list) to user profile
+            user_profile.books.add(*ordered_books)
+            user_profile.save()
+            return redirect('checkout')
+        else:
+            form = CheckoutForm()
+        return render(request, 'libapp/cart/cart.html', {'form': form})
+
+# @login_required()
+# def process_order(request, order_id):
+#     return redirect(reverse('checkout', kwargs={
+#         'order_id': order_id
+#     })
+#                     )
+
 
 @login_required()
-def confirm_order(request):
-    # get the order being processed
-    order_to_purchase_qs = Order.objects.filter(user=request.user, is_ordered=False)
-    order_to_purchase = order_to_purchase_qs[0]
-
-    # update placed order
-    order_to_purchase.is_ordered = True
-    order_to_purchase.ref_code = create_ref_code()
-    order_to_purchase.date_ordered = datetime.now()
-
-    order_to_purchase.save()
-
-    # get all items in the order - generates a queryset
-    order_items = order_to_purchase.items.all()
-
-    #update order items
-    order_items.update(is_ordered=True, date_ordered=datetime.now())
-
-    #Add items to user profile
-    user_profile = get_object_or_404(Profile, user=request.user)
-
-    # get all the books from the items. Order model has ManyToMany field from Book model
-    ordered_books = [order_item.item.pk for order_item in order_items]
-    # * - lets to add a list (order_books is a list) to user profile
-    user_profile.books.add(*ordered_books)
-    user_profile.save()
+def book_return(request, id):
+    item = get_object_or_404(OrderItem, id=id)
+    order_item = OrderItem.objects.filter(id=id, user=request.user, is_ordered=True)[0]
+    order_item.date_returned = datetime.now()
+    order_item.save()
+    item.item.available = True
+    item.item.save()
+    messages.info(request, f'"{item.item.title}" was returned to library')
     return redirect('profile')
-
 
 
 class HomeView(ListView):
