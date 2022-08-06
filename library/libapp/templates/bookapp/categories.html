@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<style>
+.list-group{
+	width: 400px !important;
+
+}
+
+.list-group-item{
+	margin-top:10px;
+	border-radius: initial;
+	background: #5E35B1;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+
+.list-group-item:hover{
+	transform: scaleX(1.1);
+}
+
+
+
+.check{
+	opacity: 0;
+	transition: all 0.6s ease-in-out;
+}
+
+.list-group-item:hover .check {
+	opacity: 1;
+
+}
+
+.about span{
+	font-size: 12px;
+	margin-right: 10px;
+
+}
+
+input[type=checkbox] {
+         position: relative;
+	       cursor: pointer;
+    }
+    input[type=checkbox]:before {
+         content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 0;
+    border: 1px solid #10a3f9;
+    border-radius: 3px;
+    background-color: white;
+
+}
+    input[type=checkbox]:checked:after {
+         content: "";
+    display: block;
+    width: 7px;
+    height: 12px;
+    border: solid #007bff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+   }
+</style>
+
+<h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">Categories</h3>
+<h6 class="font-weight-bold text-uppercase text-center cw-50 p-3">Currently {{ total_cats }} sub-categories in library</h6>
+
+<div class="container d-flex justify-content-center">
+    <ul class="list-group mt-5 text-white">
+    {% for cat in grouped %}
+      <li class="list-group-item d-flex justify-content-between align-content-center">
+          {% if cat.category_name == 'Fiction' %}
+                {% for cat1 in fiction|slice:':1' %}
+                    <div  class="d-flex flex-row">
+                        <img  src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+                        <div  class="ml-2">
+                            <a href="{% url 'subcat-list' cat1.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>
+                            <div class="about">
+                                <span>{{ cat.dcount }}</span>
+                                <span>{% now "Y M d" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% else %}
+                {% for cat2 in nonfiction|slice:':1' %}
+                    <div  class="d-flex flex-row">
+                        <img  src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+                        <div  class="ml-2">
+                            <a href="{% url 'subcat-list' cat2.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>
+                            <div class="about">
+                                <span>{{ cat.dcount }}</span>
+                                <span>{% now "Y M d" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+          {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+</div>
+
+
+{#<div class="container d-flex justify-content-center">#}
+{#    <ul class="list-group mt-5 text-white">#}
+{#    {% for cat in grouped %}#}
+{#      <li class="list-group-item d-flex justify-content-between align-content-center">#}
+{#          {% if cat.category_name == 'Fiction' %}#}
+{#                {% for cat1 in fiction|slice:':1' %}#}
+{#                    <div  class="d-flex flex-row">#}
+{#                        <img  src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />#}
+{#                        <div  class="ml-2">#}
+{#                            <a href="{% url 'subcat-list' cat1.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>#}
+{#                            <div class="about">#}
+{#                                <span>{{ cat.dcount }}</span>#}
+{#                                <span>{% now "Y M d" %}</span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#                {% else %}#}
+{#                {% for cat2 in nonfiction|slice:':1' %}#}
+{#                    <div  class="d-flex flex-row">#}
+{#                        <img  src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />#}
+{#                        <div  class="ml-2">#}
+{#                            <a href="{% url 'subcat-list' cat2.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>#}
+{#                            <div class="about">#}
+{#                                <span>{{ cat.dcount }}</span>#}
+{#                                <span>{% now "Y M d" %}</span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#          {% endif %}#}
+{#      </li>#}
+{#    {% endfor %}#}
+{#    </ul>#}
+{#</div>#}
+
+
+
+{% include 'footer.html' %}
+{% endblock %}
