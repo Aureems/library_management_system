@@ -10,6 +10,8 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from django.views.generic.base import View
 from .models import Book, Category, Author
 from .forms import BookForm, AuthorForm, CategoryForm, CSVUploadForm, BookOrderForm
+from django.db.models import Count
+from django.db.models import Q
 
 
 def category_upload(request):
@@ -131,15 +133,27 @@ def add_book(request):
 
 class BookListView(ListView):
     model = Book
-    paginate_by = 5
+    paginate_by = 8
     template_name = 'bookapp/book-list.html'
     success_url = '/'
     ordering = ['-available', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
+        context['total_cats'] = Book.objects.all().count()
+        return context
+
+
+class BookListByAuth(ListView):
+    model = Book
+    paginate_by = 8
+    template_name = 'bookapp/book-list.html'
+    success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object_list'] = Book.objects.filter(author=self.kwargs.get('pk'))
+        context['total_cats'] = Book.objects.filter(author=self.kwargs.get('pk')).count()
         return context
 
 
@@ -167,3 +181,38 @@ class MyBookListView(LoginRequiredMixin, ListView):
     # paginate_by = 4
     template_name = 'bookapp/my-books.html'
     success_url = '/'
+
+
+class SubCategoryView(DetailView):
+    model = Category
+    template_name = 'bookapp/subcategories.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['subcats'] = Category.objects.filter(category_name='Fiction')
+        context['subcats2'] = Category.objects.filter(category_name='Nonfiction')
+        return context
+
+
+class BooksByCatView(ListView):
+    model = Book
+    template_name = 'bookapp/booksbycat.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['booksbycat'] = Book.objects.filter(category_id=self.kwargs['pk'])
+        return context
+
+
+class CategoryView(ListView):
+    model = Category
+    login_url = 'login'
+    template_name = 'bookapp/categories.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryView, self).get_context_data(**kwargs)
+        context['total_cats'] = Category.objects.all().count()
+        context['grouped'] = (Category.objects.values('category_name').annotate(dcount=Count('category_name')).order_by())
+        context['fiction'] = Category.objects.filter(category_name='Fiction')
+        context['nonfiction'] = Category.objects.filter(category_name='Nonfiction')
+        return context

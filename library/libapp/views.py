@@ -172,49 +172,6 @@ class HomeView(ListView):
         context['bookcount'] = Book.objects.prefetch_related('author').annotate(numb=Count('author'))
         context['authors'] = Author.objects.all().order_by('?')
         context['subcats'] = Category.objects.all()
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
-        return context
-
-
-class CategoryView(ListView):
-    model = Category
-    login_url = 'login'
-    template_name = 'categories.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(CategoryView, self).get_context_data(**kwargs)
-        context['total_cats'] = Category.objects.all().count()
-        context['grouped'] = (Category.objects.values('category_name').annotate(dcount=Count('category_name')).order_by())
-        context['fiction'] = Category.objects.filter(category_name='Fiction')
-        context['nonfiction'] = Category.objects.filter(category_name='Nonfiction')
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
-        return context
-
-
-class SubCategoryView(DetailView):
-    model = Category
-    template_name = 'subcategories.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['subcats'] = Category.objects.filter(category_name='Fiction')
-        context['subcats2'] = Category.objects.filter(category_name='Nonfiction')
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
-        return context
-
-
-class BooksByCatView(ListView):
-    model = Book
-    template_name = 'booksbycat.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['booksbycat'] = Book.objects.filter(category_id=self.kwargs['pk'])
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
         return context
 
 
@@ -222,25 +179,18 @@ class AboutView(ListView):
     model = Book
     template_name = 'about.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
-        return context
-
 
 class AuthorListView(ListView):
     model = Author
     template_name = 'authors.html'
-    paginate_by = 5
+    paginate_by = 10
+    queryset = Author.objects.all().order_by('author_last_name')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['booksbyauth'] = Book.objects.values('author_id').annotate(total=Count('isbn'))
+        context['booksbyauth'] = Book.objects.all()
         context['authbooks'] = Book.objects.values('author_id').annotate(total=Count('isbn')).order_by()
         context['authorwithoutbook'] = Author.objects.exclude(author_id__in=Book.objects.values('author_id').distinct())
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
         return context
 
 
@@ -248,22 +198,10 @@ class ContactusView(ListView):
     model = Book
     template_name = 'contactus.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
-        return context
-
 
 class FaqView(ListView):
     model = Book
     template_name = 'questions.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
-        return context
 
 
 @login_required
@@ -282,6 +220,8 @@ class Search(ListView):
         query = self.request.GET.get('q', None)
         search = Book.objects.all().filter(
             Q(title__icontains=query) |
+            Q(author__author_last_name__icontains=query) |
+            Q(author__author_first_name__icontains=query) |
             Q(description__icontains=query))
         return search
 
@@ -290,9 +230,9 @@ class Search(ListView):
         query = self.request.GET.get('q', None)
         context['searchcount'] = Book.objects.all().filter(
             Q(title__icontains=query) |
+            Q(author__author_last_name__icontains=query) |
+            Q(author__author_first_name__icontains=query) |
             Q(description__icontains=query)).count()
-        context['navsubcats'] = Category.objects.all()
-        context['navbooks'] = Book.objects.all()
         return context
 
 

@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import HomeView, AuthorListView, managelib, Search, FaqView, ContactusView, AboutView
+
+from .views import Search, FaqView, ContactusView, AboutView
+from .views import HomeView, AuthorListView, managelib, Search, my_profile, OrderSummaryView, add_to_cart, process_order, \
+    delete_from_cart, confirm_order
 from .views import HomeView, AuthorListView, managelib, CategoryView, SubCategoryView,\
     BooksByCatView, Search, FaqView, ContactusView, AboutView
 from .views import HomeView, AuthorListView, managelib, CategoryView, SubCategoryView,\
@@ -29,9 +34,6 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('about/', AboutView.as_view(), name='about'),
     path('authors/', AuthorListView.as_view(), name='authors'),
-    path('categories/', CategoryView.as_view(), name='categories'),
-    path('subcategories/<pk>', SubCategoryView.as_view(), name='subcat-list'),
-    path('books-by-subcat/<str:pk>', BooksByCatView.as_view(), name='books-by-cat'),
     path('search/', Search.as_view(), name='search'),
     path('contactus/', ContactusView.as_view(), name='contactus'),
     path('faq/', FaqView.as_view(), name='faq'),
