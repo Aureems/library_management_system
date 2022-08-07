@@ -43,10 +43,6 @@ def my_profile(request):
     return render(request, 'userapp/profile.html', context)
 
 
-def lib_profile(request):
-    return render(request, 'userapp/lib-profile.html')
-
-
 class OrderSummaryView(LoginRequiredMixin, View):
 
     def get(self, *args, **kwargs):

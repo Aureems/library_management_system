@@ -14,8 +14,8 @@
 <div class="container bootstrap snippets bootdey">
     <div class="row">
         {% for book in object_list %}
-<div class="col-6 border">
-            <div class="row col-md-12 mb-5 mt-5"><hr class="solid">
+        <div class="col-md-6 border">
+            <div class="row col-md-12 mb-2 mt-3"><hr class="solid">
               <div class="col-md-6">
                   <div class="title">
                       <a href="{% url 'about-book' book.pk %}"><h3>{{ book.title }}</h3></a>

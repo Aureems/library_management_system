@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile', blank=True, null=True)
     books = models.ManyToManyField(Book, blank=True)
 
     def __str__(self):
