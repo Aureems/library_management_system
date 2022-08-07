@@ -33,7 +33,6 @@ class OrderItem(models.Model):
         return self.item.title
 
 
-
 class Order(models.Model):
     ref_code = models.CharField(max_length=9, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)

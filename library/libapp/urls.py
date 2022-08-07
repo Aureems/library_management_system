@@ -17,13 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import HomeView, AuthorListView, managelib, CategoryView, SubCategoryView,\
-    BooksByCatView, Search, FaqView, ContactusView, AboutView
-from .views import HomeView, AuthorListView, managelib, CategoryView, SubCategoryView,\
-    BooksByCatView, Search, my_profile, OrderSummaryView, add_to_cart, delete_from_cart, process_order, confirm_order
+from .views import HomeView, AuthorListView, managelib, Search, FaqView, ContactusView, AboutView
+
 from .views import Search, FaqView, ContactusView, AboutView
-from .views import HomeView, AuthorListView, managelib, Search, my_profile, OrderSummaryView, add_to_cart, process_order, update_transaction_records, \
-    delete_from_cart
+from .views import HomeView, AuthorListView, managelib, Search, my_profile, OrderSummaryView, add_to_cart, process_order, \
+    delete_from_cart, confirm_order
 
 
 
