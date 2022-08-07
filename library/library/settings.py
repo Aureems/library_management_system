@@ -133,7 +133,7 @@ LANGUAGE_CODE = 'en-us'
 
 DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Vilnius'
 
 USE_I18N = True
 
