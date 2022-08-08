@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile', blank=True, null=True)
     books = models.ManyToManyField(Book, blank=True)
 
     def __str__(self):
@@ -23,7 +23,7 @@ post_save.connect(post_save_profile_create, sender=User)
 
 class OrderItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    item = models.OneToOneField(Book, on_delete=models.CASCADE, null=True, blank=True)
+    item = models.ForeignKey(Book, on_delete=models.CASCADE, null=True, blank=True)
     is_ordered = models.BooleanField(default=False, null=True, blank=True)
     date_added = models.DateTimeField(auto_now=True, null=True, blank=True)
     date_ordered = models.DateTimeField(null=True, blank=True)

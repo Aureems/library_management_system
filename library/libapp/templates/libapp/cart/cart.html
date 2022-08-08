@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
 {% load static %}
-
-
 {% block content %}
 {% include 'navbar.html' %}
 <style>
@@ -64,7 +67,12 @@ body{
                           </div>
                         </td>
 {#                        <td class="align-middle p-4"><input type="date" class="form-control text-center" value="{{  order_item.due_to_date }}"></td>#}
-                        <td class="text-center align-middle px-0"><a href="{% url 'delete-from-cart' order_item.item.isbn %}" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
+                        <td class="text-center align-middle px-0">
+                            <a href="{% url 'delete-from-cart' order_item.item.isbn %}"
+                               class="text-danger" title="" data-original-title="Remove">
+                                <i class="fa fa-remove"></i>
+                            </a>
+                        </td>
                       </tr>
 
                     {% empty %}
@@ -80,10 +88,19 @@ body{
             </div>
         <hr>
 
-        <div class="col-md-6">
+        <form action="{% url 'confirm' %}" method="POST" autocomplete="off">
+
         {% csrf_token %}
         {{ form.media }}
-        {{ form }}
+
+        <div class="form-row">
+{#            <div class="form-group col-md-6 mb-0">{% now "Y-m-d H:i" %}</div>#}
+            <div class="form-group col-md-6">
+               Order from <input class="form-control mt-2" type="text" placeholder="{% now "Y-m-d H:i" %}" readonly>
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.until_date|as_crispy_field }}
+            </div>
         </div>
 
             <div class="float-right">
@@ -93,12 +110,17 @@ body{
                 </button>
                 </a>
 
-                <a href="{% url 'checkout' %}">
-                <button type="button" class="btn btn-warning md-btn-flat mt-2">
+                <a href="{% url 'confirm' %}">
+                <button type="submit" class="btn btn-warning md-btn-flat mt-2">
                     <i class="fa fa-check-square-o" aria-hidden="true"></i> Confirm
                 </button>
                 </a>
             </div>
+
+        </form>
+
+
+
 
           </div>
       </div>

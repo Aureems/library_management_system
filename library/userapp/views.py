@@ -53,7 +53,7 @@ def register_user(request):
 
 class UserLogin(LoginView):
     template_name = 'userapp/login.html'
-
+    success_url = 'profile'
 
 def login_user(request):
     if request.method == 'POST':
@@ -63,8 +63,12 @@ def login_user(request):
         user = authenticate(email=email, password=password)
         if user:
             if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect(reverse('profile'))
+                if user.is_customer:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('profile'))
+                else:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('lib-profile'))
             else:
                 messages.error(request, f'Your account is inactive')
                 # return HttpResponse('Your account is inactive')

@@ -6,9 +6,6 @@ from django.db import transaction
 # from django.contrib.auth.models import User
 
 
-class ProfileForm():
-    pass
-
 class PasswordChangingForm(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
     new_password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))

@@ -19,9 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from .views import HomeView, AuthorListView, managelib, Search, FaqView, ContactusView, AboutView
 
-from .views import Search, FaqView, ContactusView, AboutView
-from .views import HomeView, AuthorListView, managelib, Search, my_profile, OrderSummaryView, add_to_cart, process_order, \
-    delete_from_cart, confirm_order
+from .views import Search, FaqView, ContactusView, AboutView, HomeView, AuthorListView, managelib,\
+    Search, my_profile, OrderSummaryView, add_to_cart, delete_from_cart, confirm_order, book_return, \
+    OrderDetailsView
 
 
 
@@ -36,7 +36,8 @@ urlpatterns = [
     path('cart/', OrderSummaryView.as_view(), name='cart'),
     path('cart/add-to-cart/<isbn>', add_to_cart, name='add-to-cart'),
     path('cart/delete-from-cart/<isbn>', delete_from_cart, name='delete-from-cart'),
-    path('checkout/', confirm_order, name='checkout'),
-    # path('process-order/<pk>', process_order, name='process-order'),
+    path('cart/confirm/', confirm_order, name='confirm'),
+    path('cart/checkout/', OrderDetailsView.as_view(), name='checkout'),
     path('profile/', my_profile , name='profile'),
+    path('book-return/<id>', book_return, name='book-return')
 ]
