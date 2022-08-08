@@ -36,13 +36,19 @@ def my_profile(request):
                                                 is_ordered=True).prefetch_related('items')
     total_books = OrderItem.objects.filter(is_ordered=True, user=request.user).count()
     total_not_returned = OrderItem.objects.filter(date_returned__isnull=True,is_ordered=True, user=request.user).count()
+    all_orders = Order.objects.prefetch_related('items')
+    all_reading_books = OrderItem.objects.filter(is_ordered=True, date_returned__isnull=True)
+    all_books = Book.objects.all()
 
     context = {
         'my_orders': my_orders,
         'my_reading_books': my_reading_books,
         'total_books': total_books,
         'total_not_returned': total_not_returned,
-        'active_orders': my_active_orders
+        'active_orders': my_active_orders,
+        'all_orders': all_orders,
+        'all_reading_books': all_reading_books,
+        'all_books': all_books,
     }
     return render(request, 'userapp/profile.html', context)
 

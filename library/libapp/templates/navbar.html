@@ -76,7 +76,7 @@ Home
         <li><a href="{% url 'login' %}" class="dropdown-item link-black-100">Login</a></li>
     {% endif %}
     <li><a href="{% url 'profile' %}" class="dropdown-item link-black-100">Your profile</a></li>
-    <li><a href="{% url 'my-books' user.pk %}" class="dropdown-item link-black-100">Your orders</a></li>
+    <li><a href="#" class="dropdown-item link-black-100">Your orders</a></li>
     {% if user.is_staff %}
         <li><a href="{% url 'managelib' %}" class="dropdown-item link-black-100">Library management</a></li>
     {% endif %}

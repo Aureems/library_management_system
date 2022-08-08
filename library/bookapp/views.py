@@ -168,19 +168,19 @@ class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     # order = Order.objects.all()
 
 
-class BookCatalogView(ListView):
-    model = Book
-    # paginate_by = 4
-    template_name = 'bookapp/book-catalog.html'
-    success_url = '/'
-
-
-class MyBookListView(LoginRequiredMixin, ListView):
-    model = Book
-    login_url = 'login'
-    # paginate_by = 4
-    template_name = 'bookapp/my-books.html'
-    success_url = '/'
+# class BookCatalogView(ListView):
+#     model = Book
+#     # paginate_by = 4
+#     template_name = 'bookapp/book-catalog.html'
+#     success_url = '/'
+#
+#
+# class MyBookListView(LoginRequiredMixin, ListView):
+#     model = Book
+#     login_url = 'login'
+#     # paginate_by = 4
+#     template_name = 'bookapp/my-books.html'
+#     success_url = '/'
 
 
 class SubCategoryView(DetailView):

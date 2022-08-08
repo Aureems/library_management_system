@@ -1,0 +1,76 @@
+<!--/col-3-->
+<div class="col-sm-9">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">Library catalog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#orders" data-toggle="tab">Orders</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="table-responsive">
+                <table class="table table-hover"  style="font-size:13px">
+                    <thead>
+
+                        <tr>
+                          <th scope="col">ISBN</th>
+                          <th scope="col">Title</th>
+                          <th scope="col">Author</th>
+                          <th scope="col">Page number</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Availability</th>
+                          <th scope="col">Ordered until</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items">
+                        {% for book in all_books %}
+{#                            {% for order_item in order.items.all %}#}
+{#                                      <th scope="row">{{ forloop.parentloop.counter }}</th>#}
+                            <tr>
+                              <td><a href="{% url 'about-book' book.pk %}">{{ book.isbn }}</a></td>
+                              <td>{{ book.title }}</td>
+                              <td>{{ book.author}}</td>
+                              <td>{{ book.page_number}}</td>
+                              <td>{{ book.category}}</td>
+                              <td>
+                                  {% if book.available %}
+                                      <i class="fa fa-check-square" aria-hidden="true" style="color: green"></i>
+                                  {% else %}
+                                      <i class="fa fa-minus-square" aria-hidden="true" style="color: red"></i>
+                                  {% endif %}
+                              </td>
+
+                                <td>
+                                    {% if not book.available %}
+                                    {% for order in all_orders %}
+                                        {% for order_item in order.items.all %}
+                                            {% if order_item.item_id == book.isbn and not order_item.date_returned %}
+                                            {{ order.until_date|date:'Y-m-d'}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% endif %}
+                                </td>
+
+                            </tr>
+
+{#                            {% endfor %}#}
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+{#                <div class="row">#}
+{#                    <div class="col-md-4 col-md-offset-4 text-center">#}
+{#                        <ul class="pagination" id="myPager"></ul>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+            <!--/table-resp-->
+
+        </div>
+
+
+
+    </div>
+
+</div>
+<!--/tab-content-->
