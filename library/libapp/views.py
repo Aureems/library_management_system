@@ -9,7 +9,7 @@ from django.db.models import Count
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 from django.views import View
 from django.db.models import Q
 from datetime import datetime
@@ -29,8 +29,11 @@ def create_ref_code():
 def my_profile(request):
     my_user_profile = Profile.objects.filter(user=request.user)[0]
     my_orders = Order.objects.filter(is_ordered=True, user=my_user_profile.user_id)
-    my_reading_books = OrderItem.objects.filter(user=my_user_profile.user_id, is_ordered = True, date_returned__isnull=True).\
-        order_by('-date_returned', '-date_ordered')
+    my_reading_books = OrderItem.objects.filter(user=my_user_profile.user_id,
+                                                is_ordered=True,
+                                                date_returned__isnull=True).order_by('-date_returned', '-date_ordered')
+    my_active_orders = Order.objects.filter(user=my_user_profile.user_id,
+                                                is_ordered=True).prefetch_related('items')
     total_books = OrderItem.objects.filter(is_ordered=True, user=request.user).count()
     total_not_returned = OrderItem.objects.filter(date_returned__isnull=True,is_ordered=True, user=request.user).count()
 
@@ -39,6 +42,7 @@ def my_profile(request):
         'my_reading_books': my_reading_books,
         'total_books': total_books,
         'total_not_returned': total_not_returned,
+        'active_orders': my_active_orders
     }
     return render(request, 'userapp/profile.html', context)
 
@@ -58,10 +62,19 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect ('books')
 
 
-def checkout (request):
-    # order = Order.objects.get(user=request.user, id=id)
+class OrderDetailsView(View):
 
-    return render(request, 'libapp/cart/checkout.html')
+    def get(self, *args, **kwargs):
+        try:
+            order = Order.objects.values('ref_code', 'until_date').filter(user=self.request.user).latest('date_ordered')
+            context = {
+                'object': order,
+            }
+            return render(self.request, 'libapp/cart/checkout.html', context)
+        except ObjectDoesNotExist:
+            messages.warning(self.request, "You do not have an active order")
+            return redirect ('profile')
+
 
 @login_required()
 def add_to_cart(request, isbn):
@@ -129,9 +142,11 @@ def confirm_order(request):
             # * - lets to add a list (order_books is a list) to user profile
             user_profile.books.add(*ordered_books)
             user_profile.save()
+            # messages.info(request, f'Your order: {order_to_purchase.ref_code} was completed')
             return redirect('checkout')
         else:
             form = CheckoutForm()
+
         return render(request, 'libapp/cart/cart.html', {'form': form})
 
 # @login_required()

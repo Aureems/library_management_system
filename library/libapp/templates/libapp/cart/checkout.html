@@ -115,8 +115,9 @@ body {
 			</div>
 			<div class="modal-body text-center">
 				<h4>Great!</h4>
-				<p>You ordered successfully.</p>
-
+				<p>You have successfully ordered.</p>
+                <p style="font-weight: bold">Your order code: {{ object.ref_code }}</p>
+                <p style="font-weight: bold">Until: {{ object.until_date|date:'Y-m-d'}}</p>
                 <a href="{% url 'profile' %}">
 				<button class="btn btn-warning"><span>OK</span> </button>
                 </a>

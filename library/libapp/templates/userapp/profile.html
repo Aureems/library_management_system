@@ -6,28 +6,41 @@
 <style>
     body{margin-top:20px;}
 </style>
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <hr>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-10">
-            <h3>{{ user.username }}</h3></div>
-    </div>
+    <div class="row ml-2"><h4>{{ user.username }}</h4></div>
     <div class="row">
         <div class="col-sm-3">
             <!--left col-->
             <ul class="list-group">
-                <li class="list-group-item text-muted">Profile <i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
+            <a href="#">
+                <li class="list-group-item text-muted">Profile
+                    <i class="fa fa-user-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View details"></i>
+                </li>
+            </a>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Joined</strong></span>
                     {{ user.date_joined|date:'Y-m-d'}}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Last seen</strong></span>
                     {{ user.last_login|date:'Y-m-d h:i a'}}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Full name</strong></span>
                     {{ user.first_name}} {{ user.last_name }}</li>
+                <li class="list-group-item text-right"><span class="float-left"><strong>User type</strong></span>
+                    {% if user.is_staff %}
+                        Admin
+                    {% else %}
+                        {% if user.is_customer %}
+                            Customer
+                        {% else %}
+                            Librarian
+                        {% endif %}
+                    {% endif %}
+                </li>
             </ul>
 
-
+            {% if not user.is_librarian %}
             <ul class="list-group">
                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard" aria-hidden="true"></i></li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Total ordered books</strong></span>
@@ -35,12 +48,13 @@
                 <li class="list-group-item text-right"><span class="float-left"><strong>Reading</strong></span>
                     {{ total_not_returned }}</li>
             </ul>
+            {% endif %}
 
         </div>
         <!--/col-3-->
         <div class="col-sm-9">
             <ul class="nav nav-tabs" id="myTab">
-                  <li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">My books</a></li>
+                <a class="nav-link active" id="home" href="#home" data-toggle="tab">My books</a>
             </ul>
 
             <div class="tab-content">
@@ -50,45 +64,32 @@
                             <thead>
 
                                 <tr>
-                                    <th scope="col">No.</th>
-{#                                    <th scope="col">ISBN</th>#}
+{#                                    <th scope="col">No.</th>#}
                                     <th scope="col">Title</th>
                                     <th scope="col">Author</th>
                                     <th scope="col">Page number</th>
                                     <th scope="col">Ordered from</th>
-{#                                    <th scope="col">Ordered until</th>#}
                                     <th scope="col">Ordered until</th>
                                 </tr>
                             </thead>
                             <tbody id="items">
 
-
-                            {% for my_item in my_reading_books %}
-                                <tr>
-                                  <th scope="row">{{ forloop.counter }}</th>
-{#                                  <td>{{ book.item_id }}</td>#}
-                                  <td>{{ my_item.item.title }}</td>
-                                  <td>{{ my_item.item.author}}</td>
-                                  <td>{{ my_item.item.page_number}}</td>
-                                  <td>{{ my_item.date_ordered|date:'Y-m-d H:m'}}</td>
-
-{#                                  <td>{{ order.until_date}}</td>#}
-
-
-                                  <td>
-
-
-
-{#                                      {% for order in my_orders %}#}
-{#                                          {% if order.items.id == my_item.id %}#}
-{#                                      {{ my_orders.until_date|date:'Y-m-d' }}#}
-{#                                          {% endif %}#}
-{#                                      {% endfor %}#}
-                                      <a href={% url 'book-return' my_item.id %}>
-                                          <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
-                                      </a>
-                                  </td>
-                                </tr>
+                                {% for order in active_orders %}
+                                    {% for order_item in order.items.all %}
+{#                                      <th scope="row">{{ forloop.parentloop.counter }}</th>#}
+                                      {% if not order_item.date_returned %}
+                                      <td>{{ order_item.item.title }}</td>
+                                      <td>{{ order_item.item.author}}</td>
+                                      <td>{{ order_item.item.page_number}}</td>
+                                      <td>{{ order_item.date_ordered|date:'Y-m-d H:m'}}</td>
+                                      <td>{{ order.until_date|date:'Y-m-d H:m'}}
+                                          <a href={% url 'book-return' order_item.id %}>
+                                              <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
+                                          </a>
+                                      </td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
                             {% endfor %}
 
                             </tbody>
@@ -100,32 +101,11 @@
                             </div>
                         </div>
                     </div>
-                    <!--/table-resp-->
-
                 </div>
-                <!--/tab-pane-->
-                <!--/tab-pane-->
-{#                <div class="tab-pane" id="settings">#}
-{#                    <hr>#}
-{#                    <form class="form" action="##" method="post" id="registrationForm">#}
-{#                        <div class="form-group">#}
-{##}
-{#                            {% csrf_token %}#}
-{##}
-{##}
-{#                        </div>#}
-{#                    </form>#}
-{#                </div>#}
-
             </div>
-            <!--/tab-pane-->
         </div>
-        <!--/tab-content-->
-
     </div>
-    <!--/col-9-->
 </div>
-<!--/row-->
 
 
 {% include 'footer.html' %}
