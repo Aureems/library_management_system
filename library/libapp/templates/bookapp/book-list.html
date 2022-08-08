@@ -57,16 +57,16 @@
 
                       </div>
               <div class="col-md-6">
-                  <a href="{% url 'about-book' book.pk %}"><img src="{{ book.photo.url }}" style="height: 190px; width: 130px"></a>
+                  <a href="{% url 'about-book' book.pk %}" style="margin-left: 110px"><img src="{{ book.photo.url }}" style="height: 190px; width: 130px"></a>
               </div>
 
                 <div class="col-md-2" ><a href="{% url 'about-book' book.pk %}">
-                    <button class="btn btn-outline-info" style="white-space: nowrap;overflow: auto">Find out more
+                    <button class="btn btn-outline-info" style="white-space: nowrap;overflow: auto;margin-top: 20px">Find out more
                         <i class="fa fa-arrow-circle-right"></i>
                     </button></a>
                 </div>
                 <div class="col-md-2" ><a href="{% url 'add-to-cart' book.pk %}" style="margin-left: 80px">
-                    <button class="btn btn-outline-info" style="white-space: nowrap;overflow: auto;">Add to cart
+                    <button class="btn btn-outline-info" style="white-space: nowrap;overflow: auto;margin-top: 20px">Add to cart
                         <i class="fa fa-cart-arrow-down"></i>
                     </button></a>
                 </div>

@@ -150,7 +150,6 @@ def confirm_order(request):
     return redirect('profile')
 
 
-
 class HomeView(ListView):
     model = Book
     login_url = 'login'
