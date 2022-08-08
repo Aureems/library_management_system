@@ -81,8 +81,8 @@
                                       <td>{{ order_item.item.title }}</td>
                                       <td>{{ order_item.item.author}}</td>
                                       <td>{{ order_item.item.page_number}}</td>
-                                      <td>{{ order_item.date_ordered|date:'Y-m-d H:m'}}</td>
-                                      <td>{{ order.until_date|date:'Y-m-d H:m'}}
+                                      <td>{{ order_item.date_ordered|date:'Y-m-d'}}</td>
+                                      <td>{{ order.until_date|date:'Y-m-d'}}
                                           <a href={% url 'book-return' order_item.id %}>
                                               <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
                                           </a>
