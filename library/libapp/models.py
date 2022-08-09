@@ -45,5 +45,5 @@ class Order(models.Model):
         return self.items.all()
 
     def __str__(self):
-        return f'{self.user}:{self.ref_code}'
+        return f'{self.user.username}:{self.ref_code}'
 

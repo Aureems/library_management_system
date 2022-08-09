@@ -89,7 +89,7 @@ input[type=checkbox] {
                             <a href="{% url 'subcat-list' cat1.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>
                             <div class="about">
                                 <span>{{ cat.dcount }}</span>
-                                <span>{% now "Y M d" %}</span>
+                                <span>{{cat1.date_created}}</span>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ input[type=checkbox] {
                             <a href="{% url 'subcat-list' cat2.pk %}" style="color: white"><h6 class="mb-0"> {{ cat.category_name }}</h6></a>
                             <div class="about">
                                 <span>{{ cat.dcount }}</span>
-                                <span>{% now "Y M d" %}</span>
+                                <span>{{cat2.date_created}}</span>
                             </div>
                         </div>
                     </div>
