@@ -1,52 +1,52 @@
 <!--Customer books table-->
-        <div class="col-sm-9">
-            <ul class="nav nav-tabs" id="myTab">
-                <a class="nav-link active" id="home" href="#home" data-toggle="tab">My books</a>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <div class="table-responsive">
-                        <table class="table table-hover"  style="font-size:13px">
-                            <thead>
-                                <tr>
+<div class="col-sm-9">
+<ul class="nav nav-tabs" id="myTab">
+    <a class="nav-link active" id="home" href="#home" data-toggle="tab">My books ({{ total_not_returned }})</a>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="home">
+        <div class="table-responsive">
+            <table class="table table-hover"  style="font-size:13px">
+                <thead>
+                    <tr>
 {#                                    <th scope="col">No.</th>#}
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Page number</th>
-                                    <th scope="col">Ordered from</th>
-                                    <th scope="col">Ordered until</th>
-                                </tr>
-                            </thead>
-                            <tbody id="items">
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Page number</th>
+                        <th scope="col">Ordered from</th>
+                        <th scope="col">Ordered until</th>
+                    </tr>
+                </thead>
+                <tbody id="items">
 
-                                {% for order in active_orders %}
-                                    {% for order_item in order.items.all %}
+                    {% for order in active_orders %}
+                        {% for order_item in order.items.all %}
 {#                                      <th scope="row">{{ forloop.parentloop.counter }}</th>#}
-                                      {% if not order_item.date_returned %}
-                                      <tr>
-                                      <td>{{ order_item.item.title }}</td>
-                                      <td>{{ order_item.item.author}}</td>
-                                      <td>{{ order_item.item.page_number}}</td>
-                                      <td>{{ order_item.date_ordered|date:'Y-m-d'}}</td>
-                                      <td>{{ order.until_date|date:'Y-m-d'}}
-                                          <a href={% url 'book-return' order_item.id %}>
-                                              <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
-                                          </a>
-                                      </td>
-                                        {% endif %}
-                                      </tr>
-                                    {% endfor %}
-                                {% endfor %}
+                          {% if not order_item.date_returned %}
+                          <tr>
+                          <td>{{ order_item.item.title }}</td>
+                          <td>{{ order_item.item.author}}</td>
+                          <td>{{ order_item.item.page_number}}</td>
+                          <td>{{ order_item.date_ordered|date:'Y-m-d'}}</td>
+                          <td>{{ order.until_date|date:'Y-m-d'}}
+                              <a href={% url 'book-return' order_item.id %}>
+                                  <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
+                              </a>
+                          </td>
+                            {% endif %}
+                          </tr>
+                        {% endfor %}
+                    {% endfor %}
 
-                            </tbody>
-                        </table>
-                        <hr>
+                </tbody>
+            </table>
+            <hr>
 {#                        <div class="row">#}
 {#                            <div class="col-md-4 col-md-offset-4 text-center">#}
 {#                                <ul class="pagination" id="myPager"></ul>#}
 {#                            </div>#}
 {#                        </div>#}
-                    </div>
-                </div>
-            </div>
         </div>
+    </div>
+</div>
+</div>

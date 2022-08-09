@@ -6,60 +6,61 @@
 
 
 
-        <div class="pb-lg-1">
-            <div class="page-header">
-                <div class="container">
-                    <div class="d-md-flex justify-content-between align-items-center py-4" style="margin-left: 500px">
-                        <h1 class="page-title font-size-6 font-weight-medium m-0 text-lh-lg" >Authors</h1>
-                        <nav class="woocommerce-breadcrumb font-size-2">
-                            <a href="{% url 'home' %}" class="h-primary">Home</a>
-                            <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
-                            <span>Authors</span>
-                        </nav>
-                    </div>
-                </div>
+<div class="pb-lg-1">
+    <div class="page-header">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center py-4" style="margin-left: 500px">
+                <h1 class="page-title font-size-6 font-weight-medium m-0 text-lh-lg" >Authors</h1>
+                <nav class="woocommerce-breadcrumb font-size-2">
+                    <a href="{% url 'home' %}" class="h-primary">Home</a>
+                    <span class="breadcrumb-separator mx-1"><i class="fas fa-angle-right"></i></span>
+                    <span>Authors</span>
+                </nav>
             </div>
-
-
-<div class="container">
- <ul class="list-group">
-                         {% for item in object_list %}
-
-
-
-
-                <li class="list-group-item">
-                <div class="cbp-item graphic">
-                                <a class="cbp-caption" href="{% url 'books-byauth' item.author_id %}">
-{#                                <img class="rounded-circle img-fluid mb-3" src="../../assets/img/140x140/img1.jpg" alt="Image Description">#}
-                                <div class="py-3 text-center">
-                                            <h4 class="h6 text-dark">{{item}}</h4>
-                                            <span class="font-size-2 text-secondary-gray-700">
-                                           {{item.nationality}}
-                                            </span>
-                                </div>
-                                </a>
-                            </div>
-                        </li>
-                         {% endfor %}
-
-    </ul>
-</div>
         </div>
+    </div>
+    <div class="container">
+        <ul class="list-group">
+        {% for item in object_list %}
+            <li class="list-group-item">
+                <div class="cbp-item graphic">
+                    <a class="cbp-caption" href="{% url 'books-byauth' item.author_id %}">
+    {#                                <img class="rounded-circle img-fluid mb-3" src="../../assets/img/140x140/img1.jpg" alt="Image Description">#}
+                        <div class="py-3 text-center">
+                            <h4 class="h6 text-dark">{{item}}</h4>
+                            <span class="font-size-2 text-secondary-gray-700">
+                                {{item.nationality}}
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
 
 <div class="pagination-wrapper">
   <div class="pagination_rounded">
       <ul>
+
       {% if page_obj.has_previous %}
-        <li><a class="prev" href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-left" aria-hidden="true"></i>Prev</a></li>
+        <li><a class="prev" href="?page={{ page_obj.previous_page_number }}">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>Prev</a>
+        </li>
       {% endif %}
-    <li>>{{ page_obj.number }}<</li>
+
+          <li>>{{ page_obj.number }}<</li>
+
       {% for page in page_obj.paginator.page_range %}
         <li class="hidden-xs"><a class="page-numbers" href="?page={{ page }}">{{ page }}</a></li>
-{% endfor %}
+      {% endfor %}
+
       {% if page_obj.has_next %}
-    <li><a class="next" href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Next</a></li>
+        <li><a class="next" href="?page={{ page_obj.next_page_number }}">
+        <i class="fa fa-angle-right" aria-hidden="true"></i>Next</a></li>
       {% endif %}
+
       </ul>
   </div>
 </div>

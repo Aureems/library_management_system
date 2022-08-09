@@ -3,11 +3,15 @@
 {% block content %}
 
 {% include 'navbar.html' %}
+
+
 <style>
     body{margin-top:20px;}
 
     .container, .container-md, .container-sm {
-        max-width: 1300px;
+        max-width: 1250px;
+        margin-left: 50px;
+        margin-right: 50px;
     }
 
     .col-sm-3 {
@@ -21,15 +25,52 @@
     flex: 0 0 80%;
     max-width: 80%;
 }
+
+.well {
+    background: none;
+    height: 400px;
+}
+
+.table-scroll tbody {
+    position: absolute;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.table-scroll tr {
+    width: 100%;
+    table-layout: fixed;
+    display: inline-table;
+}
+
+.table-scroll thead > tr > th {
+    border: none;
+}
+
+.table th{
+    text-align: center;
+
+}
+
+.table td{
+    text-align: center;
+}
+
+
 </style>
+
+
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 <hr>
 <div class="container">
     <div class="row ml-2"><h4>{{ user.username }}</h4></div>
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 p-1">
             <!--left col-->
             <ul class="list-group">
             <a href="#">
@@ -68,14 +109,17 @@
 
         </div>
 <!--Books table-->
-    {% if user.is_customer %}
-    {% include 'patterns/cust-profile.html' %}
-    {% else %}
-    {% include 'patterns/lib-profile.html' %}
-    {% endif %}
 
+            {% if user.is_customer %}
+            {% include 'patterns/cust-profile.html' %}
+            {% else %}
+            {% include 'patterns/lib-profile.html' %}
+            {% endif %}
+
+        </div>
     </div>
-</div>
+
+
 
 {% include 'footer.html' %}
 {% endblock %}
