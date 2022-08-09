@@ -40,22 +40,24 @@
 </div>
 <div class="mb-5 mb-lg-7">
 <div class="d-md-flex align-items-center justify-content-between px-xl-10">
+
+
 <div class="text-center mb-3 mb-md-0">
-<div class="font-size-12 font-weight-medium ml-lg-2">45M</div>
-<span class="font-size-4">Active Readers</span>
+<div class="font-size-12 font-weight-medium ml-lg-2">{{ all_books.count }}</div>
+<span class="font-size-4">Books in library</span>
 </div>
 <div class="text-center mb-3 mb-md-0">
-<div class="font-size-12 font-weight-medium ml-2">+6k</div>
+<div class="font-size-12 font-weight-medium ml-2">{{ total_pages.page_number__sum }}</div>
 <span class="font-size-4">Total Pages</span>
 </div>
 <div class="text-center mb-3 mb-md-0">
-<div class="font-size-12 font-weight-medium ">30.6M</div>
-<span class="font-size-4">Buyers Activie</span>
+<div class="font-size-12 font-weight-medium ">{{ all_orders.count }}</div>
+<span class="font-size-4">Total orders</span>
 </div>
-<div class="text-center mb-0">
-<div class="font-size-12 font-weight-medium ml-2">283</div>
-<span class="font-size-4">Cup Of Coffe</span>
-</div>
+{#<div class="text-center mb-0">#}
+{#<div class="font-size-12 font-weight-medium ml-2">283</div>#}
+{#<span class="font-size-4">Cup Of Coffe</span>#}
+{#</div>#}
 </div>
 </div>
 <div class="mb-5 mb-lg-10">
@@ -125,119 +127,48 @@
                              "slidesToShow": 1
                            }
                         }]'>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img2.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Anna Baranov</h6>
-<span class="font-size-2 text-secondary-gray-700">Client Care</span>
-</div>
-</div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img3.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Thomas Snow</h6>
-<span class="font-size-2 text-secondary-gray-700">CEO/Founder</span>
-</div>
-</div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img4.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Andre Kowalsy</h6>
-<span class="font-size-2 text-secondary-gray-700">Support Boss</span>
+
+
+
+{% for user in all_users %}
+    <div class="product__inner overflow-hidden mr-5">
+        <div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+            <div class="woocommerce-loop-product__thumbnail pt-5 mb-3">
+                {% if user.is_staff %}
+                <a href="#" class="d-block"><img src="{% static 'assets/img/superuser.png' %}" class="img-fluid mx-auto d-block img-thumbnail" alt="image-description"></a>
+                {% else %}
+                    <a href="#" class="d-block"><img src="{% static 'assets/img/librarian.png' %}" class="img-fluid mx-auto d-block img-thumbnail" alt="image-description"></a>
+                {% endif %}
+            </div>
+            <div class="woocommerce-loop-product__body product__body text-center">
+                <h6 class="font-weight-regular mb-1">{{ user.first_name}} {{ user.last_name }}</h6>
+                {% if user.is_staff %}
+                <span class="font-size-2 text-secondary-gray-700">Admin</span>
+                {% else %}
+                <span class="font-size-2 text-secondary-gray-700">Librarian</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
 </div>
 </div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img5.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Pamela Doe</h6>
-<span class="font-size-2 text-secondary-gray-700">Delivery Driver</span>
-</div>
-</div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img2.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Susan McCain</h6>
-<span class="font-size-2 text-secondary-gray-700">Packaging Girl</span>
-</div>
-</div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img3.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Andre Kowalsy</h6>
-<span class="font-size-2 text-secondary-gray-700">Support Boss</span>
-</div>
-</div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img4.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Pamela Doe</h6>
-<span class="font-size-2 text-secondary-gray-700">Delivery Driver</span>
-</div>
-</div>
-</div>
-<div class="product__inner overflow-hidden">
-<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
-<div class="woocommerce-loop-product__thumbnail border border-left-0 pt-5 mb-3">
-<a href="#" class="d-block"><img src="../../assets/img/329x330/img2.png" class="img-fluid mx-auto d-block attachment-shop_catalog size-shop_catalog wp-post-image" alt="image-description"></a>
-</div>
-<div class="woocommerce-loop-product__body product__body">
-<h6 class="font-weight-regular mb-1">Thomas Snow</h6>
-<span class="font-size-2 text-secondary-gray-700">CEO/Founder</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
 <div>
 <h6 class="font-weight-medium font-size-7 mb-4 mb-lg-9">Company Partners</h6>
-<div class="d-lg-flex align-items-center justify-content-between">
+<div class="d-lg-flex align-items-center justify-content-left">
 <div class="text-center mb-5 mb-lg-0">
-<img class="img-fluid" src="../../assets/img/150x32/img1.png" alt="Image-Description">
-</div>
-<div class="text-center mb-5 mb-lg-0">
-<img class="img-fluid" src="../../assets/img/150x32/img2.png" alt="Image-Description">
+<a href="#"><img class="img-fluid" src="{% static 'assets/img/django.png' %}" alt="Image-Description" style: height="100px" width="100px";> </a>
 </div>
 <div class="text-center mb-5 mb-lg-0">
-<img class="img-fluid" src="../../assets/img/150x32/img3.png" alt="Image-Description">
+<a href="#"><img class="img-fluid" src="{% static 'assets/img/bootstrap.png' %}" alt="Image-Description" style: height="100px" width="100px";> </a>
 </div>
 <div class="text-center mb-5 mb-lg-0">
-<img class="img-fluid" src="../../assets/img/150x32/img4.png" alt="Image-Description">
- </div>
-<div class="text-center mb-5 mb-lg-0">
-<img class="img-fluid" src="../../assets/img/150x32/img6.png" alt="Image-Description">
+<a href="#"><img class="img-fluid" src="{% static 'assets/img/github.png' %}" alt="Image-Description" style: height="100px" width="100px";> </a>
 </div>
-<div class="text-center mb-5 mb-lg-0">
-<img class="img-fluid" src="../../assets/img/150x32/img5.png" alt="Image-Description">
-</div>
-</div>
-</div>
+
 </div>
 </div>
 </main>

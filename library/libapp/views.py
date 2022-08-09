@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.db.models import Count
+from django.db.models import Count, Sum
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.messages.views import SuccessMessageMixin
@@ -17,8 +17,10 @@ from datetime import datetime
 from .models import OrderItem, Order, Profile
 from .forms import CheckoutForm
 from bookapp.models import Book, Category, Author, MPTTCategory
+from userapp.models import User
 from bookapp.forms import BookForm, AuthorForm, CategoryForm
 from libapp.filters import CatFilter
+
 
 
 # REF CODE generating
@@ -195,8 +197,16 @@ class HomeView(ListView):
 
 
 class AboutView(ListView):
-    model = Book
+    model = Order
     template_name = 'about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['all_books'] = Book.objects.all()
+        context['total_pages'] = Book.objects.aggregate(Sum('page_number'))
+        context['all_orders'] = Order.objects.all()
+        context['all_users'] = User.objects.filter(is_customer=False).order_by('-is_staff')
+        return context
 
 
 class AuthorListView(ListView):
