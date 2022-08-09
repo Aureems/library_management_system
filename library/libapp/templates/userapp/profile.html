@@ -3,17 +3,74 @@
 {% block content %}
 
 {% include 'navbar.html' %}
+
+
 <style>
     body{margin-top:20px;}
+
+    .container, .container-md, .container-sm {
+        max-width: 1250px;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .col-sm-3 {
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+    .col-sm-9 {
+    -ms-flex: 0 0 80%;
+    flex: 0 0 80%;
+    max-width: 80%;
+}
+
+.well {
+    background: none;
+    height: 400px;
+}
+
+.table-scroll tbody {
+    position: absolute;
+    overflow-y: scroll;
+    height: 350px;
+}
+
+.table-scroll tr {
+    width: 100%;
+    table-layout: fixed;
+    display: inline-table;
+}
+
+.table-scroll thead > tr > th {
+    border: none;
+}
+
+.table th{
+    text-align: center;
+
+}
+
+.table td{
+    text-align: center;
+}
+
+
 </style>
+
+
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 <hr>
 <div class="container">
     <div class="row ml-2"><h4>{{ user.username }}</h4></div>
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 p-1">
             <!--left col-->
             <ul class="list-group">
             <a href="#">
@@ -24,7 +81,7 @@
                 <li class="list-group-item text-right"><span class="float-left"><strong>Joined</strong></span>
                     {{ user.date_joined|date:'Y-m-d'}}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Last seen</strong></span>
-                    {{ user.last_login|date:'Y-m-d h:i a'}}</li>
+                    {{ user.last_login|date:'Y-m-d H:m'}}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Full name</strong></span>
                     {{ user.first_name}} {{ user.last_name }}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>User type</strong></span>
@@ -51,61 +108,17 @@
             {% endif %}
 
         </div>
-        <!--/col-3-->
-        <div class="col-sm-9">
-            <ul class="nav nav-tabs" id="myTab">
-                <a class="nav-link active" id="home" href="#home" data-toggle="tab">My books</a>
-            </ul>
+<!--Books table-->
 
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <div class="table-responsive">
-                        <table class="table table-hover"  style="font-size:13px">
-                            <thead>
+            {% if user.is_customer %}
+            {% include 'patterns/cust-profile.html' %}
+            {% else %}
+            {% include 'patterns/lib-profile.html' %}
+            {% endif %}
 
-                                <tr>
-{#                                    <th scope="col">No.</th>#}
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Page number</th>
-                                    <th scope="col">Ordered from</th>
-                                    <th scope="col">Ordered until</th>
-                                </tr>
-                            </thead>
-                            <tbody id="items">
-
-                                {% for order in active_orders %}
-                                    {% for order_item in order.items.all %}
-{#                                      <th scope="row">{{ forloop.parentloop.counter }}</th>#}
-                                      {% if not order_item.date_returned %}
-                                      <td>{{ order_item.item.title }}</td>
-                                      <td>{{ order_item.item.author}}</td>
-                                      <td>{{ order_item.item.page_number}}</td>
-                                      <td>{{ order_item.date_ordered|date:'Y-m-d'}}</td>
-                                      <td>{{ order.until_date|date:'Y-m-d'}}
-                                          <a href={% url 'book-return' order_item.id %}>
-                                              <i class="fa fa-refresh" data-toggle="tooltip" data-placement="top" title="Return"></i>
-                                          </a>
-                                      </td>
-                                        {% endif %}
-                                    </tr>
-                                    {% endfor %}
-                            {% endfor %}
-
-                            </tbody>
-                        </table>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-4 col-md-offset-4 text-center">
-                                <ul class="pagination" id="myPager"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</div>
+
 
 
 {% include 'footer.html' %}
