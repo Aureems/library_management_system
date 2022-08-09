@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="'authors' updated, fixed">
+    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="some libapp tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/migrations/0002_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/migrations/0003_alter_profile_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/migrations/0004_alter_profile_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/migrations/0005_alter_profile_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/migrations/0006_alter_profile_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/libapp/migrations/0007_alter_profile_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libapp/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/patterns/book-list-pattern.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/patterns/book-list-pattern.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libapp/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userapp/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/userapp/migrations/0002_alter_user_first_name.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/userapp/migrations/0003_alter_user_first_name.py" beforeDir="false" />
     </list>
@@ -185,7 +188,7 @@
       <workItem from="1659852658453" duration="15463000" />
       <workItem from="1659978758268" duration="5213000" />
       <workItem from="1659984038389" duration="1000" />
-      <workItem from="1660058492414" duration="12231000" />
+      <workItem from="1660058492414" duration="14259000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
@@ -285,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659852990447</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="some libapp tests">
+      <created>1660071307262</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1660071307262</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +322,8 @@
     <MESSAGE value="github desktop" />
     <MESSAGE value="'authors' updated" />
     <MESSAGE value="'authors' updated, fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="'authors' updated, fixed" />
+    <MESSAGE value="some libapp tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="some libapp tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/library$views.coverage" NAME="views Coverage Results" MODIFIED="1659119883394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/libapp" />
