@@ -50,9 +50,24 @@ class CustomerRegisterForm(UserCreationForm):
         return user
 
 
+class CustomerUpdateForm(forms.ModelForm):
+    address = forms.CharField(help_text=False, label='Address', required=False)
+    birthday = forms.DateField(label='Date of Birth', widget=DatePickerInput(format='%Y-%m-%d'),
+                               input_formats=['%Y-%m-%d'], required=False)
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'address', 'birthday')
+        widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}
+
+
+class LibrarianUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
+
 class LibrarianRegisterForm(UserCreationForm):
-    # first_name = forms.CharField(help_text=False, label='First Name')
-    # last_name = forms.CharField(help_text=False, label='Last Name')
     username = forms.CharField(help_text=False, label='Username')
     email = forms.EmailField(help_text=False, label='Email')
     password1 = forms.CharField(widget=forms.PasswordInput(), help_text=False, label='Password')

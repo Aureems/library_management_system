@@ -82,20 +82,23 @@
                 </td>
             {% endif %}
         </h7>
-                <a href="{% url 'about-book' book.pk %}">
+            <a href="{% url 'about-book' book.pk %}">
                 <button class="btn btn-outline-info">Preview
                     <i class="fa fa-arrow-circle-right"></i>
-                </button></a>
-                {% if book.available %}
-                    <a href="{% url 'add-to-cart' book.pk %}">
+                </button>
+            </a>
+
+            {% if book.available %}
+                <a href="{% url 'add-to-cart' book.pk %}">
                     <button class="btn2 btn-outline-info">Borrow
                         <i class="fa fa-cart-arrow-down"></i>
                     </button></a>
-                {% else %}
-                    <button class="btn2 btn-outline-info disabled">Borrow
-                        <i class="fa fa-cart-arrow-down"></i>
-                    </button>
-                {% endif %}
+            {% else %}
+                <button class="btn2 btn-outline-info disabled">Borrow
+                    <i class="fa fa-cart-arrow-down"></i>
+                </button>
+            {% endif %}
+
         </div>
     </div>
 </div>

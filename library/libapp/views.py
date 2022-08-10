@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.db.models import Count, Sum
+from django.db.models import Count, Sum, Prefetch
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.messages.views import SuccessMessageMixin
@@ -28,6 +28,7 @@ def create_ref_code():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=9))
 
 
+@login_required()
 def my_profile(request):
     my_user_profile = Profile.objects.filter(user=request.user)[0]
     my_orders = Order.objects.filter(is_ordered=True, user=my_user_profile.user_id)
@@ -183,6 +184,7 @@ class HomeView(ListView):
     model = Book
     login_url = 'login'
     template_name = 'index.html'
+    ordering = ['-available', '-date_created', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -136,7 +136,7 @@ class BookListView(ListView):
     paginate_by = 8
     template_name = 'bookapp/book-list.html'
     success_url = '/'
-    ordering = ['-available', 'title']
+    ordering = ['-available', '-date_created', 'title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -166,21 +166,6 @@ class OrderBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('my-books')
     success_message = 'Your ordered successfully!'
     # order = Order.objects.all()
-
-
-# class BookCatalogView(ListView):
-#     model = Book
-#     # paginate_by = 4
-#     template_name = 'bookapp/book-catalog.html'
-#     success_url = '/'
-#
-#
-# class MyBookListView(LoginRequiredMixin, ListView):
-#     model = Book
-#     login_url = 'login'
-#     # paginate_by = 4
-#     template_name = 'bookapp/my-books.html'
-#     success_url = '/'
 
 
 class SubCategoryView(DetailView):

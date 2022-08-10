@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, authenticate, update_session_auth_hash, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import UpdateView
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.forms import PasswordChangeForm, UserChangeForm
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
-from .forms import CustomerRegisterForm, LibrarianRegisterForm, PasswordChangingForm
-from .models import User
+from .forms import CustomerRegisterForm, LibrarianRegisterForm, PasswordChangingForm, CustomerUpdateForm, LibrarianUpdateForm
+from .models import User, Customer, Librarian
 
 
 class PasswordsChangeView(PasswordChangeView):
@@ -55,6 +56,7 @@ class UserLogin(LoginView):
     template_name = 'userapp/login.html'
     success_url = 'profile'
 
+
 def login_user(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -82,13 +84,33 @@ def logout_view(request):
     logout(request)
 
 
-# def view_profile(request):
-#     profile = User.objects.all()
-#     return render(request, 'userapp/profile.html')
+# @login_required()
+# def edit_profile(request):
+#     if request.method == 'POST':
+#         form = CustomerUpdateForm(request.POST, instance=request.user)
+#         if form.is_valid:
+#            form.save()
+#            messages.success(request, f'Your profile information has been updated.')
+#            return redirect('profile')
+#     else:
+#         form = CustomerUpdateForm()
+#     return render(request, 'userapp/profile-edit.html', {'form': form})
 
-
-class ProfileUpdateView(LoginRequiredMixin,UpdateView):
-    model = User
-    form_class = CustomerRegisterForm
-    template_name = 'userapp/profile.html'
+class ProfileUpdateView(UpdateView):
+    # form_class = LibrarianUpdateForm
+    template_name = 'userapp/profile-edit.html'
     success_url = '/'
+    fields = '__all__'
+
+    def get_object(self, queryset=None):
+        if self.request.user.is_customer:
+            customer_object = Customer.objects.filter(user=self.request.user)[0]
+            return customer_object
+        else:
+            return self.request.user
+
+    def get_context_data(self, **kwargs):
+        kwargs['lib_form'] = LibrarianUpdateForm(self.request.POST, instance=self.get_object())
+        kwargs['cust_form'] = CustomerUpdateForm(self.request.POST, instance=self.get_object())
+
+        return kwargs

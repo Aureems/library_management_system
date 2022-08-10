@@ -73,11 +73,20 @@
         <div class="col-sm-3 p-1">
             <!--left col-->
             <ul class="list-group">
+            {% if not user.is_staff %}
+            <a href="{% url 'profile-update' %}">
+                <li class="list-group-item text-muted">Profile
+                    <i class="fa fa-user-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View details"></i>
+                </li>
+            </a>
+            {% else %}
             <a href="#">
                 <li class="list-group-item text-muted">Profile
                     <i class="fa fa-user-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View details"></i>
                 </li>
             </a>
+            {% endif %}
+
                 <li class="list-group-item text-right"><span class="float-left"><strong>Joined</strong></span>
                     {{ user.date_joined|date:'Y-m-d'}}</li>
                 <li class="list-group-item text-right"><span class="float-left"><strong>Last seen</strong></span>
