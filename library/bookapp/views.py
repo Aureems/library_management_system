@@ -1,9 +1,11 @@
 import csv, io
 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
@@ -14,6 +16,8 @@ from django.db.models import Count
 from django.db.models import Q
 
 
+@login_required
+@permission_required('userapp.User', raise_exception=True)
 def category_upload(request):
     template = 'bookapp/category-upload.html'
 
@@ -40,6 +44,8 @@ def category_upload(request):
         return render(request, template, messages.error(request, 'File was not uploaded!'))
 
 
+@login_required
+@permission_required('userapp.User', raise_exception=True)
 def author_upload(request):
     template = 'bookapp/author-upload.html'
 
@@ -83,6 +89,7 @@ def upload_file(request):
         return render(request, 'bookapp/category-upload.html', {'form': form})
 
 
+@method_decorator(staff_member_required, name='dispatch')
 class AddBookView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Book
     form_class = BookForm
@@ -98,6 +105,7 @@ class AboutBookView(DetailView):
     book = Book.objects.all()
 
 
+@method_decorator(staff_member_required, name='dispatch')
 class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Category
     form_class = CategoryForm

@@ -36,7 +36,7 @@ class OrderItem(models.Model):
 class Order(models.Model):
     ref_code = models.CharField(max_length=9, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    items = models.ManyToManyField(OrderItem, null=True, blank=True)
+    items = models.ManyToManyField(OrderItem, blank=True)
     is_ordered = models.BooleanField(default=False, null=True, blank=True)
     date_ordered = models.DateTimeField(null=True, blank=True)
     until_date = models.DateTimeField(null=True, blank=True)
@@ -45,5 +45,5 @@ class Order(models.Model):
         return self.items.all()
 
     def __str__(self):
-        return f'{self.user}:{self.ref_code}'
+        return f'{self.user.username}:{self.ref_code}'
 

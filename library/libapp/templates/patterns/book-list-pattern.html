@@ -64,7 +64,7 @@
                     <a href="{% url 'about-book' book.pk %}" class="text-default mb-2" data-abc="true">{{ book.title }} </a>
                 </h5>
                 <p><h7>{{ book.author }}</h7></p>
-                <p><a href="#" class="text-muted" data-abc="true">{{ book.category }}</a></p>
+                <p><a href="{% url 'books-by-cat' book.category.pk %}" class="text-muted" data-abc="true">{{ book.category }}</a></p>
 
             </div>
 
