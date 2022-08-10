@@ -104,7 +104,7 @@ def edit_profile(request):
     else:
         if request.user.is_customer:
             cust_base_form = UserUpdateForm(instance=request.user)
-            cust_form = CustomerUpdateForm(instance=Customer.objects.filter(user=request.user)[0])
+            cust_form = CustomerUpdateForm(instance=request.user)
         else:
             lib_form = UserUpdateForm(instance=request.user)
 
