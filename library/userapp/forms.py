@@ -51,16 +51,16 @@ class CustomerRegisterForm(UserCreationForm):
 
 
 class CustomerUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(help_text=False, label='First Name')
-    last_name = forms.CharField(help_text=False, label='Last Name')
-    email = forms.EmailField(help_text=False, label='Email')
+    address = forms.CharField(help_text=False, label='Address', required=False)
+    birthday = forms.DateField(label='Date of Birth', widget=DatePickerInput(format='%Y-%m-%d'),
+                               input_formats=['%Y-%m-%d'], required=False)
     class Meta:
-        model = Customer
-        fields = ('first_name', 'last_name', 'email', 'address', 'birthday')
+        model = User
+        fields = ('address', 'birthday')
         widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}
 
 
-class LibrarianUpdateForm(forms.ModelForm):
+class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email')

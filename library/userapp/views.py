@@ -8,7 +8,7 @@ from django.views.generic import UpdateView
 from django.contrib.auth.forms import PasswordChangeForm, UserChangeForm
 from django.contrib import messages
 from django.urls import reverse, reverse_lazy
-from .forms import CustomerRegisterForm, LibrarianRegisterForm, PasswordChangingForm, CustomerUpdateForm, LibrarianUpdateForm
+from .forms import CustomerRegisterForm, LibrarianRegisterForm, PasswordChangingForm, CustomerUpdateForm, UserUpdateForm
 from .models import User, Customer, Librarian
 
 
@@ -86,13 +86,15 @@ def logout_view(request):
 
 @login_required()
 def edit_profile(request):
+    cust_base_form = UserUpdateForm(request.POST, instance=request.user)
     cust_form = CustomerUpdateForm(request.POST, instance=request.user)
-    lib_form = LibrarianUpdateForm(request.POST, instance=request.user)
+    lib_form = UserUpdateForm(request.POST, instance=request.user)
 
     if request.method == 'POST':
 
-        if cust_form.is_valid():
+        if cust_base_form.is_valid() and cust_form.is_valid():
            cust_form.save()
+           cust_base_form.save()
            messages.success(request, f'Your profile information has been updated.')
            return redirect('profile')
         if lib_form.is_valid():
@@ -101,8 +103,9 @@ def edit_profile(request):
            return redirect('profile')
     else:
         if request.user.is_customer:
-            cust_form = CustomerUpdateForm(instance=request.user)
+            cust_base_form = UserUpdateForm(instance=request.user)
+            cust_form = CustomerUpdateForm(instance=Customer.objects.filter(user=request.user)[0])
         else:
-            lib_form = LibrarianUpdateForm(instance=request.user)
+            lib_form = UserUpdateForm(instance=request.user)
 
-    return render(request, 'userapp/profile-edit.html', {'cust_form': cust_form, 'lib_form': lib_form})
+    return render(request, 'userapp/profile-edit.html', {'cust_form': cust_form, 'cust_base_form':cust_base_form, 'lib_form': lib_form})
