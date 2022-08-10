@@ -84,33 +84,25 @@ def logout_view(request):
     logout(request)
 
 
-# @login_required()
-# def edit_profile(request):
-#     if request.method == 'POST':
-#         form = CustomerUpdateForm(request.POST, instance=request.user)
-#         if form.is_valid:
-#            form.save()
-#            messages.success(request, f'Your profile information has been updated.')
-#            return redirect('profile')
-#     else:
-#         form = CustomerUpdateForm()
-#     return render(request, 'userapp/profile-edit.html', {'form': form})
+@login_required()
+def edit_profile(request):
+    cust_form = CustomerUpdateForm(request.POST, instance=request.user)
+    lib_form = LibrarianUpdateForm(request.POST, instance=request.user)
 
-class ProfileUpdateView(UpdateView):
-    # form_class = LibrarianUpdateForm
-    template_name = 'userapp/profile-edit.html'
-    success_url = '/'
-    fields = '__all__'
+    if request.method == 'POST':
 
-    def get_object(self, queryset=None):
-        if self.request.user.is_customer:
-            customer_object = Customer.objects.filter(user=self.request.user)[0]
-            return customer_object
+        if cust_form.is_valid():
+           cust_form.save()
+           messages.success(request, f'Your profile information has been updated.')
+           return redirect('profile')
+        if lib_form.is_valid():
+           lib_form.save()
+           messages.success(request, f'Your profile information has been updated.')
+           return redirect('profile')
+    else:
+        if request.user.is_customer:
+            cust_form = CustomerUpdateForm(instance=request.user)
         else:
-            return self.request.user
+            lib_form = LibrarianUpdateForm(instance=request.user)
 
-    def get_context_data(self, **kwargs):
-        kwargs['lib_form'] = LibrarianUpdateForm(self.request.POST, instance=self.get_object())
-        kwargs['cust_form'] = CustomerUpdateForm(self.request.POST, instance=self.get_object())
-
-        return kwargs
+    return render(request, 'userapp/profile-edit.html', {'cust_form': cust_form, 'lib_form': lib_form})

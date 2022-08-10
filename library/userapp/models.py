@@ -27,7 +27,6 @@ class Customer(models.Model):
 
     # USERNAME_FIELD = 'email'
 
-
 class Librarian(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 

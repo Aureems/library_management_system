@@ -50,13 +50,18 @@ class CustomerRegisterForm(UserCreationForm):
         return user
 
 
-class CustomerUpdateForm(forms.ModelForm):
-    address = forms.CharField(help_text=False, label='Address', required=False)
-    birthday = forms.DateField(label='Date of Birth', widget=DatePickerInput(format='%Y-%m-%d'),
-                               input_formats=['%Y-%m-%d'], required=False)
-
+class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
+        fields = ['first_name', 'last_name', 'email']
+
+
+class CustomerUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(help_text=False, label='First Name')
+    last_name = forms.CharField(help_text=False, label='Last Name')
+    email = forms.EmailField(help_text=False, label='Email')
+    class Meta:
+        model = Customer
         fields = ('first_name', 'last_name', 'email', 'address', 'birthday')
         widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}
 
