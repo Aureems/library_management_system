@@ -50,12 +50,6 @@ class CustomerRegisterForm(UserCreationForm):
         return user
 
 
-class UserUpdateForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'email']
-
-
 class CustomerUpdateForm(forms.ModelForm):
     first_name = forms.CharField(help_text=False, label='First Name')
     last_name = forms.CharField(help_text=False, label='Last Name')

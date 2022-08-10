@@ -119,10 +119,10 @@
         </div>
 <!--Books table-->
 
-            {% if user.is_customer %}
+            {% if user.is_customer or user.is_staff%}
             {% include 'patterns/cust-profile.html' %}
             {% else %}
-            {% include 'patterns/cust-profile.html' %}
+            {% include 'patterns/lib-profile.html' %}
             {% endif %}
 
         </div>
