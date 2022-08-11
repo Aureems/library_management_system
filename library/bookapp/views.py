@@ -19,7 +19,8 @@ from django.db.models import Q
 @login_required
 @permission_required('userapp.User', raise_exception=True)
 def category_upload(request):
-    template = 'bookapp/category-upload.html'
+    # template = 'bookapp/category-upload.html'
+    template = 'bookapp/add-cat.html'
 
     if request.method == 'GET':
         return render(request, template)
@@ -113,6 +114,18 @@ class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     template_name = 'bookapp/add-cat.html'
     success_url = reverse_lazy('categories')
     success_message = 'The category was added successfully!'
+
+
+@method_decorator(staff_member_required, name='dispatch')
+class AddAuthView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
+    model = Author
+    form_class = AuthorForm
+    login_url = 'login'
+    template_name = 'bookapp/add-author.html'
+    success_url = reverse_lazy('categories')
+    success_message = 'Author was added successfully!'
+
+
 
 
 def add_book(request):

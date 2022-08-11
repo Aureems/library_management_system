@@ -11,21 +11,37 @@
 {{ form.media }}
 
 
-<div class="regForm-container ml-5 mr-5">
-    <div class="col-md-6 offset-md-3 pt-1 mt-3 text-black page-content border">
-        <div class="px-5 ms-xl-4 col-md-12">
-            <div class="d-flex align-items-center h-custom-2 px-1 ms-xl-4 mt-1 pt-1 pt-xl-0 mt-xl-n1 pb-1">
+<div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7">
+          <div class="card" style="border-radius: 5px;">
+            <div class="card-body p-5">
+                <h2 class="text-center mb-5">Add author</h2>
 
-            <form style="width: 100%;" method="POST" enctype="multipart/form-data" autocomplete="off">
 
-                {% csrf_token %}
+             <form method="POST" enctype="multipart/form-data">
 
-                {% bootstrap_form form %}
+                 {% csrf_token %}
+{#                        <label> Upload from file</label>#}
+{#                        <p><input class="input" type="file" name="author">#}
+{#                        <button class="btn btn-success" type="submit">Upload</button></p>#}
 
-                <button type="submit" class="btn btn-success">Save</button>
-                <a href="{% url 'authors' %}" class="btn btn-secondary">Cancel</a>
-            </form>
+                    {% bootstrap_form form %}
+
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="{% url 'categories' %}" class="btn btn-secondary">Cancel</a>
+{#                </form>#}
+             </form>
+
+
+
+{#                <a href="{% url 'cat-upload' %}">Upload from file#}
+{##}
+{#                        <i class="fa fa-upload" style="font-size:20px"></i></a><hr>#}
+
+
             </div>
+          </div>
         </div>
     </div>
 </div>

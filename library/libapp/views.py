@@ -236,7 +236,7 @@ class FaqView(ListView):
     template_name = 'questions.html'
 
 
-@login_required
+@login_required()
 @permission_required('userapp.User', raise_exception=True)
 def managelib(request):
     return render(request, "managelib.html")

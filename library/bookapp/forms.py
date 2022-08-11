@@ -9,8 +9,6 @@ class CSVUploadForm(forms.Form):
 
 
 class AuthorForm(forms.ModelForm):
-    firstname = forms.CharField(label='Author first name', help_text=False)
-    lastname = forms.CharField(label='Author last name', help_text=False)
 
     class Meta:
         model = Author
@@ -24,6 +22,7 @@ class AuthorForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     category_name = forms.CharField(max_length=100)
     subcategory_name = forms.CharField(max_length=100)
+    # upload_field = forms.FileField()
 
     class Meta:
         model = Category

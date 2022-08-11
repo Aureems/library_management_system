@@ -85,7 +85,7 @@ input[type=checkbox] {
 		  <li class="list-group-item d-flex justify-content-between align-content-center">
 
 		  	<div class="d-flex flex-row">
-		  		<img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+		  		<img src="{% static 'assets/img/book.png' %}" width="40" alt="choose" />
 		  		<div class="ml-2">
 		  			<a href="{% url 'books-by-cat' subcat.pk %}" style="color: white"> <h6 class="mb-0">{{ subcat.subcategory_name }}</h6></a>
 		  			<div class="about">
@@ -102,7 +102,7 @@ input[type=checkbox] {
 		  <li class="list-group-item d-flex justify-content-between align-content-center">
 
 		  	<div class="d-flex flex-row">
-		  		<img src="https://img.icons8.com/color/100/000000/folder-invoices.png" width="40" alt="choose" />
+		  		<img src="{% static 'assets/img/book.png' %}" width="40" alt="choose" />
 		  		<div class="ml-2">
 		  			<a href="{% url 'books-by-cat' subcat2.pk %}" style="color: white"><h6 class="mb-0">{{ subcat2.subcategory_name }}</h6></a>
 		  			<div class="about">
