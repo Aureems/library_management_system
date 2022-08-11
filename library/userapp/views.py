@@ -84,28 +84,56 @@ def logout_view(request):
     logout(request)
 
 
+# @login_required()
+# def edit_profile(request):
+#     user = request.user
+#     form_list = [{'form': UserUpdateForm, 'instance': user}]
+#
+#     if user.is_customer:
+#         form_list.append({'form': CustomerUpdateForm, 'instance': user.customer})
+#
+#     forms = [x['form'](data=request.POST, instance=x['instance']) for x in form_list]
+#     if request.method == 'POST':
+#
+#         if all([form.is_valid() for form in forms]):
+#             for form in forms:
+#                 form.save()
+#             return redirect('profile')
+#         else:
+#             forms = [x['form'](instance=x['instance']) for x in form_list]
+#     return render(request, 'userapp/profile-edit.html', {'forms': forms})
+
 @login_required()
 def edit_profile(request):
-    cust_base_form = UserUpdateForm(request.POST, instance=request.user)
-    cust_form = CustomerUpdateForm(request.POST, instance=request.user)
-    lib_form = UserUpdateForm(request.POST, instance=request.user)
+    user = request.user
+    user_form = UserUpdateForm(request.POST, instance=user)
 
     if request.method == 'POST':
 
-        if cust_base_form.is_valid() and cust_form.is_valid():
-           cust_form.save()
-           cust_base_form.save()
-           messages.success(request, f'Your profile information has been updated.')
-           return redirect('profile')
-        if lib_form.is_valid():
-           lib_form.save()
+        if user_form.is_valid():
+           user_form.save()
            messages.success(request, f'Your profile information has been updated.')
            return redirect('profile')
     else:
-        if request.user.is_customer:
-            cust_base_form = UserUpdateForm(instance=request.user)
-            cust_form = CustomerUpdateForm(instance=request.user)
-        else:
-            lib_form = UserUpdateForm(instance=request.user)
+        user_form = UserUpdateForm(instance=user)
 
-    return render(request, 'userapp/profile-edit.html', {'cust_form': cust_form, 'cust_base_form':cust_base_form, 'lib_form': lib_form})
+    return render(request, 'userapp/profile-edit.html', {'user_form':user_form})
+
+@login_required()
+def edit_customer_profile(request):
+    user = request.user
+    user_form = UserUpdateForm(request.POST, instance=user)
+    cust_form = CustomerUpdateForm(request.POST, instance=user.customer)
+
+    if request.method == 'POST':
+
+        if user_form.is_valid() and cust_form.is_valid():
+           cust_form.save()
+           user_form.save()
+           messages.success(request, f'Your profile information has been updated.')
+           return redirect('profile')
+    else:
+        user_form = UserUpdateForm(instance=user)
+        cust_form = CustomerUpdateForm(instance=user.customer)
+
+    return render(request, 'userapp/profile-edit.html', {'cust_form': cust_form, 'user_form':user_form})

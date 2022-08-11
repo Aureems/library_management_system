@@ -73,12 +73,20 @@
         <div class="col-sm-3 p-1">
             <!--left col-->
             <ul class="list-group">
-            {% if not user.is_staff %}
-            <a href="{% url 'profile-update' %}">
+            {% if not user.is_staff%}
+                {% if user.is_customer %}
+                <a href="{% url 'customer-update' %}">
                 <li class="list-group-item text-muted">Profile
                     <i class="fa fa-user-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View details"></i>
                 </li>
-            </a>
+                </a>
+                {% else %}
+                <a href="{% url 'profile-update' %}">
+                <li class="list-group-item text-muted">Profile
+                    <i class="fa fa-user-circle-o" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View details"></i>
+                </li>
+                </a>
+                {% endif %}
             {% else %}
             <a href="{% url 'profile-update' %}">
                 <li class="list-group-item text-muted">Profile

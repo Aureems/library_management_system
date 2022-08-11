@@ -17,7 +17,7 @@ from datetime import datetime
 from .models import OrderItem, Order, Profile
 from .forms import CheckoutForm
 from bookapp.models import Book, Category, Author, MPTTCategory
-from userapp.models import User
+from userapp.models import User, Customer
 from bookapp.forms import BookForm, AuthorForm, CategoryForm
 from libapp.filters import CatFilter
 
@@ -43,6 +43,7 @@ def my_profile(request):
     all_reading_books = OrderItem.objects.filter(is_ordered=True, date_returned__isnull=True)
     all_books = Book.objects.all().order_by('-date_created', 'title')
     all_orders = Order.objects.filter(is_ordered=True).order_by('-date_ordered')
+
 
     context = {
         'my_orders': my_orders,

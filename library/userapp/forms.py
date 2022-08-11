@@ -51,11 +51,8 @@ class CustomerRegisterForm(UserCreationForm):
 
 
 class CustomerUpdateForm(forms.ModelForm):
-    address = forms.CharField(help_text=False, label='Address', required=False)
-    birthday = forms.DateField(label='Date of Birth', widget=DatePickerInput(format='%Y-%m-%d'),
-                               input_formats=['%Y-%m-%d'], required=False)
     class Meta:
-        model = User
+        model = Customer
         fields = ('address', 'birthday')
         widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}
 
