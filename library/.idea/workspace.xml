@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="some libapp tests+fixes">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_08_2022_21_58_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_08_2022_21_58__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_07_2022_18_08_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_07_2022_18_08__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2022_18_34_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2022_18_34__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_07_2022_20_34_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_07_2022_20_34__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Bky0dbMq4ytaYsxPiMwvmlBW4H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libapp/tests" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\tests" />
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\assets\img" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\templates" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\tests" />
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\templates" />
+      <recent name="C:\Users\Aureems\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static\assets\img" />
+      <recent name="C:\Users\Aureems\Desktop\library_management_system\library\libapp\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.views">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="library" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/libapp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/libapp/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="library" type="Python.DjangoServer" factoryName="Django server">
+      <module name="library" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Aureems\Desktop\Library\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="" />
+      <created>1657464155868</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657464155868</updated>
+      <workItem from="1657464170383" duration="712000" />
+      <workItem from="1657465942558" duration="885000" />
+      <workItem from="1657556718212" duration="3832000" />
+      <workItem from="1657569179180" duration="4659000" />
+      <workItem from="1657646695182" duration="3968000" />
+      <workItem from="1657716032076" duration="1289000" />
+      <workItem from="1657731769972" duration="12840000" />
+      <workItem from="1657816465647" duration="10008000" />
+      <workItem from="1657903597129" duration="1058000" />
+      <workItem from="1657954048219" duration="14910000" />
+      <workItem from="1658038188847" duration="21201000" />
+      <workItem from="1658253079031" duration="6348000" />
+      <workItem from="1658337917573" duration="119000" />
+      <workItem from="1658338196012" duration="6691000" />
+      <workItem from="1658424096246" duration="6676000" />
+      <workItem from="1658511126209" duration="15000" />
+      <workItem from="1658681372778" duration="3989000" />
+      <workItem from="1658766834229" duration="13405000" />
+      <workItem from="1658851730642" duration="11764000" />
+      <workItem from="1658946271537" duration="2770000" />
+      <workItem from="1659026978125" duration="16800000" />
+      <workItem from="1659044581915" duration="520000" />
+      <workItem from="1659099529172" duration="1707000" />
+      <workItem from="1659118256661" duration="5376000" />
+      <workItem from="1659123696134" duration="2636000" />
+      <workItem from="1659160827459" duration="27430000" />
+      <workItem from="1659213939571" duration="3354000" />
+      <workItem from="1659246993086" duration="5153000" />
+      <workItem from="1659252601819" duration="14781000" />
+      <workItem from="1659294404792" duration="2377000" />
+      <workItem from="1659325288675" duration="6256000" />
+      <workItem from="1659357989865" duration="16128000" />
+      <workItem from="1659375456859" duration="745000" />
+      <workItem from="1659382061582" duration="733000" />
+      <workItem from="1659383112130" duration="97000" />
+      <workItem from="1659453035986" duration="9113000" />
+      <workItem from="1659526441762" duration="9024000" />
+      <workItem from="1659621611051" duration="11091000" />
+      <workItem from="1659715232285" duration="8188000" />
+      <workItem from="1659724757396" duration="3388000" />
+      <workItem from="1659728296522" duration="4431000" />
+      <workItem from="1659766042252" duration="4824000" />
+      <workItem from="1659771467206" duration="65000" />
+      <workItem from="1659771573835" duration="267000" />
+      <workItem from="1659771853922" duration="16232000" />
+      <workItem from="1659851950395" duration="577000" />
+      <workItem from="1659852658453" duration="15463000" />
+      <workItem from="1659978758268" duration="5213000" />
+      <workItem from="1659984038389" duration="1000" />
+      <workItem from="1660058492414" duration="14259000" />
+      <workItem from="1660237812223" duration="1520000" />
+      <workItem from="1660240168182" duration="694000" />
+    </task>
+    <task id="LOCAL-00001" summary="start">
+      <created>1657464250515</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657464250515</updated>
+    </task>
+    <task id="LOCAL-00002" summary="libapp structure">
+      <created>1657574437112</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657574437112</updated>
+    </task>
+    <task id="LOCAL-00003" summary="libapp structure">
+      <created>1657574581530</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657574581530</updated>
+    </task>
+    <task id="LOCAL-00004" summary="homepage upgrade">
+      <created>1657744013921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657744013921</updated>
+    </task>
+    <task id="LOCAL-00005" summary="homepage ready, needs functions">
+      <created>1657825880737</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657825880737</updated>
+    </task>
+    <task id="LOCAL-00006" summary="templates updated">
+      <created>1658258575996</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1658258575996</updated>
+    </task>
+    <task id="LOCAL-00007" summary="templates updated">
+      <created>1658258593459</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658258593459</updated>
+    </task>
+    <task id="LOCAL-00008" summary="with migrations">
+      <created>1658781464871</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658781464871</updated>
+    </task>
+    <task id="LOCAL-00009" summary="github desktop">
+      <created>1659252642165</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659252642166</updated>
+    </task>
+    <task id="LOCAL-00010" summary="github desktop">
+      <created>1659252716152</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659252716152</updated>
+    </task>
+    <task id="LOCAL-00011" summary="'authors' updated">
+      <created>1659801855561</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659801855561</updated>
+    </task>
+    <task id="LOCAL-00012" summary="'authors' updated">
+      <created>1659801905334</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659801905334</updated>
+    </task>
+    <task id="LOCAL-00013" summary="'authors' updated">
+      <created>1659801924368</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1659801924368</updated>
+    </task>
+    <task id="LOCAL-00014" summary="'authors' updated, fixed">
+      <created>1659852990447</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659852990447</updated>
+    </task>
+    <task id="LOCAL-00015" summary="some libapp tests">
+      <created>1660071307262</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1660071307262</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="start" />
+    <MESSAGE value="libapp structure" />
+    <MESSAGE value="homepage upgrade" />
+    <MESSAGE value="homepage ready, needs functions" />
+    <MESSAGE value="templates updated" />
+    <MESSAGE value="with migrations" />
+    <MESSAGE value="github desktop" />
+    <MESSAGE value="'authors' updated" />
+    <MESSAGE value="'authors' updated, fixed" />
+    <MESSAGE value="some libapp tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="some libapp tests" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/library$views.coverage" NAME="views Coverage Results" MODIFIED="1659119883394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/libapp" />
+  </component>
+</project>

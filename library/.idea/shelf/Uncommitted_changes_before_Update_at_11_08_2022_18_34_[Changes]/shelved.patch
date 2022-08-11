@@ -1,0 +1,377 @@
+Index: libapp/templates/userapp/profile.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'base.html' %}\r\n{% load static %}\r\n{% block content %}\r\n\r\n{% include 'navbar.html' %}\r\n\r\n\r\n<style>\r\n    body{margin-top:20px;}\r\n\r\n    .container, .container-md, .container-sm {\r\n        max-width: 1250px;\r\n        margin-left: 50px;\r\n        margin-right: 50px;\r\n    }\r\n\r\n    .col-sm-3 {\r\n    -ms-flex: 0 0 20%;\r\n    flex: 0 0 20%;\r\n    max-width: 20%;\r\n}\r\n\r\n    .col-sm-9 {\r\n    -ms-flex: 0 0 80%;\r\n    flex: 0 0 80%;\r\n    max-width: 80%;\r\n}\r\n\r\n.well {\r\n    background: none;\r\n    height: 400px;\r\n}\r\n\r\n.table-scroll tbody {\r\n    position: absolute;\r\n    overflow-y: scroll;\r\n    height: 350px;\r\n}\r\n\r\n.table-scroll tr {\r\n    width: 100%;\r\n    table-layout: fixed;\r\n    display: inline-table;\r\n}\r\n\r\n.table-scroll thead > tr > th {\r\n    border: none;\r\n}\r\n\r\n.table th{\r\n    text-align: center;\r\n\r\n}\r\n\r\n.table td{\r\n    text-align: center;\r\n}\r\n\r\n\r\n</style>\r\n\r\n\r\n\r\n<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\" rel=\"stylesheet\">\r\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n\r\n\r\n\r\n<hr>\r\n<div class=\"container\">\r\n    <div class=\"row ml-2\"><h4>{{ user.username }}</h4></div>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-3 p-1\">\r\n            <!--left col-->\r\n            <ul class=\"list-group\">\r\n            {% if not user.is_staff %}\r\n            <a href=\"{% url 'profile-update' %}\">\r\n                <li class=\"list-group-item text-muted\">Profile\r\n                    <i class=\"fa fa-user-circle-o\" aria-hidden=\"true\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"View details\"></i>\r\n                </li>\r\n            </a>\r\n            {% else %}\r\n            <a href=\"#\">\r\n                <li class=\"list-group-item text-muted\">Profile\r\n                    <i class=\"fa fa-user-circle-o\" aria-hidden=\"true\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"View details\"></i>\r\n                </li>\r\n            </a>\r\n            {% endif %}\r\n\r\n                <li class=\"list-group-item text-right\"><span class=\"float-left\"><strong>Joined</strong></span>\r\n                    {{ user.date_joined|date:'Y-m-d'}}</li>\r\n                <li class=\"list-group-item text-right\"><span class=\"float-left\"><strong>Last seen</strong></span>\r\n                    {{ user.last_login|date:'Y-m-d H:m'}}</li>\r\n                <li class=\"list-group-item text-right\"><span class=\"float-left\"><strong>Full name</strong></span>\r\n                    {{ user.first_name}} {{ user.last_name }}</li>\r\n                <li class=\"list-group-item text-right\"><span class=\"float-left\"><strong>User type</strong></span>\r\n                    {% if user.is_staff %}\r\n                        Admin\r\n                    {% else %}\r\n                        {% if user.is_customer %}\r\n                            Customer\r\n                        {% else %}\r\n                            Librarian\r\n                        {% endif %}\r\n                    {% endif %}\r\n                </li>\r\n            </ul>\r\n\r\n            {% if not user.is_librarian %}\r\n            <ul class=\"list-group\">\r\n                <li class=\"list-group-item text-muted\">Activity <i class=\"fa fa-dashboard\" aria-hidden=\"true\"></i></li>\r\n                <li class=\"list-group-item text-right\"><span class=\"float-left\"><strong>Total ordered books</strong></span>\r\n                    {{ total_books }}</li>\r\n                <li class=\"list-group-item text-right\"><span class=\"float-left\"><strong>Reading</strong></span>\r\n                    {{ total_not_returned }}</li>\r\n            </ul>\r\n            {% endif %}\r\n\r\n        </div>\r\n<!--Books table-->\r\n\r\n            {% if user.is_customer %}\r\n            {% include 'patterns/cust-profile.html' %}\r\n            {% else %}\r\n            {% include 'patterns/lib-profile.html' %}\r\n            {% endif %}\r\n\r\n        </div>\r\n    </div>\r\n\r\n\r\n\r\n{% include 'footer.html' %}\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/libapp/templates/userapp/profile.html b/libapp/templates/userapp/profile.html
+--- a/libapp/templates/userapp/profile.html	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ b/libapp/templates/userapp/profile.html	(date 1660149158328)
+@@ -122,7 +122,7 @@
+             {% if user.is_customer %}
+             {% include 'patterns/cust-profile.html' %}
+             {% else %}
+-            {% include 'patterns/lib-profile.html' %}
++            {% include 'patterns/cust-profile.html' %}
+             {% endif %}
+ 
+         </div>
+Index: userapp/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render, redirect\r\nfrom django.http import HttpResponse, HttpResponseRedirect\r\nfrom django.contrib.auth import login, authenticate, update_session_auth_hash, logout\r\nfrom django.contrib.auth.decorators import login_required\r\nfrom django.contrib.auth.views import LoginView, PasswordChangeView\r\nfrom django.contrib.auth.mixins import LoginRequiredMixin\r\nfrom django.views.generic import UpdateView\r\nfrom django.contrib.auth.forms import PasswordChangeForm, UserChangeForm\r\nfrom django.contrib import messages\r\nfrom django.urls import reverse, reverse_lazy\r\nfrom .forms import CustomerRegisterForm, LibrarianRegisterForm, PasswordChangingForm, CustomerUpdateForm, LibrarianUpdateForm\r\nfrom .models import User, Customer, Librarian\r\n\r\n\r\nclass PasswordsChangeView(PasswordChangeView):\r\n    form_class = PasswordChangingForm\r\n    success_url = reverse_lazy('home')\r\n\r\n\r\ndef change_password(request):\r\n    if request.method == 'POST':\r\n        form = PasswordChangingForm(request.user, request.POST)\r\n        if form.is_valid():\r\n            user = form.save()\r\n            update_session_auth_hash(request, user)\r\n            messages.success(request, 'Your password was successfully changed!')\r\n            return redirect('home')\r\n        else:\r\n            messages.error(request, 'Please correct the error below.')\r\n    else:\r\n        form = PasswordChangingForm(request.user)\r\n    return render(request, 'userapp/change-password.html', {'form': form })\r\n\r\n\r\ndef register_user(request):\r\n    if request.method == 'POST':\r\n        customer_form = CustomerRegisterForm(request.POST)\r\n        librarian_form = LibrarianRegisterForm(request.POST)\r\n        if customer_form.is_valid():\r\n            customer_form.save()\r\n            username = customer_form.cleaned_data.get('username')\r\n            messages.success(request, f'Customer account created for {username}! You are now able to login')\r\n            return redirect('login')\r\n        if librarian_form.is_valid():\r\n            librarian_form.save()\r\n            username = librarian_form.cleaned_data.get('username')\r\n            messages.success(request, f'Librarian account created for {username}! You are now able to login')\r\n            return redirect('login')\r\n    else:\r\n         customer_form = CustomerRegisterForm()\r\n         librarian_form = LibrarianRegisterForm()\r\n    return render(request, 'userapp/register.html', {'customer_form': customer_form, 'librarian_form': librarian_form})\r\n\r\n\r\nclass UserLogin(LoginView):\r\n    template_name = 'userapp/login.html'\r\n    success_url = 'profile'\r\n\r\n\r\ndef login_user(request):\r\n    if request.method == 'POST':\r\n        email = request.POST.get('email')\r\n        password = request.POST.get('password')\r\n\r\n        user = authenticate(email=email, password=password)\r\n        if user:\r\n            if user.is_active:\r\n                if user.is_customer:\r\n                    login(request, user)\r\n                    return HttpResponseRedirect(reverse('profile'))\r\n                else:\r\n                    login(request, user)\r\n                    return HttpResponseRedirect(reverse('lib-profile'))\r\n            else:\r\n                messages.error(request, f'Your account is inactive')\r\n                # return HttpResponse('Your account is inactive')\r\n        else:\r\n            messages.error(request, f'Your username or password is incorrect! Try again.')\r\n            # return HttpResponse('Your username or password is incorrect! Try again.')\r\n    return render(request, 'login.html', {})\r\n\r\n\r\ndef logout_view(request):\r\n    logout(request)\r\n\r\n\r\n# @login_required()\r\n# def edit_profile(request):\r\n#     if request.method == 'POST':\r\n#         form = CustomerUpdateForm(request.POST, instance=request.user)\r\n#         if form.is_valid:\r\n#            form.save()\r\n#            messages.success(request, f'Your profile information has been updated.')\r\n#            return redirect('profile')\r\n#     else:\r\n#         form = CustomerUpdateForm()\r\n#     return render(request, 'userapp/profile-edit.html', {'form': form})\r\n\r\nclass ProfileUpdateView(UpdateView):\r\n    # form_class = LibrarianUpdateForm\r\n    template_name = 'userapp/profile-edit.html'\r\n    success_url = '/'\r\n    fields = '__all__'\r\n\r\n    def get_object(self, queryset=None):\r\n        if self.request.user.is_customer:\r\n            customer_object = Customer.objects.filter(user=self.request.user)[0]\r\n            return customer_object\r\n        else:\r\n            return self.request.user\r\n\r\n    def get_context_data(self, **kwargs):\r\n        kwargs['lib_form'] = LibrarianUpdateForm(self.request.POST, instance=self.get_object())\r\n        kwargs['cust_form'] = CustomerUpdateForm(self.request.POST, instance=self.get_object())\r\n\r\n        return kwargs\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/userapp/views.py b/userapp/views.py
+--- a/userapp/views.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ b/userapp/views.py	(date 1660153974157)
+@@ -102,7 +102,8 @@
+     success_url = '/'
+     fields = '__all__'
+ 
+-    def get_object(self, queryset=None):
++
++    def get_object(self):
+         if self.request.user.is_customer:
+             customer_object = Customer.objects.filter(user=self.request.user)[0]
+             return customer_object
+Index: userapp/forms.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django import forms\r\nfrom django.contrib.auth.forms import UserCreationForm, PasswordChangeForm\r\nfrom bootstrap_datepicker_plus.widgets import DatePickerInput\r\nfrom .models import User, Customer, Librarian\r\nfrom django.db import transaction\r\n# from django.contrib.auth.models import User\r\n\r\n\r\nclass PasswordChangingForm(PasswordChangeForm):\r\n    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))\r\n    new_password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))\r\n    new_password2 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))\r\n\r\n    class Meta:\r\n        model = User\r\n        fields = ('old_password', 'new_password1', 'new_password2')\r\n\r\n\r\nclass MyDatePickerInput(DatePickerInput):\r\n    template_name = 'userapp/date-picker.html'\r\n\r\n\r\nclass CustomerRegisterForm(UserCreationForm):\r\n    first_name = forms.CharField(help_text=False, label='First Name')\r\n    last_name = forms.CharField(help_text=False, label='Last Name')\r\n    username = forms.CharField(help_text=False, label='Username')\r\n    address = forms.CharField(help_text=False, label='Address', required=False)\r\n    email = forms.EmailField(help_text=False, label='Email')\r\n    birthday = forms.DateField(label='Date of Birth', widget=DatePickerInput(format='%Y-%m-%d'), input_formats=['%Y-%m-%d'], required=False)\r\n    password1 = forms.CharField(widget=forms.PasswordInput(), help_text=False, label='Password')\r\n    password2 = forms.CharField(widget=forms.PasswordInput(), help_text=False, label='Confirm password')\r\n\r\n    class Meta:\r\n        model = User\r\n        fields = ('first_name', 'last_name', 'username', 'address', 'email', 'birthday', 'password1', 'password2')\r\n        widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}\r\n\r\n    @transaction.atomic\r\n    def save(self):\r\n        user = super().save(commit=False)\r\n        user.is_customer = True\r\n        user.first_name = self.cleaned_data.get('first_name')\r\n        user.last_name = self.cleaned_data.get('last_name')\r\n        user.email = self.cleaned_data.get('email')\r\n        user.save()\r\n        customer = Customer.objects.create(user=user)\r\n        customer.address = self.cleaned_data.get('address')\r\n        customer.birthday = self.cleaned_data.get('birthday')\r\n        customer.save()\r\n        return user\r\n\r\n\r\nclass CustomerUpdateForm(forms.ModelForm):\r\n    address = forms.CharField(help_text=False, label='Address', required=False)\r\n    birthday = forms.DateField(label='Date of Birth', widget=DatePickerInput(format='%Y-%m-%d'),\r\n                               input_formats=['%Y-%m-%d'], required=False)\r\n\r\n    class Meta:\r\n        model = User\r\n        fields = ('first_name', 'last_name', 'email', 'address', 'birthday')\r\n        widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}\r\n\r\n\r\nclass LibrarianUpdateForm(forms.ModelForm):\r\n    class Meta:\r\n        model = User\r\n        fields = ('first_name', 'last_name', 'email')\r\n\r\n\r\nclass LibrarianRegisterForm(UserCreationForm):\r\n    username = forms.CharField(help_text=False, label='Username')\r\n    email = forms.EmailField(help_text=False, label='Email')\r\n    password1 = forms.CharField(widget=forms.PasswordInput(), help_text=False, label='Password')\r\n    password2 = forms.CharField(widget=forms.PasswordInput(), help_text=False, label='Confirm password')\r\n\r\n    class Meta:\r\n        model = User\r\n        fields = ('username', 'email', 'password1', 'password2')\r\n\r\n    @transaction.atomic\r\n    def save(self):\r\n        user = super().save(commit=False)\r\n        user.is_librarian = True\r\n        # user.first_name = self.cleaned_data.get('first_name')\r\n        # user.last_name = self.cleaned_data.get('last_name')\r\n        user.username = self.cleaned_data.get('username')\r\n        user.email = self.cleaned_data.get('email')\r\n        user.save()\r\n        librarian = Librarian.objects.create(user=user)\r\n        librarian.save()\r\n        return user\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/userapp/forms.py b/userapp/forms.py
+--- a/userapp/forms.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ b/userapp/forms.py	(date 1660156301884)
+@@ -3,6 +3,7 @@
+ from bootstrap_datepicker_plus.widgets import DatePickerInput
+ from .models import User, Customer, Librarian
+ from django.db import transaction
++from django.forms import TextInput
+ # from django.contrib.auth.models import User
+ 
+ 
+@@ -57,7 +58,7 @@
+ 
+     class Meta:
+         model = User
+-        fields = ('first_name', 'last_name', 'email', 'address', 'birthday')
++        fields = ('first_name', 'last_name', 'address', 'email', 'birthday')
+         widgets = {'birthday': MyDatePickerInput(format='%Y-%m-%d')}
+ 
+ 
+Index: libapp/migrations/0003_alter_profile_user.py
+===================================================================
+diff --git a/libapp/migrations/0003_alter_profile_user.py b/libapp/migrations/0003_alter_profile_user.py
+deleted file mode 100644
+--- a/libapp/migrations/0003_alter_profile_user.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,20 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:01
+-
+-from django.db import migrations, models
+-import django.db.models.deletion
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0001_initial'),
+-        ('libapp', '0002_initial'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='profile',
+-            name='user',
+-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_profile', to='userapp.user'),
+-        ),
+-    ]
+Index: libapp/migrations/0002_initial.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/libapp/migrations/0002_initial.py b/libapp/migrations/0002_initial.py
+deleted file mode 100644
+--- a/libapp/migrations/0002_initial.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,43 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 06:11
+-
+-from django.db import migrations, models
+-import django.db.models.deletion
+-
+-
+-class Migration(migrations.Migration):
+-
+-    initial = True
+-
+-    dependencies = [
+-        ('bookapp', '0001_initial'),
+-        ('userapp', '0001_initial'),
+-        ('libapp', '0001_initial'),
+-    ]
+-
+-    operations = [
+-        migrations.AddField(
+-            model_name='profile',
+-            name='user',
+-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='user_profile', to='userapp.user'),
+-        ),
+-        migrations.AddField(
+-            model_name='orderitem',
+-            name='item',
+-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bookapp.book'),
+-        ),
+-        migrations.AddField(
+-            model_name='orderitem',
+-            name='user',
+-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='userapp.user'),
+-        ),
+-        migrations.AddField(
+-            model_name='order',
+-            name='items',
+-            field=models.ManyToManyField(blank=True, null=True, to='libapp.OrderItem'),
+-        ),
+-        migrations.AddField(
+-            model_name='order',
+-            name='user',
+-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='userapp.user'),
+-        ),
+-    ]
+Index: libapp/migrations/0006_alter_profile_user.py
+===================================================================
+diff --git a/libapp/migrations/0006_alter_profile_user.py b/libapp/migrations/0006_alter_profile_user.py
+deleted file mode 100644
+--- a/libapp/migrations/0006_alter_profile_user.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,20 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:32
+-
+-from django.db import migrations, models
+-import django.db.models.deletion
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0003_alter_user_first_name'),
+-        ('libapp', '0005_alter_profile_user'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='profile',
+-            name='user',
+-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_profile', to='userapp.user'),
+-        ),
+-    ]
+Index: userapp/migrations/0003_alter_user_first_name.py
+===================================================================
+diff --git a/userapp/migrations/0003_alter_user_first_name.py b/userapp/migrations/0003_alter_user_first_name.py
+deleted file mode 100644
+--- a/userapp/migrations/0003_alter_user_first_name.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,18 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:25
+-
+-from django.db import migrations, models
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0002_alter_user_first_name'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='user',
+-            name='first_name',
+-            field=models.CharField(blank=True, max_length=50, null=True),
+-        ),
+-    ]
+Index: userapp/migrations/0002_alter_user_first_name.py
+===================================================================
+diff --git a/userapp/migrations/0002_alter_user_first_name.py b/userapp/migrations/0002_alter_user_first_name.py
+deleted file mode 100644
+--- a/userapp/migrations/0002_alter_user_first_name.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,18 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:17
+-
+-from django.db import migrations, models
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0001_initial'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='user',
+-            name='first_name',
+-            field=models.CharField(max_length=50),
+-        ),
+-    ]
+Index: libapp/migrations/0004_alter_profile_user.py
+===================================================================
+diff --git a/libapp/migrations/0004_alter_profile_user.py b/libapp/migrations/0004_alter_profile_user.py
+deleted file mode 100644
+--- a/libapp/migrations/0004_alter_profile_user.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,20 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:17
+-
+-from django.db import migrations, models
+-import django.db.models.deletion
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0002_alter_user_first_name'),
+-        ('libapp', '0003_alter_profile_user'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='profile',
+-            name='user',
+-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_profile', to='userapp.user'),
+-        ),
+-    ]
+Index: libapp/migrations/0005_alter_profile_user.py
+===================================================================
+diff --git a/libapp/migrations/0005_alter_profile_user.py b/libapp/migrations/0005_alter_profile_user.py
+deleted file mode 100644
+--- a/libapp/migrations/0005_alter_profile_user.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,20 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:18
+-
+-from django.db import migrations, models
+-import django.db.models.deletion
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0002_alter_user_first_name'),
+-        ('libapp', '0004_alter_profile_user'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='profile',
+-            name='user',
+-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_profile', to='userapp.user'),
+-        ),
+-    ]
+Index: libapp/migrations/0007_alter_profile_user.py
+===================================================================
+diff --git a/libapp/migrations/0007_alter_profile_user.py b/libapp/migrations/0007_alter_profile_user.py
+deleted file mode 100644
+--- a/libapp/migrations/0007_alter_profile_user.py	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ /dev/null	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
+@@ -1,20 +0,0 @@
+-# Generated by Django 4.0 on 2022-08-07 07:53
+-
+-from django.db import migrations, models
+-import django.db.models.deletion
+-
+-
+-class Migration(migrations.Migration):
+-
+-    dependencies = [
+-        ('userapp', '0003_alter_user_first_name'),
+-        ('libapp', '0006_alter_profile_user'),
+-    ]
+-
+-    operations = [
+-        migrations.AlterField(
+-            model_name='profile',
+-            name='user',
+-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user_profile', to='userapp.user'),
+-        ),
+-    ]
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"40a27232-4b41-4acd-9aa7-845674f86408\" name=\"Changes\" comment=\"some libapp tests\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0001_initial.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0002_initial.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0003_alter_profile_user.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0004_alter_profile_user.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0005_alter_profile_user.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0006_alter_profile_user.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/migrations/0007_alter_profile_user.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/templates/footer.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/libapp/templates/footer.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/templates/patterns/book-list-pattern.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/libapp/templates/patterns/book-list-pattern.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/libapp/templates/search.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/libapp/templates/search.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userapp/migrations/0001_initial.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userapp/migrations/0002_alter_user_first_name.py\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/userapp/migrations/0003_alter_user_first_name.py\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"HTML File\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Bky0dbMq4ytaYsxPiMwvmlBW4H\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DatabaseDriversLRU\" value=\"postgresql\" />\r\n    <property name=\"DefaultHtmlFileTemplate\" value=\"HTML File\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/libapp/tests\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"watcher.settings\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Aureems\\Documents\\GitHub\\library_management_system\\library\\libapp\\tests\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Documents\\GitHub\\library_management_system\\library\\libapp\\templates\\bookapp\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Desktop\\library_management_system\\library\\libapp\\static\\assets\\img\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Desktop\\library_management_system\\library\\libapp\\templates\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Desktop\\library_management_system\\library\\libapp\\static\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Aureems\\Documents\\GitHub\\library_management_system\\library\\libapp\\tests\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Documents\\GitHub\\library_management_system\\library\\libapp\\templates\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Documents\\GitHub\\library_management_system\\library\\libapp\\templates\\bookapp\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Desktop\\library_management_system\\library\\libapp\\static\\assets\\img\" />\r\n      <recent name=\"C:\\Users\\Aureems\\Desktop\\library_management_system\\library\\libapp\\static\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.views\">\r\n    <configuration name=\"views\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"library\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/libapp\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/libapp/views.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"library\" type=\"Python.DjangoServer\" factoryName=\"Django server\">\r\n      <module name=\"library\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"C:\\Users\\Aureems\\Desktop\\Library\\venv\\Scripts\\python.exe\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"launchJavascriptDebuger\" value=\"false\" />\r\n      <option name=\"port\" value=\"8000\" />\r\n      <option name=\"host\" value=\"\" />\r\n      <option name=\"additionalOptions\" value=\"\" />\r\n      <option name=\"browserUrl\" value=\"\" />\r\n      <option name=\"runTestServer\" value=\"false\" />\r\n      <option name=\"runNoReload\" value=\"false\" />\r\n      <option name=\"useCustomRunCommand\" value=\"false\" />\r\n      <option name=\"customRunCommand\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.views\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"40a27232-4b41-4acd-9aa7-845674f86408\" name=\"Changes\" comment=\"\" />\r\n      <created>1657464155868</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1657464155868</updated>\r\n      <workItem from=\"1657464170383\" duration=\"712000\" />\r\n      <workItem from=\"1657465942558\" duration=\"885000\" />\r\n      <workItem from=\"1657556718212\" duration=\"3832000\" />\r\n      <workItem from=\"1657569179180\" duration=\"4659000\" />\r\n      <workItem from=\"1657646695182\" duration=\"3968000\" />\r\n      <workItem from=\"1657716032076\" duration=\"1289000\" />\r\n      <workItem from=\"1657731769972\" duration=\"12840000\" />\r\n      <workItem from=\"1657816465647\" duration=\"10008000\" />\r\n      <workItem from=\"1657903597129\" duration=\"1058000\" />\r\n      <workItem from=\"1657954048219\" duration=\"14910000\" />\r\n      <workItem from=\"1658038188847\" duration=\"21201000\" />\r\n      <workItem from=\"1658253079031\" duration=\"6348000\" />\r\n      <workItem from=\"1658337917573\" duration=\"119000\" />\r\n      <workItem from=\"1658338196012\" duration=\"6691000\" />\r\n      <workItem from=\"1658424096246\" duration=\"6676000\" />\r\n      <workItem from=\"1658511126209\" duration=\"15000\" />\r\n      <workItem from=\"1658681372778\" duration=\"3989000\" />\r\n      <workItem from=\"1658766834229\" duration=\"13405000\" />\r\n      <workItem from=\"1658851730642\" duration=\"11764000\" />\r\n      <workItem from=\"1658946271537\" duration=\"2770000\" />\r\n      <workItem from=\"1659026978125\" duration=\"16800000\" />\r\n      <workItem from=\"1659044581915\" duration=\"520000\" />\r\n      <workItem from=\"1659099529172\" duration=\"1707000\" />\r\n      <workItem from=\"1659118256661\" duration=\"5376000\" />\r\n      <workItem from=\"1659123696134\" duration=\"2636000\" />\r\n      <workItem from=\"1659160827459\" duration=\"27430000\" />\r\n      <workItem from=\"1659213939571\" duration=\"3354000\" />\r\n      <workItem from=\"1659246993086\" duration=\"5153000\" />\r\n      <workItem from=\"1659252601819\" duration=\"14781000\" />\r\n      <workItem from=\"1659294404792\" duration=\"2377000\" />\r\n      <workItem from=\"1659325288675\" duration=\"6256000\" />\r\n      <workItem from=\"1659357989865\" duration=\"16128000\" />\r\n      <workItem from=\"1659375456859\" duration=\"745000\" />\r\n      <workItem from=\"1659382061582\" duration=\"733000\" />\r\n      <workItem from=\"1659383112130\" duration=\"97000\" />\r\n      <workItem from=\"1659453035986\" duration=\"9113000\" />\r\n      <workItem from=\"1659526441762\" duration=\"9024000\" />\r\n      <workItem from=\"1659621611051\" duration=\"11091000\" />\r\n      <workItem from=\"1659715232285\" duration=\"8188000\" />\r\n      <workItem from=\"1659724757396\" duration=\"3388000\" />\r\n      <workItem from=\"1659728296522\" duration=\"4431000\" />\r\n      <workItem from=\"1659766042252\" duration=\"4824000\" />\r\n      <workItem from=\"1659771467206\" duration=\"65000\" />\r\n      <workItem from=\"1659771573835\" duration=\"267000\" />\r\n      <workItem from=\"1659771853922\" duration=\"16232000\" />\r\n      <workItem from=\"1659851950395\" duration=\"577000\" />\r\n      <workItem from=\"1659852658453\" duration=\"15463000\" />\r\n      <workItem from=\"1659978758268\" duration=\"5213000\" />\r\n      <workItem from=\"1659984038389\" duration=\"1000\" />\r\n      <workItem from=\"1660058492414\" duration=\"14259000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"start\">\r\n      <created>1657464250515</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657464250515</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"libapp structure\">\r\n      <created>1657574437112</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657574437112</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"libapp structure\">\r\n      <created>1657574581530</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657574581530</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"homepage upgrade\">\r\n      <created>1657744013921</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657744013921</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"homepage ready, needs functions\">\r\n      <created>1657825880737</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1657825880737</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"templates updated\">\r\n      <created>1658258575996</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1658258575996</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"templates updated\">\r\n      <created>1658258593459</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1658258593459</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"with migrations\">\r\n      <created>1658781464871</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1658781464871</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"github desktop\">\r\n      <created>1659252642165</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1659252642166</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"github desktop\">\r\n      <created>1659252716152</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1659252716152</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"'authors' updated\">\r\n      <created>1659801855561</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1659801855561</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"'authors' updated\">\r\n      <created>1659801905334</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1659801905334</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"'authors' updated\">\r\n      <created>1659801924368</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1659801924368</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"'authors' updated, fixed\">\r\n      <created>1659852990447</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1659852990447</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"some libapp tests\">\r\n      <created>1660071307262</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1660071307262</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"16\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"start\" />\r\n    <MESSAGE value=\"libapp structure\" />\r\n    <MESSAGE value=\"homepage upgrade\" />\r\n    <MESSAGE value=\"homepage ready, needs functions\" />\r\n    <MESSAGE value=\"templates updated\" />\r\n    <MESSAGE value=\"with migrations\" />\r\n    <MESSAGE value=\"github desktop\" />\r\n    <MESSAGE value=\"'authors' updated\" />\r\n    <MESSAGE value=\"'authors' updated, fixed\" />\r\n    <MESSAGE value=\"some libapp tests\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"some libapp tests\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/library$views.coverage\" NAME=\"views Coverage Results\" MODIFIED=\"1659119883394\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/libapp\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d0af8fb1936a4d3398bb9bf95679393d277e7ebe)
++++ b/.idea/workspace.xml	(date 1660232096004)
+@@ -4,21 +4,19 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="some libapp tests">
++    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="some libapp tests+fixes">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/libapp/migrations/0001_initial.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/libapp/migrations/0002_initial.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/libapp/migrations/0003_alter_profile_user.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/libapp/migrations/0004_alter_profile_user.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/libapp/migrations/0005_alter_profile_user.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/libapp/migrations/0006_alter_profile_user.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/libapp/migrations/0007_alter_profile_user.py" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/libapp/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/footer.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/libapp/templates/patterns/book-list-pattern.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/patterns/book-list-pattern.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/libapp/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/search.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/userapp/migrations/0001_initial.py" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/libapp/templates/userapp/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/libapp/templates/userapp/profile.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/userapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/forms.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/userapp/migrations/0002_alter_user_first_name.py" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/userapp/migrations/0003_alter_user_first_name.py" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/userapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/userapp/views.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -188,7 +186,9 @@
+       <workItem from="1659852658453" duration="15463000" />
+       <workItem from="1659978758268" duration="5213000" />
+       <workItem from="1659984038389" duration="1000" />
+-      <workItem from="1660058492414" duration="14259000" />
++      <workItem from="1660058492414" duration="14379000" />
++      <workItem from="1660147262035" duration="9097000" />
++      <workItem from="1660231295505" duration="795000" />
+     </task>
+     <task id="LOCAL-00001" summary="start">
+       <created>1657464250515</created>
+@@ -295,7 +295,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1660071307262</updated>
+     </task>
+-    <option name="localTasksCounter" value="16" />
++    <task id="LOCAL-00016" summary="some libapp tests+fixes">
++      <created>1660073226872</created>
++      <option name="number" value="00016" />
++      <option name="presentableId" value="LOCAL-00016" />
++      <option name="project" value="LOCAL" />
++      <updated>1660073226872</updated>
++    </task>
++    <option name="localTasksCounter" value="17" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -323,7 +330,8 @@
+     <MESSAGE value="'authors' updated" />
+     <MESSAGE value="'authors' updated, fixed" />
+     <MESSAGE value="some libapp tests" />
+-    <option name="LAST_COMMIT_MESSAGE" value="some libapp tests" />
++    <MESSAGE value="some libapp tests+fixes" />
++    <option name="LAST_COMMIT_MESSAGE" value="some libapp tests+fixes" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/library$views.coverage" NAME="views Coverage Results" MODIFIED="1659119883394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/libapp" />
