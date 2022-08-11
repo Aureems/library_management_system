@@ -5,3 +5,4 @@ Pillow
 django-bootstrap4
 django-bootstrap-datepicker-plus
 django-crispy-forms
+django-mptt
