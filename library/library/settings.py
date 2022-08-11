@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-s%-r+u00m02swhsdmj)-s8cc+%padr#k%ll7fl@%yn%qr3o_#4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bookworm-library-project.herokuapp.com/']
 
 
 # Application definition
