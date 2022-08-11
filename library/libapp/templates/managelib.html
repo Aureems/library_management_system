@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<hr class="solid">
+<div class="media position-relative">
+  <img src="{% static 'assets/img/grbutton.jpg' %}" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Add Book</h5>
+    <p>You can add new books here.</p>
+    <a href="{% url 'add-book' %}" class="stretched-link">>>>>>>>
+    </a>
+  </div>
+</div>
+<hr class="solid">
+<div class="media position-relative">
+  <img src="{% static 'assets/img/grbutton.jpg' %}" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Add Categories</h5>
+    <p>You can add categories and sub-categories here.</p>
+      <a href="{% url 'add-cat' %}" class="stretched-link">>>>>>>>
+{#    <a href="{% url 'cat-upload' %}" class="stretched-link">>>>>>>>#}
+    </a>
+  </div>
+</div>
+<hr class="solid">
+<div class="media position-relative">
+  <img src="{% static 'assets/img/grbutton.jpg' %}" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Add Author</h5>
+    <p>You can add authors here.</p>
+{#    <a href="{% url 'auth-upload' %}" class="stretched-link">>>>>>>>#}
+      <a href="{% url 'add-auth' %}" class="stretched-link">>>>>>>>
+    </a>
+  </div>
+</div>
+<hr class="solid">
+<div class="media position-relative">
+  <img src="{% static 'assets/img/grbutton.jpg' %}" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Add User</h5>
+    <p> Add new users here.</p>
+    <a href="{% url 'register' %}" class="stretched-link">>>>>>>>
+    </a>
+  </div>
+</div>
+<hr class="solid">
+<div class="media position-relative">
+  <img src="{% static 'assets/img/grbutton.jpg' %}" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Manage Orders</h5>
+    <p>Here you can see and manage book borrowing.</p>
+    <a href="#" class="stretched-link">>>>>>>>
+    </a>
+  </div>
+</div>
+<hr class="solid">
+
+{% include 'footer.html' %}
+{% endblock %}

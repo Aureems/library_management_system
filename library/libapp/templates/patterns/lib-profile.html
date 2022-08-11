@@ -1,0 +1,123 @@
+<!--Librarian books table-->
+
+<div class="col-sm-9">
+<ul class="nav nav-tabs" id="myTab">
+    <li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">Library catalog ({{ all_books.count }})</a></li>
+    <li class="nav-item"><a class="nav-link" href="#orders" data-toggle="tab">Orders ({{ all_orders.count }})</a></li>
+</ul>
+
+<div class="tab-content well">
+<!-----Library catalog table--------------->
+    <div class="tab-pane active" id="home">
+        <div class="table-responsive table-scroll">
+            <table class="table table-hover" style="font-size:13px;">
+                <thead>
+                    <tr>
+                      <th scope="col" style="width: 10%">ISBN</th>
+                      <th scope="col" style="width: 30%;">Title</th>
+                      <th scope="col" style="width: 20%;">Author</th>
+                      <th scope="col">Page number</th>
+                      <th scope="col">Category</th>
+                      <th scope="col" style="width: 10%">Availability</th>
+                      <th scope="col" style="width: 10%">Ordered until</th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    {% for book in all_books %}
+{#                            {% for order_item in order.items.all %}#}
+{#                                      <th scope="row">{{ forloop.parentloop.counter }}</th>#}
+                        <tr>
+                          <td style="width: 10%"><a href="{% url 'about-book' book.pk %}">{{ book.isbn }}</a></td>
+                          <td style="width: 30%">{{ book.title }}</td>
+                          <td style="width: 20%;">{{ book.author}}</td>
+                          <td>{{ book.page_number}}</td>
+                          <td>{{ book.category}}</td>
+                          <td style="width: 10%;">
+                              {% if book.available %}
+                                  <i class="fa fa-check-square" aria-hidden="true" style="color: green"></i>
+                              {% else %}
+                                  <i class="fa fa-minus-square" aria-hidden="true" style="color: red"></i>
+                              {% endif %}
+                          </td>
+
+                            <td style="width: 10%;">
+                                {% if not book.available %}
+                                {% for order in all_order_items %}
+                                    {% for order_item in order.items.all %}
+                                        {% if order_item.item_id == book.isbn and not order_item.date_returned %}
+                                        {{ order.until_date|date:'Y-m-d'}}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                                {% endif %}
+                            </td>
+
+                        </tr>
+
+{#                            {% endfor %}#}
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div><!--/table-resp-->
+    </div>
+<!-----Orders table--------------->
+    <div class="tab-pane" id="orders">
+        <div class="table-responsive table-scroll">
+            <table class="table table-hover"  style="font-size:13px">
+                <thead>
+                    <tr>
+                      <th scope="col">Order date</th>
+                      <th scope="col">REF code</th>
+                      <th scope="col">Customer</th>
+                      <th scope="col">Until date</th>
+                      <th scope="col">Total books in order</th>
+{#                      <th scope="col">Not returned</th>#}
+                      <th scope="col">Order details</th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    {% for order in all_orders %}
+                        <tr>
+                        <td>{{ order.date_ordered|date:'Y-m-d' }}</td>
+                          <td>
+                              <a href="#">
+                                  {{ order.ref_code }}</a>
+                          </td>
+                          <td>{{ order.user.first_name }} {{ order.user.last_name }}</td>
+                          <td>{{ order.until_date|date:'Y-m-d'}}</td>
+                          <td>
+                              {% for order_item in all_order_items.all %}
+                                  {% if order_item.ref_code == order.ref_code %}
+                                      {{ order_item.items.count }}
+                                  {% endif %}
+                              {% endfor %}
+                          </td>
+{#                            <td>#}
+{#                              {% for item in order.items.all %}#}
+{#                                    {% if item in all_reading_books.all %}#}
+{##}
+{#                                    <p>{{ item }}</p>#}
+{##}
+{#                                    {% endif %}#}
+{#                              {% endfor %}#}
+{#                            </td>#}
+                          <td>
+                              <a href="#">
+                                  <i class="fa fa-search-plus" aria-hidden="true"></i>
+                              </a>
+                          </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<!--/tab-content-->

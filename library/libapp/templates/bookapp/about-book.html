@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container mt-3">
+    <div class="row">
+        <h5>{{ book.title }}</h5>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-md-6">
+            {{ book.description }}
+        </div>
+
+        <div class="col-md-6">
+            <img src="{{ book.photo.url }}" style="height: 350px; width: 230px">
+        </div>
+        <div class="col-md-2"><a href="{% url 'books' %}">
+            <button class="btn btn-outline-info">
+                <i class="fa fa-arrow-circle-left"></i> Book list
+            </button></a>
+        </div>
+        <div class="col-md-2">
+
+        {% if book.available and not user.is_librarian %}
+        <a href="{% url 'add-to-cart' book.pk %}">
+        <button class="btn btn-outline-info">Borrow
+            <i class="fa fa-cart-arrow-down"></i>
+        </button></a>
+        {% else %}
+        <button class="btn btn-outline-info disabled">Borrow
+            <i class="fa fa-cart-arrow-down"></i>
+        </button>
+        {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}
+{% endblock %}

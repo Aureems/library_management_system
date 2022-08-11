@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model4" />
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Started Order model3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/models.py" afterDir="false" />
+    <list default="true" id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="Multiple user registration. Need migration for useapp">
+      <change afterPath="$PROJECT_DIR$/library/libapp/static/assets/img/literature.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/media/covers/img2_7W1aNzH.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/bookapp/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0002_alter_category_options_remove_category_level_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0003_category_date_created.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0005_author_date_created.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/bookapp/migrations/0006_author_nationality.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/libapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/libapp/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/library/libapp/templates/userapp/register.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/library/bookapp/models.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2C0yxwruhiFr93NdX0BEd3Hvokq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/django-projects/petreg/vetapp/views.py" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\media\data_files" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\userapp" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\static\images\covers" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\media" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\admin\bookapp\category" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\static" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\bookapp" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\templates\libapp" />
+      <recent name="C:\Users\Laura\Documents\GitHub\library_management_system\library\libapp\static\images" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c11f84b3-c825-4311-95ba-e7981b782d39" name="Changes" comment="" />
+      <created>1657954048050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657954048050</updated>
+      <workItem from="1657954049598" duration="371000" />
+      <workItem from="1659021479483" duration="25914000" />
+      <workItem from="1659252367066" duration="231000" />
+    </task>
+    <task id="LOCAL−00001" summary="Test commit">
+      <created>1657972735318</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1657972735318</updated>
+    </task>
+    <task id="LOCAL−00002" summary="Test commit">
+      <created>1657972743429</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1657972743429</updated>
+    </task>
+    <task id="LOCAL−00003" summary="Bookapp models and Login/Register forms">
+      <created>1657975591448</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1657975591448</updated>
+    </task>
+    <task id="LOCAL−00004" summary="User profile, password change function">
+      <created>1658005092300</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1658005092300</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Fixed calendar, List of books">
+      <created>1658056082881</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1658056082881</updated>
+    </task>
+    <task id="LOCAL−00006" summary="books urls, views and templates from libapp to bookapp">
+      <created>1658091092694</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1658091092694</updated>
+    </task>
+    <task id="LOCAL−00007" summary="Better look of book list">
+      <created>1658174715479</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1658174715480</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Multiple user registration. Need migration for useapp">
+      <created>1658843027332</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1658843027332</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Started Order model">
+      <created>1659248693111</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1659248693111</updated>
+    </task>
+    <task id="LOCAL−00010" summary="Started Order model2">
+      <created>1659249280173</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1659249280173</updated>
+    </task>
+    <task id="LOCAL−00011" summary="Started Order model3">
+      <created>1659251990649</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1659251990649</updated>
+    </task>
+    <task id="LOCAL−00012" summary="Started Order model4">
+      <created>1659253079705</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1659253079705</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="ae1f7d44-a5a9-4886-8880-56d981df8352">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Test commit" />
+    <MESSAGE value="Bookapp models and Login/Register forms" />
+    <MESSAGE value="User profile, password change function" />
+    <MESSAGE value="Fixed calendar, List of books" />
+    <MESSAGE value="books urls, views and templates from libapp to bookapp" />
+    <MESSAGE value="Better look of book list" />
+    <MESSAGE value="Multiple user registration. Need migration for useapp" />
+    <MESSAGE value="Started Order model" />
+    <MESSAGE value="Started Order model2" />
+    <MESSAGE value="Started Order model3" />
+    <MESSAGE value="Started Order model4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Order model4" />
+  </component>
+</project>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+{% load admin_urls %}
+
+{% block content %}
+
+<div class="container bootstrap snippets bootdey mt-5">
+    <div class="col-md-9 personal-info">
+        <form class="col-md-6 mb-3" method="post">
+            <div class="info-text">Edit your profile details or
+                <a href="{% url 'psw-change' %}" class="link">change your password</a>
+            </div>
+            <hr>
+
+            {% csrf_token %}
+
+{#             {% for form in forms %}#}
+{#                 {{ form.media }}#}
+{#                {% bootstrap_form form %}#}
+{#             {% endfor %}#}
+
+            {% bootstrap_form user_form %}
+            {% if user.is_customer %}
+                {{ cust_form.media }}
+                {% bootstrap_form cust_form %}
+            {% endif %}
+
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <button class="btn btn-success" type="submit" value="Submit">Save</button>
+                    <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

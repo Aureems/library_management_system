@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<section class="vh-100 bg-image">
+  <div class="mask d-flex align-items-center h-100">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7">
+          <div class="card" style="border-radius: 5px;">
+            <div class="card-body p-5">
+              <h2 class="text-center mb-5">Login form</h2>
+
+              <form action="{% url 'login' %}" method="POST" autocomplete="off">
+
+                {% csrf_token %}
+                {% bootstrap_form form %}
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                </div>
+                <small class="text-muted">Don't have an account? <a href="{% url 'register' %}" class="link-info">Register</a></small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% include 'footer.html' %}
+{% endblock %}

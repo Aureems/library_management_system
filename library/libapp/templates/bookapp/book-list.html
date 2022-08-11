@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+
+        {% for book in object_list %}
+
+        {% include 'patterns/book-list-pattern.html' %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% include 'patterns/pagination.html' %}
+
+{% include 'footer.html' %}
+{% endblock %}

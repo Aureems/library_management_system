@@ -1,0 +1,385 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<header id="site-header" class="site-header__v1">
+
+<section class="space-bottom-3">
+<div class="container">
+<header class="mb-5 d-md-flex justify-content-between align-items-center">
+<h2 class="font-size-7 mb-3 mb-md-0">Featured Categories</h2>
+<a href="{% url 'categories' %}" class="h-primary d-block">All Categories <i class="glyph-icon flaticon-next"></i></a>
+</header>
+<ul class="list-unstyled my-0 row row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-wd-5">
+<li class="product-category col mb-4 mb-xl-0">
+<div class="product-category__inner bg-indigo-light px-6 py-5">
+<div class="product-category__icon font-size-12 text-primary-indigo"><i class="glyph-icon flaticon-gallery"></i></div>
+<div class="product-category__body">
+<h3 class="text-truncate font-size-3">Arts &amp; Photography</h3>
+<a href="{% url 'books-by-cat' 29 %}" class="stretched-link text-dark">Order Now</a>
+</div>
+</div>
+</li>
+<li class="product-category col mb-4 mb-xl-0">
+<div class="product-category__inner bg-tangerine-light px-6 py-5">
+<div class="product-category__icon font-size-12 text-tangerine"><i class="glyph-icon flaticon-cook"></i></div>
+<div class="product-category__body">
+<h3 class="text-truncate font-size-3">Food &amp; Drink</h3>
+<a href="{% url 'books-by-cat' 34 %}" class="stretched-link text-dark">Order Now</a>
+</div>
+</div>
+</li>
+<li class="product-category col mb-4 mb-xl-0">
+<div class="product-category__inner bg-chili-light px-6 py-5">
+<div class="product-category__icon font-size-12 text-chili"><i class="glyph-icon flaticon-like"></i></div>
+<div class="product-category__body">
+<h3 class="text-truncate font-size-3">Romance</h3>
+<a href="{% url 'books-by-cat' 21 %}" class="stretched-link text-dark">Order Now</a>
+</div>
+</div>
+</li>
+<li class="product-category col mb-4 mb-xl-0">
+<div class="product-category__inner bg-carolina-light px-6 py-5">
+<div class="product-category__icon font-size-12 text-carolina"><i class="glyph-icon flaticon-doctor"></i></div>
+<div class="product-category__body">
+<h3 class="text-truncate font-size-3">Health</h3>
+<a href="{% url 'books-by-cat' 39 %}" class="stretched-link text-dark">Order Now</a>
+</div>
+</div>
+</li>
+<li class="product-category col mb-4 mb-xl-0 d-xl-none d-wd-block">
+<div class="product-category__inner bg-punch-light px-6 py-5">
+<div class="product-category__icon font-size-12 text-punch"><i class="glyph-icon flaticon-resume"></i></div>
+<div class="product-category__body">
+<h3 class="text-truncate font-size-3">Biography</h3>
+<a href="../shop/v1.html" class="stretched-link text-dark">Order Now</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section class="space-bottom-3">
+<div class="container">
+<header class="mb-5 d-md-flex justify-content-between align-items-center">
+<h2 class="font-size-7 mb-3 mb-md-0">Featured books</h2>
+<a href="{% url 'books' %}" class="h-primary d-block">View All <i class="glyph-icon flaticon-next"></i></a>
+</header>
+<div class="js-slick-carousel products no-gutters border-top border-left border-right" data-pagi-classes="d-xl-none text-center position-absolute right-0 left-0 u-slick__pagination mt-4 mb-0" data-arrows-classes="d-none d-xl-block u-slick__arrow u-slick__arrow-centered--y" data-arrow-left-classes="fas fa-chevron-left u-slick__arrow-inner u-slick__arrow-inner--left ml-lg-n10" data-arrow-right-classes="fas fa-chevron-right u-slick__arrow-inner u-slick__arrow-inner--right mr-lg-n10" data-slides-show="5" data-responsive='[{
+                   "breakpoint": 1500,
+                   "settings": {
+                     "slidesToShow": 4
+                   }
+                },{
+                   "breakpoint": 1199,
+                   "settings": {
+                     "slidesToShow": 3
+                   }
+                },{
+                   "breakpoint": 992,
+                   "settings": {
+                     "slidesToShow": 2
+                   }
+                }, {
+                   "breakpoint": 768,
+                   "settings": {
+                     "slidesToShow": 1
+                   }
+                }, {
+                   "breakpoint": 554,
+                   "settings": {
+                     "slidesToShow": 1
+                   }
+                }]'>
+ {% for book in object_list %}
+<div class="product">
+
+<div class="product__inner overflow-hidden p-3 p-md-4d875">
+
+<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+
+<div class="woocommerce-loop-product__thumbnail">
+
+<a href="{% url 'about-book' book.isbn %}" class="d-block">
+    <img src="{{ book.photo.url }}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" style=width:120px;height:200px  alt="default.jpg"></a>
+</div>
+<div class="woocommerce-loop-product__body product__body pt-3 bg-white">
+<div class="text-uppercase font-size-1 mb-1 text-truncate">{{book.category}}</div>
+<h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{% url 'about-book' book.isbn %}">{{ book.title }}</a></h2>
+<div class="font-size-2  mb-1 text-truncate">{{ book.author }}</div>
+<div class="price d-flex align-items-center font-weight-medium font-size-3">
+</div>
+</div>
+<div class="product__hover d-flex align-items-center">
+<a href="" class="text-uppercase text-dark h-dark font-weight-medium mr-auto">
+<span class="product__add-to-cart">Order this book</span>
+<span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
+</a>
+</div>
+</div>
+
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+<section class="space-bottom-3 banner-with-product">
+<div class="container">
+<header class="mb-5 d-md-flex justify-content-between align-items-center">
+<h2 class="font-size-7 mb-3 mb-md-0">New books added to library</h2>
+<ul class="nav nav-gray-700 flex-nowrap flex-md-wrap overflow-auto overflow-md-visible" role="tablist">
+<li class="nav-item mx-4 flex-shrink-0 flex-md-shrink-1">
+<a class="nav-link pb-1 px-0 active" id="history-tab" data-toggle="tab" href="#history-1" role="tab" aria-controls="history-1" aria-selected="true">History</a>
+</li>
+<li class="nav-item mx-4 flex-shrink-0 flex-md-shrink-1">
+<a class="nav-link pb-1 px-0" id="sciencemath-tab" data-toggle="tab" href="#sciencemath-1" role="tab" aria-controls="sciencemath-1" aria-selected="false">Science &amp; Math</a>
+</li>
+<li class="nav-item mx-4 flex-shrink-0 flex-md-shrink-1">
+<a class="nav-link pb-1 px-0" id="romance-tab" data-toggle="tab" href="#romance-1" role="tab" aria-controls="romance-1" aria-selected="false">Romance</a>
+</li>
+<li class="nav-item ml-4 flex-shrink-0 flex-md-shrink-1">
+<a class="nav-link pb-1 px-0" id="travel-tab" data-toggle="tab" href="#travel-1" role="tab" aria-controls="travel-1" aria-selected="false">Travel</a>
+</li>
+</ul>
+ </header>
+<div class="tab-content u-slick__tab">
+<div class="tab-pane fade show active" id="history-1" role="tabpanel" aria-labelledby="history-tab">
+<div class="row no-gutters">
+<div class="col-xl-4 border-right-0 border bg-gray-200 px-1">
+<div class="banner px-lg-8 px-3 py-4 py-xl-0 d-flex h-100 align-items-center justify-content-center">
+<div class="banner__body">
+<div class="banner__image pb-1 mb-5">
+<img class="img-fluid" src="{% static 'assets/img/literature.jpg' %}" alt="image-description">
+</div>
+
+<a href="{% url 'categories' %}" class="btn btn-primary btn-wide rounded-0">View More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-8">
+
+<ul class="products list-unstyled row no-gutters row-cols-2 row-cols-lg-3 row-cols-wd-4 border-top border-left my-0">
+{% for hbook in history %}
+<li class="product col">
+<div class="product__inner overflow-hidden p-3 p-md-4d875">
+<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+<div class="woocommerce-loop-product__thumbnail">
+<a href="{% url 'about-book' hbook.isbn %}" class="d-block"><img src="{{hbook.photo.url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description" style=width:120px;height:200px></a>
+</div>
+<div class="woocommerce-loop-product__body product__body pt-3 bg-white">
+<h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{% url 'about-book' hbook.isbn %}">{{hbook.title}}</a></h2>
+<div class="font-size-2  mb-1 text-truncate"><a class="text-gray-700">{{hbook.author}}</a></div>
+<div class="price d-flex align-items-center font-weight-medium font-size-3">
+
+</div>
+</div>
+<div class="product__hover d-flex align-items-center">
+<a href="" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="Order">
+<span class="product__add-to-cart">Order book</span>
+<span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
+</a>
+</div>
+</div>
+</div>
+</li>
+{% endfor %}
+</ul>
+
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="sciencemath-1" role="tabpanel" aria-labelledby="sciencemath-tab">
+<div class="row no-gutters">
+<div class="col-xl-4 border-right-0 border bg-gray-200 px-1">
+<div class="banner px-lg-8 px-3 py-4 py-xl-0 d-flex h-100 align-items-center justify-content-center">
+<div class="banner__body">
+<div class="banner__image pb-1 mb-5">
+<img class="img-fluid" src="{% static 'assets/img/literature.jpg' %}" alt="image-description">
+</div>
+
+<a href="{% url 'categories' %}" class="btn btn-primary btn-wide rounded-0">View More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-8">
+ <ul class="products list-unstyled row no-gutters row-cols-2 row-cols-lg-3 row-cols-wd-4 border-top border-left my-0">
+{% for mbook in math %}
+<li class="product col">
+<div class="product__inner overflow-hidden p-3 p-md-4d875">
+<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+<div class="woocommerce-loop-product__thumbnail">
+<a href="{% url 'about-book' mbook.isbn %}" class="d-block"><img src="{{mbook.photo.url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description" style=width:120px;height:200px></a>
+</div>
+<div class="woocommerce-loop-product__body product__body pt-3 bg-white">
+<h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{% url 'about-book' mbook.isbn %}">{{hbook.title}}</a></h2>
+<div class="font-size-2  mb-1 text-truncate"><a class="text-gray-700">{{mbook.author}}</a></div>
+<div class="price d-flex align-items-center font-weight-medium font-size-3">
+
+</div>
+</div>
+<div class="product__hover d-flex align-items-center">
+<a href="" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="Order">
+<span class="product__add-to-cart">Order book</span>
+<span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
+</a>
+</div>
+</div>
+</div>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+<div class="tab-pane fade" id="romance-1" role="tabpanel" aria-labelledby="romance-tab">
+<div class="row no-gutters">
+<div class="col-xl-4 border-right-0 border bg-gray-200 px-1">
+<div class="banner px-lg-8 px-3 py-4 py-xl-0 d-flex h-100 align-items-center justify-content-center">
+<div class="banner__body">
+<div class="banner__image pb-1 mb-5">
+<img class="img-fluid" src="{% static 'assets/img/literature.jpg' %}" alt="image-description">
+</div>
+
+<a href="{% url 'categories' %}" class="btn btn-primary btn-wide rounded-0">View More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-8">
+<ul class="products list-unstyled row no-gutters row-cols-2 row-cols-lg-3 row-cols-wd-4 border-top border-left my-0">
+{% for rbook in romance %}
+<li class="product col">
+<div class="product__inner overflow-hidden p-3 p-md-4d875">
+<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+<div class="woocommerce-loop-product__thumbnail">
+<a href="{% url 'about-book' rbook.isbn %}" class="d-block"><img src="{{rbook.photo.url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description" style=width:120px;height:200px></a>
+</div>
+<div class="woocommerce-loop-product__body product__body pt-3 bg-white">
+<h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{% url 'about-book' rbook.isbn %}">{{hbook.title}}</a></h2>
+<div class="font-size-2  mb-1 text-truncate"><a class="text-gray-700">{{rbook.author}}</a></div>
+<div class="price d-flex align-items-center font-weight-medium font-size-3">
+
+</div>
+</div>
+<div class="product__hover d-flex align-items-center">
+<a href="" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="Order">
+<span class="product__add-to-cart">Order book</span>
+<span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
+</a>
+</div>
+</div>
+</div>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+ <div class="tab-pane fade" id="travel-1" role="tabpanel" aria-labelledby="romance-tab">
+<div class="row no-gutters">
+<div class="col-xl-4 border-right-0 border bg-gray-200 px-1">
+<div class="banner px-lg-8 px-3 py-4 py-xl-0 d-flex h-100 align-items-center justify-content-center">
+<div class="banner__body">
+<div class="banner__image pb-1 mb-5">
+<img class="img-fluid" src="{% static 'assets/img/literature.jpg' %}" alt="image-description">
+</div>
+
+<a href="{% url 'categories' %}" class="btn btn-primary btn-wide rounded-0">View More</a>
+</div>
+</div>
+</div>
+<div class="col-xl-8">
+<ul class="products list-unstyled row no-gutters row-cols-2 row-cols-lg-3 row-cols-wd-4 border-top border-left my-0">
+{% for tbook in travel %}
+<li class="product col">
+<div class="product__inner overflow-hidden p-3 p-md-4d875">
+<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link d-block position-relative">
+<div class="woocommerce-loop-product__thumbnail">
+<a href="{% url 'about-book' tbook.isbn %}" class="d-block"><img src="{{tbook.photo.url}}" class="img-fluid d-block mx-auto attachment-shop_catalog size-shop_catalog wp-post-image img-fluid" alt="image-description" style=width:120px;height:200px></a>
+</div>
+<div class="woocommerce-loop-product__body product__body pt-3 bg-white">
+<h2 class="woocommerce-loop-product__title product__title h6 text-lh-md mb-1 text-height-2 crop-text-2 h-dark"><a href="{% url 'about-book' tbook.isbn %}">{{tbook.title}}</a></h2>
+<div class="font-size-2  mb-1 text-truncate"><a  class="text-gray-700">{{tbook.author}}</a></div>
+<div class="price d-flex align-items-center font-weight-medium font-size-3">
+
+</div>
+</div>
+<div class="product__hover d-flex align-items-center">
+<a href="" class="text-uppercase text-dark h-dark font-weight-medium mr-auto" data-toggle="tooltip" data-placement="right" title="Order">
+<span class="product__add-to-cart">Order book</span>
+<span class="product__add-to-cart-icon font-size-4"><i class="flaticon-icon-126515"></i></span>
+</a>
+</div>
+</div>
+</div>
+</li>
+{% endfor %}
+</ul>
+ </div>
+</div>
+</div>
+
+<br>
+ <br>
+ <br>
+ <br>
+<section class="space-bottom-3">
+<div class="container">
+<header class="d-md-flex justify-content-between align-items-center mb-8">
+<h2 class="font-size-7 mb-3 mb-md-0">Favorite Authors</h2>
+<a href="{% url 'authors' %}" class="h-primary d-block">View All <i class="glyph-icon flaticon-next"></i></a>
+</header>
+<ul class="row rows-cols-5 no-gutters authors list-unstyled js-slick-carousel u-slick" data-slides-show="5" data-arrows-classes="u-slick__arrow u-slick__arrow-centered--y" data-arrow-left-classes="fas fa-chevron-left u-slick__arrow-inner u-slick__arrow-inner--left ml-lg-n10" data-arrow-right-classes="fas fa-chevron-right u-slick__arrow-inner u-slick__arrow-inner--right mr-lg-n10" data-responsive='[{
+                    "breakpoint": 1025,
+                    "settings": {
+                        "slidesToShow": 3
+                    }
+                }, {
+                    "breakpoint": 992,
+                    "settings": {
+                        "slidesToShow": 2
+                    }
+                }, {
+                    "breakpoint": 768,
+                    "settings": {
+                        "slidesToShow": 1
+                    }
+                }, {
+                    "breakpoint": 554,
+                    "settings": {
+                        "slidesToShow": 1
+                    }
+                }]'>
+
+ {% for author in authors|slice:':10' %}
+
+<li class="author col">
+<a href="{% url 'books-byauth' author.author_id %}" class="text-reset">
+<img src="../../assets/img/140x140/img1.jpg" class="mx-auto mb-5 d-block rounded-circle" alt="">
+<div class="author__body text-center">
+<h2 class="author__name h6 mb-0">{{author}}</h2>
+<div class="text-gray-700 font-size-2">{{author.nationality}}</div>
+ {% for bookc in bookcount %}
+ {% if author.author_id == bookc.author.author_id %}
+ <div class="text-gray-700 font-size-2">{{bookc}}</div>
+</div>
+ {% endif %}
+ {% endfor %}
+</a>
+</li>
+ {% endfor %}
+</ul>
+</div>
+</section>
+</div>
+</div>
+</section>
+</header>
+
+
+{% include 'footer.html' %}
+
+
+{% endblock %}

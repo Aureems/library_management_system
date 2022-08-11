@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+{% if results %}
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% if searchcount == 1 %}
+<h5 class="font-weight-bold text-uppercase text-center cw-50 p-3"><i>{{searchcount}} Result found</i></h5>
+{% else %}
+<h5 class="font-weight-bold text-uppercase text-center cw-50 p-3"><i>{{searchcount}} Results found</i></h5>
+{% endif %}
+<div class="container bootstrap snippets bootdey">
+
+    <div class="row">
+
+    {% for book in results %}
+
+        {% include 'patterns/book-list-pattern.html' %}
+
+    {% endfor %}
+
+    </div>
+
+{% else %}
+<h3 class="font-weight-bold text-uppercase text-center cw-50 p-3">No books found</h3>
+{% endif %}
+</div>
+{% include 'footer.html' %}
+{% endblock %}
