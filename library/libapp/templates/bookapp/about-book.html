@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-2">
 
-        {% if book.available and user.is_librarian%}
+        {% if book.available and not user.is_librarian %}
         <a href="{% url 'add-to-cart' book.pk %}">
         <button class="btn btn-outline-info">Borrow
             <i class="fa fa-cart-arrow-down"></i>
