@@ -1,9 +1,12 @@
 <!--Customer books table-->
 <div class="col-sm-9">
 <ul class="nav nav-tabs" id="myTab">
-    <a class="nav-link active" id="home" href="#home" data-toggle="tab">My books ({{ total_not_returned }})</a>
+    <li class="nav-item"><a class="nav-link active" href="#home" data-toggle="tab">My books ({{ total_not_returned }})</a></li>
+    <li class="nav-item"><a class="nav-link" href="#orders" data-toggle="tab">My Orders ({{ my_orders.count }})</a></li>
 </ul>
+
 <div class="tab-content">
+
     <div class="tab-pane active" id="home">
         <div class="table-responsive">
             <table class="table table-hover"  style="font-size:13px">
@@ -40,13 +43,64 @@
 
                 </tbody>
             </table>
-            <hr>
-{#                        <div class="row">#}
-{#                            <div class="col-md-4 col-md-offset-4 text-center">#}
-{#                                <ul class="pagination" id="myPager"></ul>#}
-{#                            </div>#}
-{#                        </div>#}
         </div>
     </div>
+
+    <!-----Orders table--------------->
+    <div class="tab-pane" id="orders">
+        <div class="table-responsive table-scroll">
+            <table class="table table-hover"  style="font-size:13px">
+                <thead>
+                    <tr>
+                      <th scope="col">Order date</th>
+                      <th scope="col">REF code</th>
+                      <th scope="col">Until date</th>
+                      <th scope="col">Total books in order</th>
+{#                      <th scope="col">Not returned</th>#}
+                      <th scope="col">Order details</th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    {% for order in my_orders %}
+                        <tr>
+                        <td>{{ order.date_ordered|date:'Y-m-d' }}</td>
+                          <td>
+                              <a href="#">
+                                  {{ order.ref_code }}</a>
+                          </td>
+                          <td>{{ order.until_date|date:'Y-m-d'}}</td>
+                          <td>
+                              {% for order_item in all_order_items.all %}
+                                  {% if order_item.ref_code == order.ref_code %}
+                                      {{ order_item.items.count }}
+                                  {% endif %}
+                              {% endfor %}
+                          </td>
+{#                            <td>#}
+{#                              {% for item in order.items.all %}#}
+{#                                    {% if item in all_reading_books.all %}#}
+{##}
+{#                                    <p>{{ item }}</p>#}
+{##}
+{##}
+{##}
+{#                                    {% endif %}#}
+{#                              {% endfor %}#}
+{#                            </td>#}
+                          <td>
+                              <a href="#">
+                                  <i class="fa fa-search-plus" aria-hidden="true"></i>
+                              </a>
+                          </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 </div>
