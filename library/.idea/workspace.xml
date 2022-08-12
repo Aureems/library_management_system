@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="fix for heroku2" />
+    <list default="true" id="40a27232-4b41-4acd-9aa7-845674f86408" name="Changes" comment="fix for heroku3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +184,8 @@
       <workItem from="1660058492414" duration="14259000" />
       <workItem from="1660237812223" duration="765000" />
       <workItem from="1660241455243" duration="4332000" />
-      <workItem from="1660245831004" duration="2578000" />
+      <workItem from="1660245831004" duration="2684000" />
+      <workItem from="1660317735497" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1657464250515</created>
@@ -310,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660248133731</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix for heroku3">
+      <created>1660248469621</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1660248469621</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +351,8 @@
     <MESSAGE value="more requirements.txt" />
     <MESSAGE value="fix for heroku" />
     <MESSAGE value="fix for heroku2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix for heroku2" />
+    <MESSAGE value="fix for heroku3" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix for heroku3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/library$views.coverage" NAME="views Coverage Results" MODIFIED="1659119883394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/libapp" />
