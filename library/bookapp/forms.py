@@ -1,12 +1,13 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 from.models import Book, Author, Category
+
 # from django.db.models import Count
 
 
 class CSVUploadForm(forms.Form):
     file = forms.FileField()
-
 
 class AuthorForm(forms.ModelForm):
 
@@ -22,7 +23,6 @@ class AuthorForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     category_name = forms.CharField(max_length=100)
     subcategory_name = forms.CharField(max_length=100)
-    # upload_field = forms.FileField()
 
     class Meta:
         model = Category

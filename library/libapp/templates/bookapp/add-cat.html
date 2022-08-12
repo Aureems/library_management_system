@@ -22,17 +22,21 @@
              <form method="POST" enctype="multipart/form-data">
 
                  {% csrf_token %}
-{#                        <label> Upload from file</label>#}
-{#                        <p><input class="input" type="file" name="category">#}
-{#                        <button class="btn btn-success" type="submit">Upload</button></p>#}
 
+{#                 <label> Upload from file</label>#}
+{#                 <a><input class="input" type="file" name="category"></a>#}
+                 <a href="{% url 'cat-upload' %}" type="submit">
+                     <i class="fa fa-upload" aria-hidden="true"></i>
+                     Upload from file</a>
+
+{#                 <button type="submit" class="btn btn-success" name="upload">Upload</button>#}
 
                     {% bootstrap_form form %}
-                    <button type="submit" class="btn btn-success">Save</button>
+{##}
+                    <button type="submit" class="btn btn-success" name="save">Save</button>
                     <a href="{% url 'categories' %}" class="btn btn-secondary">Cancel</a>
-{#                </form>#}
              </form>
-                            </div>
+            </div>
           </div>
         </div>
     </div>

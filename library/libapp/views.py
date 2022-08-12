@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.db.models import Count, Sum, Prefetch
+from django.db.models import Count, Sum, Prefetch, F
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.messages.views import SuccessMessageMixin
@@ -31,7 +31,7 @@ def create_ref_code():
 @login_required()
 def my_profile(request):
     my_user_profile = Profile.objects.filter(user=request.user)[0]
-    my_orders = Order.objects.filter(is_ordered=True, user=my_user_profile.user_id)
+    my_orders = Order.objects.filter(is_ordered=True, user=my_user_profile.user_id).order_by('-date_ordered')
     my_reading_books = OrderItem.objects.filter(user=my_user_profile.user_id,
                                                 is_ordered=True,
                                                 date_returned__isnull=True).order_by('-date_returned', '-date_ordered')
