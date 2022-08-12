@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from django.contrib import messages
 import os
-import django_heroku
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://bookworm-library-project.herokuapp.com/']
 
-django_heroku.settings(locals())
+
 
 # Application definition
 
