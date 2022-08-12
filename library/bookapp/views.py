@@ -8,7 +8,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, FormView
 from django.views.generic.base import View
 from .models import Book, Category, Author
 from .forms import BookForm, AuthorForm, CategoryForm, CSVUploadForm, BookOrderForm
@@ -16,11 +16,12 @@ from django.db.models import Count
 from django.db.models import Q
 
 
+
 @login_required
 @permission_required('userapp.User', raise_exception=True)
 def category_upload(request):
-    # template = 'bookapp/category-upload.html'
-    template = 'bookapp/add-cat.html'
+    template = 'bookapp/category-upload.html'
+    # template = 'bookapp/add-cat.html'
 
     if request.method == 'GET':
         return render(request, template)
@@ -40,7 +41,8 @@ def category_upload(request):
                 subcategory_name=column[1],
             )
         context = {}
-        return render(request, template, context, messages.success(request, 'File was uploaded successfully'))
+        # return render(request, template, context, messages.success(request, 'File was uploaded successfully!'))
+        return redirect(request, template, context, messages.success(request, 'File was uploaded successfully!'))
     except Exception:
         return render(request, template, messages.error(request, 'File was not uploaded!'))
 
@@ -71,23 +73,24 @@ def author_upload(request):
                 nonfiction_writer=column[4],
             )
         context = {}
-        return render(request, template, context, messages.success(request, 'File was uploaded successfully'))
+        return render(request, template, context, messages.success(request, 'File was uploaded successfully!'))
     except Exception:
         return render(request, template, messages.error(request, 'File was not uploaded!'))
 
 
-def upload_file(request):
-    # template = 'bookapp/category-upload.html'
-    if request.method == 'POST':
-        form = CSVUploadForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            # category_upload(request.FILE['file'])
-            # return render(request, template)
-            return redirect('books/category-upload')
-        else:
-            form = CSVUploadForm()
-        return render(request, 'bookapp/category-upload.html', {'form': form})
+# def upload_file(request):
+#     # template = 'bookapp/category-upload.html'
+#     if request.method == 'POST':
+#         form = CSVUploadForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             category_upload(request.FILE['file'])
+#             # return render(request, template)
+#             return HttpResponseRedirect('categories')
+#             # return redirect('books/category-upload')
+#         else:
+#             form = CSVUploadForm()
+#         return render(request, 'bookapp/category-upload.html', {'form': form})
 
 
 @method_decorator(staff_member_required, name='dispatch')
@@ -113,7 +116,9 @@ class AddCatView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     login_url = 'login'
     template_name = 'bookapp/add-cat.html'
     success_url = reverse_lazy('categories')
-    success_message = 'The category was added successfully!'
+    success_message = 'Category was added successfully!'
+
+
 
 
 @method_decorator(staff_member_required, name='dispatch')
@@ -122,7 +127,7 @@ class AddAuthView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     form_class = AuthorForm
     login_url = 'login'
     template_name = 'bookapp/add-author.html'
-    success_url = reverse_lazy('categories')
+    success_url = reverse_lazy('authors')
     success_message = 'Author was added successfully!'
 
 

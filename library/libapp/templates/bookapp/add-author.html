@@ -16,30 +16,26 @@
         <div class="col-12 col-md-9 col-lg-7">
           <div class="card" style="border-radius: 5px;">
             <div class="card-body p-5">
-                <h2 class="text-center mb-5">Add author</h2>
+                <h2 class="text-center mb-5">Add authors</h2>
 
 
              <form method="POST" enctype="multipart/form-data">
 
                  {% csrf_token %}
-{#                        <label> Upload from file</label>#}
-{#                        <p><input class="input" type="file" name="author">#}
-{#                        <button class="btn btn-success" type="submit">Upload</button></p>#}
+
+{#                 <label> Upload from file</label>#}
+{#                 <a><input class="input" type="file" name="author"></a>#}
+                 <a href="{% url 'auth-upload' %}" type="submit">
+                     <i class="fa fa-upload" aria-hidden="true"></i>
+                     Upload from file</a>
+
+{#                 <button type="submit" class="btn btn-success" name="upload">Upload</button>#}
 
                     {% bootstrap_form form %}
-
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <a href="{% url 'categories' %}" class="btn btn-secondary">Cancel</a>
-{#                </form>#}
-             </form>
-
-
-
-{#                <a href="{% url 'cat-upload' %}">Upload from file#}
 {##}
-{#                        <i class="fa fa-upload" style="font-size:20px"></i></a><hr>#}
-
-
+                    <button type="submit" class="btn btn-success" name="save">Save</button>
+                    <a href="{% url 'authors' %}" class="btn btn-secondary">Cancel</a>
+             </form>
             </div>
           </div>
         </div>
