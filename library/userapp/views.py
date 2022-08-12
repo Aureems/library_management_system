@@ -54,7 +54,14 @@ def register_user(request):
 
 class UserLogin(LoginView):
     template_name = 'userapp/login.html'
-    success_url = 'profile'
+    # success_url = 'profile'
+
+    def get_success_url(self):
+        if self.request.user.is_staff:
+            return reverse('managelib')
+        else:
+            return reverse('profile')
+
 
 
 def login_user(request):
@@ -65,7 +72,10 @@ def login_user(request):
         user = authenticate(email=email, password=password)
         if user:
             if user.is_active:
-                if user.is_customer:
+                if user.is_staff:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('managelib'))
+                elif user.is_customer:
                     login(request, user)
                     return HttpResponseRedirect(reverse('profile'))
                 else:
