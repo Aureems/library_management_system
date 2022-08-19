@@ -1,6 +1,8 @@
 import csv, io
+from datetime import datetime, timedelta
 
 from django.contrib.auth.decorators import login_required, permission_required
+from django.template.defaulttags import register
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -11,6 +13,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, FormView
 from django.views.generic.base import View
 from .models import Book, Category, Author
+from libapp.models import OrderItem, Order
 from .forms import BookForm, AuthorForm, CategoryForm, CSVUploadForm, BookOrderForm
 from django.db.models import Count
 from django.db.models import Q
@@ -167,7 +170,13 @@ class BookListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['total_cats'] = Book.objects.all().count()
+        context['until_date'] = OrderItem.objects.filter(date_returned__isnull=True).values('item_id', 'order__ref_code', 'order__until_date')
+        context['new_book'] = Book.objects.filter(date_created__gte=datetime.today() - timedelta(days=7))
         return context
+
+    @register.filter
+    def get_item(dictionary, key):
+        return dictionary.get(key)
 
 
 class BookListByAuth(ListView):

@@ -1,6 +1,13 @@
 
 <style>
 
+.badge.badge-corner {
+    color: #fff !important;
+    position: absolute !important;
+    right: -6px !important;
+    top: -8px !important;
+}
+
 .card {
   position: relative;
   padding-bottom: 40px;
@@ -52,7 +59,14 @@
         <div class="card-body">
             <div class="card-img-actions">
                 <a href="{% url 'about-book' book.pk %}">
+                    {% for nbook in new_book %}
+                        {% if nbook.isbn == book.isbn %}
+                        <span class="badge badge-primary badge-corner">New</span>
+                        {% endif %}
+                    {% endfor %}
+
                     <img src="{{ book.photo.url }}" style="height: 230px; width: 155px" alt="">
+
                 </a>
             </div>
 
@@ -78,7 +92,16 @@
             {% else %}
                 <td class="value">
                     <i class="fa fa-minus-square" aria-hidden="true" style="color: red"></i>
-                     Temporarily unavailable
+                     Not Available
+                    {% for item in until_date %}
+                        {% if item.item_id == book.isbn %}
+
+                        <p>until: {{ item.order__until_date|date:'Y-m-d' }}</p>
+
+                        {% endif %}
+
+                    {% endfor %}
+
                 </td>
             {% endif %}
         </h7>
