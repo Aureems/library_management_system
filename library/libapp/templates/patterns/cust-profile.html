@@ -65,7 +65,7 @@
                         <tr>
                         <td>{{ order.date_ordered|date:'Y-m-d' }}</td>
                           <td>
-                              <a href="#">
+                              <a href="{% url 'checkout' %}">
                                   {{ order.ref_code }}</a>
                           </td>
                           <td>{{ order.until_date|date:'Y-m-d'}}</td>

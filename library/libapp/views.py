@@ -66,7 +66,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             order = Order.objects.get(user=self.request.user, is_ordered=False)
             context = {
                 'object': order,
-                'form': CheckoutForm
+                'form': CheckoutForm,
             }
             return render(self.request, 'libapp/cart/cart.html', context)
         except ObjectDoesNotExist:
